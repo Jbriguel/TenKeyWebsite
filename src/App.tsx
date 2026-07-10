@@ -3,10 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Selections from './components/Selections';
 import Services from './components/Services';
 import About from './components/About';
 import ValueProposition from './components/ValueProposition';
@@ -23,6 +24,10 @@ export default function App() {
   const [lang, setLang] = useState<'en' | 'fr'>('fr');
   const [activePage, setActivePage] = useState<string>('home');
   const [selectedModuleName, setSelectedModuleName] = useState<string>('');
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [activePage]);
 
   const handleRegisterRedirect = (moduleName?: string) => {
     if (moduleName) {
@@ -105,6 +110,9 @@ export default function App() {
                   </div>
                 </div>
               </section>
+
+              {/* Our Selections Section */}
+              <Selections lang={lang} />
 
               {/* Quick Services Preview */}
               <Services
@@ -250,7 +258,7 @@ export default function App() {
       <WhatsAppWidget lang={lang} />
 
       {/* Footer */}
-      <Footer lang={lang} />
+      <Footer lang={lang} setActivePage={setActivePage} />
     </div>
   );
 }

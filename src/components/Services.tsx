@@ -718,39 +718,29 @@ export default function Services({ lang, onSelectService }: ServicesProps) {
                     )}
 
                     <div>
-                      {/* Card Visual Header Image with floating icon & tag overlay */}
-                      <div className="relative h-40 -mx-6 sm:-mx-8 -mt-6 sm:-mt-8 mb-6 overflow-hidden rounded-t-[2.5rem] group-hover:opacity-95 transition-opacity">
-                        <img 
-                          src={moduleImages[module.id] || 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600&auto=format&fit=crop'} 
-                          alt={lang === 'en' ? module.title : (module.frenchTitle || module.title)} 
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          referrerPolicy="no-referrer"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent"></div>
+                      {/* Top Row: Icon & Tag */}
+                      <div className="flex justify-between items-center mb-6">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${
+                          isProminent
+                            ? 'bg-accent-500/10 border border-accent-500/20 text-accent-400'
+                            : 'bg-slate-50 border border-slate-100 text-slate-700 group-hover:bg-accent-500 group-hover:text-white group-hover:border-accent-500'
+                        }`}>
+                          <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
+                        </div>
                         
-                        {/* Floating Icon */}
-                        <div className="absolute top-4 left-4 flex items-center gap-2">
-                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center backdrop-blur-md shadow-sm border ${
-                            isProminent
-                              ? 'bg-accent-500/80 border-accent-400 text-white'
-                              : 'bg-white/85 border-white/20 text-slate-800'
+                        {isProminent ? (
+                          <span className="bg-accent-500 text-white text-[9px] font-black tracking-widest px-3 py-1.5 rounded-full uppercase shadow-sm shadow-accent-500/20">
+                            {lang === 'en' ? 'RECOMMENDED' : 'RECOMMANDÉ'}
+                          </span>
+                        ) : (
+                          <span className={`text-[9px] font-black tracking-wider uppercase px-2.5 py-1.5 rounded-full border ${
+                            isProminent 
+                              ? 'bg-slate-800 text-slate-300 border-slate-700' 
+                              : 'bg-slate-50 text-slate-400 border-slate-100'
                           }`}>
-                            <IconComponent className="w-5 h-5" />
-                          </div>
-                        </div>
-
-                        {/* Floating Tag */}
-                        <div className="absolute top-4 right-4">
-                          {isProminent ? (
-                            <span className="bg-accent-500 text-white text-[8px] font-black tracking-widest px-2.5 py-1.5 rounded-full uppercase shadow-sm">
-                              {lang === 'en' ? 'RECOMMENDED' : 'RECOMMANDÉ'}
-                            </span>
-                          ) : (
-                            <span className="bg-white/80 text-slate-800 backdrop-blur-sm text-[8px] font-black tracking-wider uppercase px-2 py-1 rounded-full border border-white/10">
-                              {lang === 'en' ? 'MODULE' : 'FORMATION'}
-                            </span>
-                          )}
-                        </div>
+                            {lang === 'en' ? 'MODULE' : 'FORMATION'}
+                          </span>
+                        )}
                       </div>
 
                       {/* Title & Description */}

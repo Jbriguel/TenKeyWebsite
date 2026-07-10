@@ -3,11 +3,32 @@ import { Mail, Phone, MapPin, Clock, Twitter, Instagram, Youtube, ArrowUp } from
 
 interface FooterProps {
   lang: 'en' | 'fr';
+  setActivePage?: (page: string) => void;
 }
 
-export default function Footer({ lang }: FooterProps) {
+export default function Footer({ lang, setActivePage }: FooterProps) {
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNav = (page: string) => {
+    if (page === 'contact') {
+      if (setActivePage) {
+        setActivePage('home');
+      }
+      setTimeout(() => {
+        const element = document.getElementById('contact-form-section');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      if (setActivePage) {
+        setActivePage(page);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
   };
 
   return (
@@ -56,29 +77,44 @@ export default function Footer({ lang }: FooterProps) {
             </h4>
             <ul className="space-y-2.5 text-xs text-brand-200">
               <li>
-                <a href="#home" className="hover:text-accent-400 transition-colors">
+                <button 
+                  onClick={() => handleNav('home')} 
+                  className="hover:text-accent-400 transition-colors cursor-pointer text-left focus:outline-none"
+                >
                   {lang === 'en' ? 'Home' : 'Accueil'}
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#services" className="hover:text-accent-400 transition-colors">
+                <button 
+                  onClick={() => handleNav('services')} 
+                  className="hover:text-accent-400 transition-colors cursor-pointer text-left focus:outline-none"
+                >
                   {lang === 'en' ? 'Services & Modules' : 'Nos Services'}
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-accent-400 transition-colors">
+                <button 
+                  onClick={() => handleNav('pricing')} 
+                  className="hover:text-accent-400 transition-colors cursor-pointer text-left focus:outline-none"
+                >
                   {lang === 'en' ? 'Pricing & Schedules' : 'Tarifs & Horaires'}
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#about" className="hover:text-accent-400 transition-colors">
+                <button 
+                  onClick={() => handleNav('about')} 
+                  className="hover:text-accent-400 transition-colors cursor-pointer text-left focus:outline-none"
+                >
                   {lang === 'en' ? 'About Our Center' : 'À Propos'}
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#contact" className="hover:text-accent-400 transition-colors">
+                <button 
+                  onClick={() => handleNav('contact')} 
+                  className="hover:text-accent-400 transition-colors cursor-pointer text-left focus:outline-none"
+                >
                   {lang === 'en' ? 'Register Online' : "S'inscrire en ligne"}
-                </a>
+                </button>
               </li>
             </ul>
           </div>
