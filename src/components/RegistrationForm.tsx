@@ -549,6 +549,63 @@ export default function RegistrationForm({ lang, selectedModuleName, setSelected
             </AnimatePresence>
           </div>
         </div>
+
+        {/* Premium Travel-Style Newsletter Subscription Banner (matches mockup 1 perfectly) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-24 bg-zinc-400 rounded-[3rem] p-8 md:p-14 text-center max-w-5xl mx-auto relative overflow-hidden"
+        >
+          {/* Subtle dots pattern background */}
+          <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+          
+          <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
+            <h3 className="text-2xl sm:text-4xl font-black text-white font-display tracking-tight leading-tight mb-4">
+              {lang === 'en'
+                ? 'Get Your Language Inspiration Straight to Your Inbox'
+                : 'Recevez nos Conseils de Formation Directement par Mail'}
+            </h3>
+            <p className="text-zinc-50 text-xs sm:text-sm mb-8 font-medium max-w-md leading-relaxed">
+              {lang === 'en'
+                ? 'Subscribe to get exclusive study tips, level-test updates, and special discounts from TEN KEY.'
+                : 'Abonnez-vous pour recevoir des astuces de langues exclusives, des offres et des actualités de formation.'}
+            </p>
+
+            {/* Subscription Form */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const input = (e.currentTarget.elements[0] as HTMLInputElement);
+                if (input.value) {
+                  alert(lang === 'en' ? `Subscribed successfully with: ${input.value}` : `Inscription réussie avec : ${input.value}`);
+                  input.value = '';
+                }
+              }}
+              className="flex flex-col sm:flex-row gap-3 w-full max-w-md"
+            >
+              <input
+                type="email"
+                required
+                placeholder={lang === 'en' ? 'Enter your email address' : 'Votre adresse email...'}
+                className="flex-grow bg-white text-zinc-900 placeholder-zinc-400 text-xs px-6 py-4 rounded-full border-none outline-none focus:ring-4 focus:ring-white/20 font-semibold shadow-sm"
+              />
+              <button
+                type="submit"
+                className="bg-zinc-800 hover:bg-zinc-900 text-white font-bold text-xs px-8 py-4 rounded-full transition-colors whitespace-nowrap cursor-pointer shadow-md"
+              >
+                {lang === 'en' ? 'Subscribe' : "S'abonner"}
+              </button>
+            </form>
+
+            <p className="text-[10px] text-zinc-100 mt-6 font-semibold opacity-90">
+              {lang === 'en'
+                ? 'Subscribe to our newsletter and exclusive promotions. Read our Privacy Policy.'
+                : 'Abonnez-vous à notre newsletter et promotions exclusives. Lire notre Politique de Confidentialité.'}
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

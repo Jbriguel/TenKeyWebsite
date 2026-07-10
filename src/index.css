@@ -6,28 +6,30 @@
   --font-display: "Outfit", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --color-brand-50: #f0f7ff;
-  --color-brand-100: #e0effe;
-  --color-brand-200: #bae0fd;
-  --color-brand-300: #7cc8fc;
-  --color-brand-400: #38adf8;
-  --color-brand-500: #0ea1e9;
-  --color-brand-600: #0285c7;
-  --color-brand-700: #036ba1;
-  --color-brand-800: #075a85;
-  --color-brand-900: #0c4b6e;
-  --color-brand-950: #082f49;
+  /* Premium Executive Corporate Navy */
+  --color-brand-50: #f4f6fa;
+  --color-brand-100: #e8ecf5;
+  --color-brand-200: #cbd6ea;
+  --color-brand-300: #9fb3db;
+  --color-brand-400: #6c8bc8;
+  --color-brand-500: #4b6cb2;
+  --color-brand-600: #3b5394;
+  --color-brand-700: #304278;
+  --color-brand-800: #2b3963;
+  --color-brand-900: #242f51;
+  --color-brand-950: #0f1423;
 
+  /* Premium Corporate Vermillion / Orange-Red Accent (Matches the Uthao mockup) */
   --color-accent-50: #fff5f2;
-  --color-accent-100: #ffe8e1;
-  --color-accent-200: #ffd4ca;
-  --color-accent-300: #ffb4a2;
-  --color-accent-400: #ff856b;
-  --color-accent-500: #ff5a36;
-  --color-accent-600: #ff3c10;
-  --color-accent-700: #d82b05;
-  --color-accent-800: #b22507;
-  --color-accent-900: #93220b;
+  --color-accent-100: #ffe6de;
+  --color-accent-200: #ffd0c4;
+  --color-accent-300: #ffa794;
+  --color-accent-400: #ff7254;
+  --color-accent-500: #ff3b10;
+  --color-accent-600: #e62200;
+  --color-accent-700: #bf1600;
+  --color-accent-800: #9e1400;
+  --color-accent-900: #801400;
 }
 
 @layer base {
