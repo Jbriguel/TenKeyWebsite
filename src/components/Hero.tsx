@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Check, Search, Calendar, GraduationCap, Sparkles, Building2, Globe2 } from 'lucide-react';
+import { ArrowRight, Check, Search, Globe2, Shield, Users, Trophy, Building2 } from 'lucide-react';
 
 interface HeroProps {
   lang: 'en' | 'fr';
@@ -9,10 +9,9 @@ interface HeroProps {
 }
 
 export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
-  // Use the newly generated breathtaking corporate building background
   const bgImageSrc = '/src/assets/images/corporate_hero_bg_1783686207302.jpg';
 
-  // Interactive Level Test tab states
+  // Interactive Level Test / Tracking Panel Tab states
   const [activeTab, setActiveTab] = useState<'test' | 'track'>('test');
   
   // Tab 1: Level test state
@@ -53,7 +52,7 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
     setSearchedTicket(true);
     if (ticketId.trim().toUpperCase() === 'TK-2026') {
       setTicketResult({
-        name: lang === 'en' ? 'Jean-Marc KOFFI' : 'Jean-Marc KOFFI',
+        name: 'Jean-Marc KOFFI',
         status: lang === 'en' ? 'Admission Confirmed (Pre-Intermediate)' : 'Admission Confirmée (Pré-Intermédiaire)',
         date: '15/07/2026'
       });
@@ -65,39 +64,39 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
   return (
     <div className="bg-white">
       {/* 
-        HERO WRAPPER CARD (Inspired by Uthao cargo mockup)
-        A beautiful rounded card wrapper with outer spacing and ultra-premium shadow.
+        HERO BANNER - FULLSCREEN & FULL-BLEED
+        Spans 100% of viewport width and occupies the full viewport height.
       */}
-      <div className="max-w-7xl mx-auto px-4 pt-4 pb-12 sm:px-6">
-        <div 
-          className="relative rounded-[2.5rem] sm:rounded-[3.5rem] overflow-hidden shadow-2xl bg-slate-950 min-h-[620px] lg:min-h-[680px] flex flex-col justify-between"
-          style={{
-            backgroundImage: `url('${bgImageSrc}')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
-          {/* Deep dark gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-slate-950/45 pointer-events-none"></div>
+      <div 
+        className="relative overflow-hidden bg-slate-950 w-full min-h-screen flex flex-col justify-center"
+        style={{
+          backgroundImage: `url('${bgImageSrc}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Deep dark gradient overlay - Dark heavy on the left for text, clear on the right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/30 pointer-events-none"></div>
 
-          {/* Glowing subtle light elements inside */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-500/10 rounded-full filter blur-3xl pointer-events-none"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent-500/5 rounded-full filter blur-3xl pointer-events-none"></div>
+        {/* Glowing dynamic crimson red ambient lights inside */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-600/15 rounded-full filter blur-3xl pointer-events-none animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent-50/5 rounded-full filter blur-3xl pointer-events-none"></div>
 
-          {/* Hero Content Area */}
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 px-6 sm:px-12 lg:px-16 py-12 sm:py-20 items-center my-auto w-full">
+        {/* Hero Content Area inside standard grid */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-32 sm:pt-40 lg:pt-44 xl:pt-48 pb-20 sm:pb-28 lg:pb-36">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Left Column: Bold Catchy Headings */}
+            {/* Left Column: Bold headings following NDC style */}
             <div className="lg:col-span-7 flex flex-col items-start text-left text-white">
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-1.5 bg-accent-500/15 border border-accent-500/30 text-accent-300 text-[10px] sm:text-xs font-black tracking-widest px-3 py-1.5 rounded-full mb-6 uppercase"
+                className="inline-flex items-center gap-1.5 bg-accent-500/15 border border-accent-500/30 text-accent-400 text-[10px] sm:text-xs font-black tracking-widest px-3.5 py-2 rounded-full mb-6 uppercase"
               >
-                <Sparkles className="w-3.5 h-3.5" />
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-500 animate-ping"></span>
                 <span>
-                  {lang === 'en' ? 'Unmatched Academic Excellence' : 'Excellence Académique Inégalée'}
+                  {lang === 'en' ? 'YOUR BILINGUAL CAREER PARTNER' : 'VOTRE PARTENAIRE BILINGUE'}
                 </span>
               </motion.div>
 
@@ -105,15 +104,17 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6 font-display"
+                className="text-3xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-black tracking-tight leading-[1.1] mb-6 font-display"
               >
                 {lang === 'en' ? (
                   <>
-                    Executive English & French – <span className="text-accent-500">Efficient, Certifying</span> and Trusted.
+                    Your Partner for <br />
+                    <span className="text-accent-500">Bilingual Fluency & Growth.</span>
                   </>
                 ) : (
                   <>
-                    L’Anglais Professionnel – <span className="text-accent-500">Fluide, Certifié</span> et Sur-Mesure.
+                    Votre Partenaire pour <br />
+                    <span className="text-accent-500">L'Anglais & Le Succès.</span>
                   </>
                 )}
               </motion.h1>
@@ -122,295 +123,380 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-sm sm:text-base text-slate-300 max-w-xl leading-relaxed mb-8 font-medium"
+                className="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed mb-8 font-medium"
               >
                 {lang === 'en'
-                  ? 'Master international communication at TEN KEY Lomé. Accelerate your career with our elite immersive methods, VIP cabinet programs, and standard CEFR certificates.'
-                  : 'Maîtrisez la communication internationale à TEN KEY Lomé. Boostez votre carrière grâce à nos méthodes immersives d\'élite, nos cabinets VIP et nos certifications agréées.'}
+                  ? 'Complete accredited solutions for professional language training, legal translations, conference interpretation, and international study visas in Lomé, Togo.'
+                  : "Des solutions d’excellence à Lomé : formations d'anglais ultra-intensives adaptées à votre métier, traduction certifiée de documents juridiques, et interprétation de conférence."}
               </motion.p>
 
-              {/* Pill action button like "Ship now →" in Uthao */}
+              {/* Custom Action Buttons matching NDC layout */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex flex-wrap gap-4 w-full sm:w-auto"
+                className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
               >
                 <button
                   onClick={onGetStarted}
-                  className="bg-accent-500 hover:bg-accent-600 text-white font-black text-xs sm:text-sm px-8 py-4 rounded-full shadow-lg shadow-accent-950/20 hover:shadow-accent-500/20 transition-all duration-300 flex items-center gap-2 group cursor-pointer"
+                  className="bg-accent-500 hover:bg-accent-600 text-white font-black text-xs sm:text-sm px-8 py-4 rounded-xl shadow-lg shadow-accent-950/25 hover:shadow-accent-500/20 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
                 >
-                  <span>{lang === 'en' ? 'Register Now' : "S'inscrire En Ligne"}</span>
+                  <span>{lang === 'en' ? 'Our Programs' : 'Nos Programmes'}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button
                   onClick={onLearnMore}
-                  className="bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-black text-xs sm:text-sm px-8 py-4 rounded-full transition-all duration-300 flex items-center gap-2 cursor-pointer border border-white/10"
+                  className="bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-black text-xs sm:text-sm px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer border border-white/10"
                 >
-                  <span>{lang === 'en' ? 'View Pricing' : 'Voir les Tarifs'}</span>
+                  <span>{lang === 'en' ? 'Request a quote' : 'Demander un devis'}</span>
                 </button>
               </motion.div>
             </div>
 
-            {/* Right Column: Floating Dark Glassmorphic Diagnostic Form (Matches the Uthao tracking form) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="lg:col-span-5 relative w-full lg:max-w-md mx-auto"
-            >
-              {/* Dark Glass Card container */}
-              <div className="backdrop-blur-xl bg-slate-950/75 border border-white/10 rounded-[2rem] shadow-2xl p-6 sm:p-8 text-left text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-accent-500/10 rounded-full blur-2xl pointer-events-none"></div>
-
-                {/* Tab selectors with pill shape */}
-                <div className="bg-slate-900/80 p-1.5 rounded-full flex gap-1.5 mb-6 border border-white/5">
-                  <button
-                    onClick={() => {
-                      setActiveTab('test');
-                      setSubmittedTest(false);
-                    }}
-                    className={`flex-1 py-2.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
-                      activeTab === 'test' 
-                        ? 'bg-accent-500 text-white shadow-md' 
-                        : 'text-slate-400 hover:text-white hover:bg-white/5'
-                    }`}
-                  >
-                    {lang === 'en' ? 'Level Diagnostic' : 'Test de Niveau'}
-                  </button>
-                  <button
-                    onClick={() => {
-                      setActiveTab('track');
-                      setSearchedTicket(false);
-                    }}
-                    className={`flex-1 py-2.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
-                      activeTab === 'track' 
-                        ? 'bg-accent-500 text-white shadow-md' 
-                        : 'text-slate-400 hover:text-white hover:bg-white/5'
-                    }`}
-                  >
-                    {lang === 'en' ? 'Track Ticket' : 'Suivre Reçu'}
-                  </button>
+            {/* Right Column: Premium Floating Badges (NDC Web Mockup Style) */}
+            <div className="lg:col-span-5 relative w-full h-[320px] lg:h-[400px] flex items-center justify-center mt-8 lg:mt-0">
+              
+              {/* Card 1: Top overlapping student avatars card */}
+              <motion.div
+                initial={{ opacity: 0, x: -30, y: -20 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="absolute top-[8%] left-0 sm:left-[10%] lg:left-0 z-20 bg-slate-900/80 backdrop-blur-md border border-white/15 rounded-2xl p-4 shadow-xl max-w-[240px] text-left flex items-center gap-3.5"
+              >
+                <div className="flex -space-x-2.5 shrink-0">
+                  <div className="w-8 h-8 rounded-full border border-slate-900 bg-slate-200 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=120" alt="Executive student" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="w-8 h-8 rounded-full border border-slate-900 bg-slate-200 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120" alt="Executive student" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="w-8 h-8 rounded-full border border-slate-900 bg-slate-200 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120" alt="Executive student" className="w-full h-full object-cover" />
+                  </div>
                 </div>
+                <div className="flex flex-col text-left">
+                  <h4 className="text-[11px] font-black text-white leading-tight uppercase tracking-wider">
+                    {lang === 'en' ? '+500 Executives' : '+500 Cadres Formés'}
+                  </h4>
+                  <p className="text-[10px] text-slate-300 font-semibold leading-none mt-0.5">
+                    {lang === 'en' ? 'Mines, Bank, NGO, Gov' : 'Mines, Banques, ONG, État'}
+                  </p>
+                </div>
+              </motion.div>
 
-                <AnimatePresence mode="wait">
-                  {activeTab === 'test' ? (
-                    <motion.div
-                      key="test-pane"
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 10 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {!submittedTest ? (
-                        <form onSubmit={handleTestSubmit} className="space-y-4">
-                          <p className="text-xs text-slate-400 leading-relaxed font-semibold mb-2">
-                            {lang === 'en' 
-                              ? 'Tell us your language goal to generate your certified learning pathway instantly.'
-                              : 'Définissez votre objectif pour générer instantanément votre plan de cours certifié.'}
-                          </p>
+              {/* Card 2: Center crisp white card with a red progress bar */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="absolute z-10 bg-white text-slate-950 rounded-2xl p-5 shadow-2xl w-full max-w-[260px] text-left top-[35%] left-[5%] sm:left-[15%] lg:left-[5%]"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-xl bg-accent-50 flex items-center justify-center text-accent-600 shrink-0">
+                    <Shield className="w-5 h-5" />
+                  </div>
+                  <div className="text-left">
+                    <h3 className="text-xs font-black tracking-tight text-slate-900 uppercase font-display leading-none">
+                      {lang === 'en' ? 'TOEFL & IELTS iBT®' : 'TOEFL & IELTS iBT®'}
+                    </h3>
+                    <p className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1 leading-none">
+                      {lang === 'en' ? 'FULL CEFR SOLUTION' : 'SOLUTION AGRÉÉE CECRL'}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-[11px] text-slate-600 leading-normal font-semibold">
+                  {lang === 'en' ? 'Official score boosting bootcamps and diagnostics.' : 'Entraînement intensif et diagnostics certifiés.'}
+                </p>
+                <div className="mt-3.5 h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                  <div className="h-full bg-accent-500 rounded-full w-[88%]"></div>
+                </div>
+              </motion.div>
 
-                          {/* Language Choice */}
-                          <div>
-                            <label className="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1.5">
-                              {lang === 'en' ? 'Target Language' : 'Langue Ciblée'}
-                            </label>
-                            <div className="grid grid-cols-2 gap-2">
-                              <button
-                                type="button"
-                                onClick={() => setTargetLang('english')}
-                                className={`py-2 rounded-xl text-xs font-bold transition-all border ${
-                                  targetLang === 'english'
-                                    ? 'bg-brand-500/20 border-brand-500 text-white'
-                                    : 'bg-slate-900 border-white/5 text-slate-400 hover:bg-slate-800'
-                                }`}
-                              >
-                                {lang === 'en' ? 'English 🇬🇧' : 'Anglais 🇬🇧'}
-                              </button>
-                              <button
-                                type="button"
-                                onClick={() => setTargetLang('french')}
-                                className={`py-2 rounded-xl text-xs font-bold transition-all border ${
-                                  targetLang === 'french'
-                                    ? 'bg-brand-500/20 border-brand-500 text-white'
-                                    : 'bg-slate-900 border-white/5 text-slate-400 hover:bg-slate-800'
-                                }`}
-                              >
-                                {lang === 'en' ? 'French 🇫🇷' : 'Français 🇫🇷'}
-                              </button>
-                            </div>
-                          </div>
+            </div>
 
-                          {/* Self-assessed Level */}
-                          <div>
-                            <label className="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1.5">
-                              {lang === 'en' ? 'Your Current Level' : 'Votre Niveau Actuel'}
-                            </label>
-                            <select
-                              value={currentLevel}
-                              onChange={(e) => setCurrentLevel(e.target.value)}
-                              className="w-full bg-slate-900 border border-white/5 rounded-xl px-4 py-3 text-xs font-semibold text-white focus:outline-none focus:border-accent-500 cursor-pointer"
+          </div>
+        </div>
+
+        {/* Scroll Down Indicator */}
+        <div 
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-1.5 text-white/50 hover:text-white transition-colors cursor-pointer"
+          onClick={() => {
+            const element = document.getElementById('diagnostic-console');
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+        >
+          <span className="text-[9px] font-black tracking-widest uppercase">{lang === 'en' ? 'SCROLL' : 'DÉFILER'}</span>
+          <div className="w-5 h-9 border-2 border-white/20 rounded-full flex justify-center p-1">
+            <motion.div 
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="w-1 h-1 bg-accent-500 rounded-full"
+            />
+          </div>
+        </div>
+
+        {/* Card 3: Anchored solid Red block flush with bottom-right corner of the rounded hero card (Iconic NDC look) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="absolute bottom-0 right-0 z-20 bg-accent-500 text-white rounded-tl-[2.5rem] p-6 sm:p-8 flex flex-col justify-center text-left min-w-[200px] sm:min-w-[250px] shadow-2xl"
+        >
+          <span className="text-[9px] sm:text-[10px] font-black tracking-widest uppercase text-white/80 leading-none">
+            {lang === 'en' ? 'SUCCESS RATE' : 'TAUX DE RÉUSSITE'}
+          </span>
+          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter leading-none text-white my-1.5 font-display">
+            98.4%
+          </h3>
+          <p className="text-[10px] sm:text-xs text-white/90 font-bold leading-tight">
+            {lang === 'en' ? 'Official CEFRL score achieved' : 'Scores officiels CECRL validés'}
+          </p>
+        </motion.div>
+
+      </div>
+
+      {/* 
+        FLOATING ACCREDITED DIAGNOSTIC & TICKET TRACKER CONSOLE
+        A horizontal panel right under the main Hero card. Highly interactive and extremely clean!
+      */}
+      <div id="diagnostic-console" className="max-w-7xl mx-auto px-4 pb-12 sm:px-6 pt-16">
+        <div className="bg-slate-900 text-white rounded-3xl border border-slate-800 p-6 sm:p-8 shadow-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left side info */}
+            <div className="lg:col-span-4 text-left">
+              <span className="bg-accent-500/10 border border-accent-500/30 text-accent-400 text-[10px] font-black tracking-wider px-3 py-1 rounded-full uppercase">
+                {lang === 'en' ? 'STUDENT TOOLS' : 'CONSOLE APPRENANT'}
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black mt-3 font-display tracking-tight">
+                {lang === 'en' ? 'Lomé Diagnostic Console' : 'Console d’Évaluation & Suivi'}
+              </h3>
+              <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                {lang === 'en' 
+                  ? 'Calculate your optimal training path or track your tuition receipt and admission files instantly.' 
+                  : 'Générez votre parcours d’apprentissage sur-mesure ou vérifiez le statut de votre dossier en direct.'}
+              </p>
+              
+              {/* Tab selectors */}
+              <div className="bg-slate-950 p-1 rounded-xl flex gap-1.5 mt-5 border border-slate-850">
+                <button
+                  onClick={() => {
+                    setActiveTab('test');
+                    setSubmittedTest(false);
+                  }}
+                  className={`flex-1 py-2 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer ${
+                    activeTab === 'test' 
+                      ? 'bg-accent-500 text-white shadow-md' 
+                      : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  {lang === 'en' ? 'Level Assessment' : 'Test de Niveau'}
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveTab('track');
+                    setSearchedTicket(false);
+                  }}
+                  className={`flex-1 py-2 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer ${
+                    activeTab === 'track' 
+                      ? 'bg-accent-500 text-white shadow-md' 
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  {lang === 'en' ? 'Track Ticket' : 'Vérifier Reçu'}
+                </button>
+              </div>
+            </div>
+
+            {/* Right side form container */}
+            <div className="lg:col-span-8 bg-slate-950/70 border border-slate-800 rounded-2xl p-5 sm:p-6 text-left">
+              <AnimatePresence mode="wait">
+                {activeTab === 'test' ? (
+                  <motion.div
+                    key="test-pane"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {!submittedTest ? (
+                      <form onSubmit={handleTestSubmit} className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+                        <div className="md:col-span-5">
+                          <label className="block text-[9px] font-black uppercase tracking-wider text-slate-400 mb-1.5">
+                            {lang === 'en' ? 'Target Language' : 'Langue Ciblée'}
+                          </label>
+                          <div className="grid grid-cols-2 gap-2">
+                            <button
+                              type="button"
+                              onClick={() => setTargetLang('english')}
+                              className={`py-2 rounded-xl text-xs font-bold transition-all border ${
+                                targetLang === 'english'
+                                  ? 'bg-accent-500/10 border-accent-500/50 text-white'
+                                  : 'bg-slate-900 border-slate-800 text-slate-400 hover:bg-slate-850'
+                              }`}
                             >
-                              <option value="A1">A1 - {lang === 'en' ? 'Absolute Beginner' : 'Débutant Complet'}</option>
-                              <option value="A2">A2 - {lang === 'en' ? 'Elementary' : 'Élémentaire'}</option>
-                              <option value="B1">B1 - {lang === 'en' ? 'Pre-Intermediate' : 'Pré-Intermédiaire'}</option>
-                              <option value="B2">B2 - {lang === 'en' ? 'Upper Intermediate' : 'Intermédiaire Supérieur'}</option>
-                              <option value="C1">C1 - {lang === 'en' ? 'Advanced Business' : 'Avancé Affaires'}</option>
-                              <option value="C2">C2 - {lang === 'en' ? 'Near Native' : 'Bilingue Courant'}</option>
-                            </select>
+                              {lang === 'en' ? 'English 🇬🇧' : 'Anglais 🇬🇧'}
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => setTargetLang('french')}
+                              className={`py-2 rounded-xl text-xs font-bold transition-all border ${
+                                targetLang === 'french'
+                                  ? 'bg-accent-500/10 border-accent-500/50 text-white'
+                                  : 'bg-slate-900 border-slate-800 text-slate-400 hover:bg-slate-850'
+                              }`}
+                            >
+                              {lang === 'en' ? 'French 🇫🇷' : 'Français 🇫🇷'}
+                            </button>
                           </div>
+                        </div>
 
-                          {/* Action Button (Matches the bright Uthao Search button) */}
+                        <div className="md:col-span-4">
+                          <label className="block text-[9px] font-black uppercase tracking-wider text-slate-400 mb-1.5">
+                            {lang === 'en' ? 'Current Level' : 'Votre Niveau Actuel'}
+                          </label>
+                          <select
+                            value={currentLevel}
+                            onChange={(e) => setCurrentLevel(e.target.value)}
+                            className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-accent-500 cursor-pointer"
+                          >
+                            <option value="A1">A1 - {lang === 'en' ? 'Absolute Beginner' : 'Débutant Complet'}</option>
+                            <option value="A2">A2 - {lang === 'en' ? 'Elementary' : 'Élémentaire'}</option>
+                            <option value="B1">B1 - {lang === 'en' ? 'Pre-Intermediate' : 'Pré-Intermédiaire'}</option>
+                            <option value="B2">B2 - {lang === 'en' ? 'Upper Intermediate' : 'Intermédiaire Supérieur'}</option>
+                            <option value="C1">C1 - {lang === 'en' ? 'Advanced Business' : 'Avancé Affaires'}</option>
+                          </select>
+                        </div>
+
+                        <div className="md:col-span-3">
                           <button
                             type="submit"
-                            className="w-full bg-accent-500 hover:bg-accent-600 text-white py-3.5 px-4 rounded-xl text-xs font-black uppercase tracking-wider transition-colors shadow-lg shadow-accent-950/40 flex items-center justify-center gap-2 cursor-pointer mt-2"
+                            className="w-full bg-accent-500 hover:bg-accent-600 text-white py-2.5 px-4 rounded-xl text-xs font-black uppercase tracking-wider transition-colors shadow-md flex items-center justify-center gap-1.5 cursor-pointer"
                           >
-                            <span>{lang === 'en' ? 'Calculate Path →' : 'Lancer le Diagnostic →'}</span>
+                            <span>{lang === 'en' ? 'Calculate Path' : 'Calculer'}</span>
                           </button>
-                        </form>
-                      ) : (
-                        <motion.div 
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          className="bg-brand-950/50 border border-brand-500/20 rounded-2xl p-5 text-center"
-                        >
-                          <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto mb-4">
-                            <Check className="w-6 h-6" />
-                          </div>
-                          <h4 className="font-extrabold text-sm text-white font-display mb-1.5">
-                            {lang === 'en' ? 'Optimal Program Found!' : 'Parcours Idéal Identifié !'}
+                        </div>
+                      </form>
+                    ) : (
+                      <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="flex flex-col md:flex-row items-center justify-between gap-4"
+                      >
+                        <div className="text-left">
+                          <h4 className="font-extrabold text-sm text-emerald-400 flex items-center gap-1.5">
+                            <Check className="w-4 h-4" />
+                            {lang === 'en' ? 'Optimal Pathway Identified!' : 'Parcours Idéal Déterminé !'}
                           </h4>
-                          <p className="text-xs text-slate-400 mb-4 font-medium leading-relaxed">
-                            {lang === 'en' 
-                              ? 'Based on your diagnostic, we recommend:' 
-                              : 'Selon votre diagnostic, nous vous recommandons :'}
-                          </p>
-                          <div className="bg-slate-900 border border-white/5 rounded-xl p-3 text-xs font-extrabold text-accent-300 leading-snug mb-5">
+                          <p className="text-xs text-slate-100 font-extrabold mt-1">
                             {calculatedPath}
-                          </div>
-                          <div className="flex gap-2">
-                            <button
-                              onClick={() => setSubmittedTest(false)}
-                              className="flex-1 py-2 rounded-lg text-[10px] font-bold border border-white/10 hover:bg-white/5 transition-colors cursor-pointer"
-                            >
-                              {lang === 'en' ? 'Reset' : 'Réinitialiser'}
-                            </button>
-                            <button
-                              onClick={onGetStarted}
-                              className="flex-1 py-2 rounded-lg text-[10px] font-black bg-accent-500 hover:bg-accent-600 text-white transition-colors cursor-pointer"
-                            >
-                              {lang === 'en' ? 'Reserve Seat' : 'Réserver Place'}
-                            </button>
-                          </div>
-                        </motion.div>
-                      )}
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="track-pane"
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 10 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {!searchedTicket ? (
-                        <form onSubmit={handleTrackSubmit} className="space-y-4">
-                          <p className="text-xs text-slate-400 leading-relaxed font-semibold mb-2">
-                            {lang === 'en'
-                              ? "Verify your official admission status or tuition receipt in real-time."
-                              : "Vérifiez votre statut d'admission officiel ou votre reçu d'inscription en temps réel."}
                           </p>
+                        </div>
+                        <div className="flex gap-2 shrink-0">
+                          <button
+                            onClick={() => setSubmittedTest(false)}
+                            className="py-1.5 px-4 rounded-lg text-[10px] font-bold border border-slate-800 hover:bg-white/5 transition-colors cursor-pointer"
+                          >
+                            {lang === 'en' ? 'Reset' : 'Réinitialiser'}
+                          </button>
+                          <button
+                            onClick={onGetStarted}
+                            className="py-1.5 px-4 rounded-lg text-[10px] font-black bg-accent-500 hover:bg-accent-600 text-white transition-colors cursor-pointer animate-bounce"
+                          >
+                            {lang === 'en' ? 'Reserve Seat' : 'Réserver'}
+                          </button>
+                        </div>
+                      </motion.div>
+                    )}
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="track-pane"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {!searchedTicket ? (
+                      <form onSubmit={handleTrackSubmit} className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+                        <div className="md:col-span-8 text-left">
+                          <label className="block text-[9px] font-black uppercase tracking-wider text-slate-400 mb-1.5">
+                            {lang === 'en' ? 'Admission / Receipt ID' : 'Numéro d’Admission / Reçu'}
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            placeholder="e.g. TK-2026"
+                            value={ticketId}
+                            onChange={(e) => setTicketId(e.target.value)}
+                            className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2 text-xs font-bold text-white uppercase placeholder-slate-500 focus:outline-none focus:border-accent-500"
+                          />
+                          <p className="text-[10px] text-slate-500 mt-1 font-semibold">
+                            {lang === 'en' ? 'Hint: Enter "TK-2026" for a live simulation' : 'Saisissez "TK-2026" pour simuler un dossier'}
+                          </p>
+                        </div>
 
-                          <div>
-                            <label className="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1.5">
-                              {lang === 'en' ? 'Admission / Ticket ID' : 'Numéro d’Admission / Reçu'}
-                            </label>
-                            <input
-                              type="text"
-                              required
-                              placeholder="e.g. TK-2026"
-                              value={ticketId}
-                              onChange={(e) => setTicketId(e.target.value)}
-                              className="w-full bg-slate-900 border border-white/5 rounded-xl px-4 py-3 text-xs font-bold text-white uppercase placeholder-slate-500 focus:outline-none focus:border-accent-500"
-                            />
-                            <p className="text-[10px] text-slate-500 mt-1 font-semibold">
-                              {lang === 'en' ? 'Hint: Enter TK-2026 for a live demo' : 'Astuce: Saisissez TK-2026 pour démo live'}
+                        <div className="md:col-span-4">
+                          <button
+                            type="submit"
+                            className="w-full bg-accent-500 hover:bg-accent-600 text-white py-2.5 px-4 rounded-xl text-xs font-black uppercase tracking-wider transition-colors shadow-md flex items-center justify-center gap-1.5 cursor-pointer"
+                          >
+                            <Search className="w-3.5 h-3.5" />
+                            <span>{lang === 'en' ? 'Verify Status' : 'Vérifier Reçu'}</span>
+                          </button>
+                        </div>
+                      </form>
+                    ) : (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="flex flex-col md:flex-row items-center justify-between gap-4"
+                      >
+                        {ticketResult ? (
+                          <div className="text-left flex items-center gap-3">
+                            <div className="w-9 h-9 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0">
+                              <Check className="w-5 h-5" />
+                            </div>
+                            <div>
+                              <h4 className="font-extrabold text-xs text-white">
+                                Student: Jean-Marc KOFFI | <span className="text-accent-400">ID: TK-2026</span>
+                              </h4>
+                              <p className="text-[11px] text-emerald-400 font-bold mt-0.5">
+                                {ticketResult.status} (Lomé Campus) - Start: {ticketResult.date}
+                              </p>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="text-left">
+                            <p className="text-xs text-rose-400 font-black">
+                              {lang === 'en' ? 'File or Receipt ID not found.' : 'Identifiant introuvable.'}
+                            </p>
+                            <p className="text-[10px] text-slate-400">
+                              {lang === 'en' ? 'Please double check or search TK-2026.' : 'Veuillez saisir "TK-2026" pour tester.'}
                             </p>
                           </div>
-
-                          <button
-                            type="submit"
-                            className="w-full bg-accent-500 hover:bg-accent-600 text-white py-3.5 px-4 rounded-xl text-xs font-black uppercase tracking-wider transition-colors shadow-lg shadow-accent-950/40 flex items-center justify-center gap-2 cursor-pointer mt-2"
-                          >
-                            <Search className="w-4 h-4" />
-                            <span>{lang === 'en' ? 'Verify Ticket →' : 'Vérifier Reçu →'}</span>
-                          </button>
-                        </form>
-                      ) : (
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          className="bg-brand-950/50 border border-brand-500/20 rounded-2xl p-5"
+                        )}
+                        <button
+                          onClick={() => setSearchedTicket(false)}
+                          className="py-1.5 px-3.5 rounded-lg text-[10px] font-bold border border-slate-800 hover:bg-white/5 transition-colors shrink-0 cursor-pointer"
                         >
-                          {ticketResult ? (
-                            <div className="space-y-4">
-                              <div className="flex items-center gap-3 border-b border-white/5 pb-3">
-                                <div className="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0">
-                                  <Check className="w-5 h-5" />
-                                </div>
-                                <div className="text-left">
-                                  <h4 className="font-extrabold text-sm text-white font-display">
-                                    {ticketResult.name}
-                                  </h4>
-                                  <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">
-                                    {ticketResult.status}
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="grid grid-cols-2 gap-2 text-left">
-                                <div className="bg-slate-900 p-2.5 rounded-xl">
-                                  <span className="block text-[9px] text-slate-400 uppercase font-bold">Campus</span>
-                                  <span className="text-xs font-extrabold text-white">Lomé - Avedji</span>
-                                </div>
-                                <div className="bg-slate-900 p-2.5 rounded-xl">
-                                  <span className="block text-[9px] text-slate-400 uppercase font-bold">Start Date</span>
-                                  <span className="text-xs font-extrabold text-white">{ticketResult.date}</span>
-                                </div>
-                              </div>
-                            </div>
-                          ) : (
-                            <div className="text-center py-4">
-                              <p className="text-xs text-rose-400 font-bold mb-2">
-                                {lang === 'en' ? 'Ticket ID not found.' : 'Identifiant introuvable.'}
-                              </p>
-                              <p className="text-[10px] text-slate-400 leading-normal max-w-xs mx-auto font-medium">
-                                {lang === 'en'
-                                  ? 'Please check the ID on your printed receipt or contact support.'
-                                  : 'Veuillez vérifier le numéro sur votre ticket imprimé ou contactez le secrétariat.'}
-                              </p>
-                            </div>
-                          )}
-
-                          <button
-                            onClick={() => setSearchedTicket(false)}
-                            className="w-full mt-4 py-2 rounded-lg text-[10px] font-bold border border-white/10 hover:bg-white/5 transition-colors cursor-pointer"
-                          >
-                            {lang === 'en' ? 'Search Again' : 'Nouvelle Recherche'}
-                          </button>
-                        </motion.div>
-                      )}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </motion.div>
+                          {lang === 'en' ? 'Search Again' : 'Nouvelle Recherche'}
+                        </button>
+                      </motion.div>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
           </div>
         </div>
       </div>
 
       {/* 
-        TRUST LOGO BANNER (Matches "Partners of world leading companies" in Uthao)
+        TRUST LOGO BANNER (Matches "Partners of world leading companies" in Uthao/NDC)
         Crisp, clean, grayscale professional trust alignment.
       */}
       <div className="border-b border-slate-100 bg-white py-10">
@@ -450,7 +536,7 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
       </div>
 
       {/* 
-        SERVICE OVERVIEW WITH ASYMMETRIC COLLAGE (Matches bottom part of Uthao mockup)
+        SERVICE OVERVIEW WITH ASYMMETRIC COLLAGE (Matches bottom part of NDC mockup)
       */}
       <div className="py-20 sm:py-28 bg-white" id="overview">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -521,7 +607,7 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
                 </div>
 
                 {/* 2. Abstract Waves Path */}
-                <div className="relative group rounded-2xl overflow-hidden shadow-md aspect-square bg-emerald-50">
+                <div className="relative group rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-50">
                   <img
                     src="/src/assets/images/learning_path_bg_1783685214853.jpg"
                     alt="Adaptive CEFR learning path background"

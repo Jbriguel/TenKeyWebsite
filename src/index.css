@@ -6,30 +6,30 @@
   --font-display: "Outfit", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* Premium Executive Corporate Navy */
-  --color-brand-50: #f4f6fa;
-  --color-brand-100: #e8ecf5;
-  --color-brand-200: #cbd6ea;
-  --color-brand-300: #9fb3db;
-  --color-brand-400: #6c8bc8;
-  --color-brand-500: #4b6cb2;
-  --color-brand-600: #3b5394;
-  --color-brand-700: #304278;
-  --color-brand-800: #2b3963;
-  --color-brand-900: #242f51;
-  --color-brand-950: #0f1423;
+  /* Premium Executive Charcoal Black (NDC Energie inspired) */
+  --color-brand-50: #f8fafc;
+  --color-brand-100: #f1f5f9;
+  --color-brand-200: #e2e8f0;
+  --color-brand-300: #cbd5e1;
+  --color-brand-400: #94a3b8;
+  --color-brand-500: #475569;
+  --color-brand-600: #334155;
+  --color-brand-700: #1e293b;
+  --color-brand-800: #0f172a;
+  --color-brand-900: #0a0f1d;
+  --color-brand-950: #05070c;
 
-  /* Premium Corporate Vermillion / Orange-Red Accent (Matches the Uthao mockup) */
-  --color-accent-50: #fff5f2;
-  --color-accent-100: #ffe6de;
-  --color-accent-200: #ffd0c4;
-  --color-accent-300: #ffa794;
-  --color-accent-400: #ff7254;
-  --color-accent-500: #ff3b10;
-  --color-accent-600: #e62200;
-  --color-accent-700: #bf1600;
-  --color-accent-800: #9e1400;
-  --color-accent-900: #801400;
+  /* Premium Vibrant Solid Red / Crimson Accent (NDC Energie inspired) */
+  --color-accent-50: #fff5f5;
+  --color-accent-100: #ffe3e3;
+  --color-accent-200: #ffd0d0;
+  --color-accent-300: #ffa1a1;
+  --color-accent-400: #ff6868;
+  --color-accent-500: #e51a1a;
+  --color-accent-600: #cc1414;
+  --color-accent-700: #b31010;
+  --color-accent-800: #990c0c;
+  --color-accent-900: #800a0a;
 }
 
 @layer base {

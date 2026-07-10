@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import About from './components/About';
+import ValueProposition from './components/ValueProposition';
 import PricingTable from './components/PricingTable';
 import RegistrationForm from './components/RegistrationForm';
 import StudentPortal from './components/StudentPortal';
@@ -58,7 +59,7 @@ export default function App() {
       />
 
       {/* Main Page Containers with Animated Route Transitions */}
-      <main className="relative min-h-[70vh]">
+      <main className={`relative min-h-[70vh] ${activePage !== 'home' ? 'pt-24 sm:pt-28' : ''}`}>
         <AnimatePresence mode="wait">
           {activePage === 'home' && (
             <motion.div
@@ -111,6 +112,9 @@ export default function App() {
                 onSelectService={(name) => handleRegisterRedirect(name)}
               />
 
+              {/* Value Proposition block */}
+              <ValueProposition lang={lang} />
+
               {/* Quick Testimonials & FAQ Section */}
               <TestimonialsFaq lang={lang} />
 
@@ -157,6 +161,9 @@ export default function App() {
                 lang={lang}
                 onSelectService={(name) => handleRegisterRedirect(name)}
               />
+
+              {/* Value Proposition block */}
+              <ValueProposition lang={lang} />
 
               <div id="contact-form-section">
                 <RegistrationForm

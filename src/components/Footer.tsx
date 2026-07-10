@@ -17,7 +17,7 @@ export default function Footer({ lang }: FooterProps) {
           {/* Logo & Description */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="bg-gradient-to-tr from-brand-600 to-brand-400 text-white font-extrabold text-base w-9 h-9 rounded-lg flex items-center justify-center shadow-md">
+              <div className="bg-accent-500 text-white font-extrabold text-base w-9 h-9 rounded-lg flex items-center justify-center shadow-md">
                 TK
               </div>
               <div className="flex flex-col">
@@ -97,14 +97,14 @@ export default function Footer({ lang }: FooterProps) {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-accent-400 shrink-0" />
-                <a href="tel:+22890901010" className="hover:text-accent-400 transition-colors font-semibold">
-                  +228 90 90 10 10 / +228 99 99 20 20
+                <a href="tel:+22891883867" className="hover:text-accent-400 transition-colors font-semibold">
+                  +228 91 88 38 67
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-accent-400 shrink-0" />
-                <a href="mailto:info@tenkeycenter.com" className="hover:text-accent-400 transition-colors">
-                  info@tenkeycenter.com
+                <a href="mailto:contact@tenkeycenter.com" className="hover:text-accent-400 transition-colors">
+                  contact@tenkeycenter.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
