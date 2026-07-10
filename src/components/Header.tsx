@@ -6,17 +6,19 @@ interface HeaderProps {
   lang: 'en' | 'fr';
   setLang: (lang: 'en' | 'fr') => void;
   onRegisterClick: () => void;
+  activePage: string;
+  setActivePage: (page: string) => void;
 }
 
-export default function Header({ lang, setLang, onRegisterClick }: HeaderProps) {
+export default function Header({ lang, setLang, onRegisterClick, activePage, setActivePage }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: { en: 'Home', fr: 'Accueil' }, href: '#home' },
-    { name: { en: 'Services', fr: 'Services & Modules' }, href: '#services' },
-    { name: { en: 'Pricing', fr: 'Tarifs & Horaires' }, href: '#pricing' },
-    { name: { en: 'About', fr: 'À Propos' }, href: '#about' },
-    { name: { en: 'Contact', fr: 'Contact' }, href: '#contact' },
+    { name: { en: 'Home', fr: 'Accueil' }, id: 'home' },
+    { name: { en: 'Services & Modules', fr: 'Services & Modules' }, id: 'services' },
+    { name: { en: 'Pricing', fr: 'Tarifs & Horaires' }, id: 'pricing' },
+    { name: { en: 'About', fr: 'À Propos' }, id: 'about' },
+    { name: { en: 'Student Portal', fr: 'Espace Candidat' }, id: 'student-space', badge: true },
   ];
 
   return (
@@ -84,7 +86,13 @@ export default function Header({ lang, setLang, onRegisterClick }: HeaderProps) 
       <nav className="bg-white/95 backdrop-blur-md border-b border-gray-100 py-4 px-4 sticky top-0 shadow-sm">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2.5 group">
+          <button
+            onClick={() => {
+              setActivePage('home');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="flex items-center gap-2.5 group cursor-pointer text-left focus:outline-none"
+          >
             <div className="bg-gradient-to-tr from-brand-700 to-brand-500 text-white font-extrabold text-xl w-10 h-10 rounded-xl flex items-center justify-center shadow-md shadow-brand-200 group-hover:scale-105 transition-transform duration-300">
               TK
             </div>
@@ -96,18 +104,28 @@ export default function Header({ lang, setLang, onRegisterClick }: HeaderProps) 
                 CENTRE DE FORMATIONS
               </span>
             </div>
-          </a>
+          </button>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link, idx) => (
-              <a
+              <button
                 key={idx}
-                href={link.href}
-                className="text-sm font-semibold text-gray-600 hover:text-brand-600 transition-colors duration-200"
+                onClick={() => {
+                  setActivePage(link.id);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className={`relative text-xs sm:text-sm font-bold py-1.5 px-3 rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
+                  activePage === link.id
+                    ? 'bg-brand-50 text-brand-700'
+                    : 'text-gray-600 hover:text-brand-600 hover:bg-gray-50/50'
+                }`}
               >
-                {lang === 'en' ? link.name.en : link.name.fr}
-              </a>
+                <span>{lang === 'en' ? link.name.en : link.name.fr}</span>
+                {link.badge && (
+                  <span className="inline-block w-2 h-2 rounded-full bg-accent-500 animate-pulse"></span>
+                )}
+              </button>
             ))}
           </div>
 
@@ -152,14 +170,24 @@ export default function Header({ lang, setLang, onRegisterClick }: HeaderProps) 
           >
             <div className="px-5 py-6 flex flex-col gap-4">
               {navLinks.map((link, idx) => (
-                <a
+                <button
                   key={idx}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-base font-semibold text-gray-700 hover:text-brand-600 py-1 transition-colors"
+                  onClick={() => {
+                    setActivePage(link.id);
+                    setIsOpen(false);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className={`w-full text-left text-base font-bold py-2 px-3 rounded-lg transition-colors flex items-center justify-between ${
+                    activePage === link.id
+                      ? 'bg-brand-50 text-brand-700'
+                      : 'text-gray-700 hover:text-brand-600 hover:bg-gray-50'
+                  }`}
                 >
-                  {lang === 'en' ? link.name.en : link.name.fr}
-                </a>
+                  <span>{lang === 'en' ? link.name.en : link.name.fr}</span>
+                  {link.badge && (
+                    <span className="inline-block w-2 h-2 rounded-full bg-accent-500 animate-pulse"></span>
+                  )}
+                </button>
               ))}
               <div className="h-[1px] bg-gray-100 my-2"></div>
               <div className="flex justify-between items-center">
