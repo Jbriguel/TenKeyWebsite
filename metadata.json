@@ -1,0 +1,6 @@
+{
+  "name": "TEN KEY CENTRE DE FORMATIONS",
+  "description": "Professional training center in Lomé, Togo, specializing in English and French training, academic prep, translations, and certifications.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
