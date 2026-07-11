@@ -42,8 +42,14 @@ export default function App() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // Fallback: If not on home, scroll to top of the screen or keep active selection
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // If we are on a page without a registration form, switch to Home first and then scroll down
+      setActivePage('home');
+      setTimeout(() => {
+        const homeElement = document.getElementById('contact-form-section');
+        if (homeElement) {
+          homeElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 150);
     }
   };
 
@@ -115,23 +121,11 @@ export default function App() {
                 </div>
               </section>
 
-              {/* Our Selections Section */}
-              <Selections lang={lang} />
-
               {/* Success Management Showcase */}
               <SuccessManagement lang={lang} />
 
-              {/* Quick Services Preview */}
-              <Services
-                lang={lang}
-                onSelectService={(name) => handleRegisterRedirect(name)}
-              />
-
-              {/* Value Proposition block */}
-              <ValueProposition lang={lang} />
-
-              {/* Quick Testimonials & FAQ Section */}
-              <TestimonialsFaq lang={lang} />
+              {/* Our Selections Section */}
+              <Selections lang={lang} />
 
               {/* STYLISH NEON GLOW CALL TO ACTION */}
               <div className="max-w-7xl mx-auto px-4 sm:px-6">
