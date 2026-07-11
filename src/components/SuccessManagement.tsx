@@ -81,25 +81,25 @@ export default function SuccessManagement({ lang }: SuccessManagementProps) {
   return (
     <section className="py-24 bg-white text-slate-900 relative overflow-hidden">
       {/* Decorative Light Glows */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-50 rounded-full blur-3xl pointer-events-none opacity-40"></div>
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-brand-50 rounded-full blur-3xl pointer-events-none opacity-40"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Header Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-16">
           <div className="lg:col-span-7 text-left">
-            {/* Green dot preceding the badge */}
+            {/* Accent dot preceding the badge */}
             <div className="flex items-center gap-2 mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#2d8a6b] inline-block animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-accent-500 inline-block animate-pulse"></span>
               <span className="text-slate-500 font-extrabold text-xs uppercase tracking-widest">
                 {lang === 'en' ? content.badge.en : content.badge.fr}
               </span>
             </div>
             
-            {/* Elegant Heading with customized emerald/green highlighting */}
+            {/* Elegant Heading with customized Navy/Gold highlighting */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight font-display leading-tight">
               {lang === 'en' ? content.titlePre.en : content.titlePre.fr}
-              <span className="text-[#2d8a6b]">
+              <span className="text-brand-600">
                 {lang === 'en' ? content.titleHighlight.en : content.titleHighlight.fr}
               </span>
               {lang === 'en' ? content.titlePost.en : content.titlePost.fr}
@@ -107,7 +107,7 @@ export default function SuccessManagement({ lang }: SuccessManagementProps) {
           </div>
 
           <div className="lg:col-span-5 text-left pt-2 lg:pt-8">
-            <p className="text-sm text-slate-500 leading-relaxed font-medium border-l-2 border-[#2d8a6b]/20 pl-4">
+            <p className="text-sm text-slate-500 leading-relaxed font-medium border-l-2 border-brand-500/20 pl-4">
               {lang === 'en' ? content.desc.en : content.desc.fr}
             </p>
           </div>
@@ -136,8 +136,8 @@ export default function SuccessManagement({ lang }: SuccessManagementProps) {
             </div>
           </div>
 
-          {/* CARD 2: Central Dark Emerald Green Card with progress/carousel indicators */}
-          <div className="lg:col-span-4 bg-[#2d8a6b] text-white rounded-[2rem] p-8 shadow-xl flex flex-col justify-between text-left relative overflow-hidden transition-transform duration-300 hover:-translate-y-1">
+          {/* CARD 2: Central Dark Navy Blue Card with progress/carousel indicators */}
+          <div className="lg:col-span-4 bg-brand-600 text-white rounded-[2rem] p-8 shadow-xl flex flex-col justify-between text-left relative overflow-hidden transition-transform duration-300 hover:-translate-y-1">
             {/* Subtle background overlay */}
             <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] opacity-10"></div>
             
@@ -147,7 +147,7 @@ export default function SuccessManagement({ lang }: SuccessManagementProps) {
                 <span className="absolute bottom-0 left-0 w-1/3 h-[2px] bg-white"></span>
               </h3>
               
-              <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-semibold mt-4">
+              <p className="text-xs sm:text-sm text-brand-100/90 leading-relaxed font-semibold mt-4">
                 {lang === 'en' ? content.cards[1].desc.en : content.cards[1].desc.fr}
               </p>
             </div>

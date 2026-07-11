@@ -179,15 +179,15 @@ export function NeonGlowCTA({ lang, onAction }: CTAProps) {
  */
 export function ExecutiveLuxuryCTA({ lang, onAction }: CTAProps) {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-[#0b1c24] to-[#040e13] rounded-[2rem] border border-emerald-950 p-8 sm:p-12 lg:p-14 my-16 shadow-2xl text-left">
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div className="relative overflow-hidden bg-gradient-to-br from-brand-950 to-brand-900 rounded-[2rem] border border-brand-800 p-8 sm:p-12 lg:p-14 my-16 shadow-2xl text-left">
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent-500/5 rounded-full blur-3xl pointer-events-none"></div>
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
         
         {/* Main Text Content */}
         <div className="lg:col-span-8">
-          <div className="inline-flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 text-[#a2df33] text-[10px] font-black tracking-widest px-3 py-1.5 rounded-md uppercase mb-5">
-            <Award className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 bg-accent-500/10 border border-accent-500/20 text-accent-400 text-[10px] font-black tracking-widest px-3 py-1.5 rounded-md uppercase mb-5">
+            <Award className="w-3.5 h-3.5 text-accent-500" />
             <span>{lang === 'en' ? 'ACCREDITED BILINGUAL HUB' : 'CENTRE BILIGUE AGRÉÉ'}</span>
           </div>
 
@@ -210,7 +210,7 @@ export function ExecutiveLuxuryCTA({ lang, onAction }: CTAProps) {
               lang === 'en' ? '✓ Official Certifications' : '✓ Diplômes officiels certifiés',
               lang === 'en' ? '✓ Center & Online hybrid' : '✓ Formats Présentiel & En ligne'
             ].map((text, idx) => (
-              <span key={idx} className="text-xs font-black text-[#a2df33] tracking-wider uppercase">
+              <span key={idx} className="text-xs font-black text-accent-400 tracking-wider uppercase">
                 {text}
               </span>
             ))}
@@ -219,7 +219,7 @@ export function ExecutiveLuxuryCTA({ lang, onAction }: CTAProps) {
           <div className="flex flex-wrap gap-4">
             <button
               onClick={() => onAction?.('Executive Corporate Custom Plan')}
-              className="bg-[#a2df33] hover:bg-[#b5ee44] text-slate-950 font-black text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-all duration-300 shadow-md hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+              className="bg-accent-500 hover:bg-accent-600 text-brand-950 font-black text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-all duration-300 shadow-md hover:-translate-y-0.5 active:scale-95 cursor-pointer"
             >
               {lang === 'en' ? 'Consult Our Experts' : 'Consulter Nos Experts'}
             </button>
@@ -236,8 +236,8 @@ export function ExecutiveLuxuryCTA({ lang, onAction }: CTAProps) {
         </div>
 
         {/* Side Badge Panel */}
-        <div className="lg:col-span-4 w-full bg-slate-950/40 border border-slate-900 rounded-2xl p-6 text-center">
-          <MapPin className="w-8 h-8 text-[#a2df33] mx-auto mb-3" />
+        <div className="lg:col-span-4 w-full bg-brand-950/40 border border-brand-800 rounded-2xl p-6 text-center">
+          <MapPin className="w-8 h-8 text-accent-500 mx-auto mb-3" />
           <h4 className="text-xs font-black text-white uppercase tracking-widest mb-1">
             {lang === 'en' ? 'Lomé Head Office' : 'Siège Principal à Lomé'}
           </h4>
@@ -246,7 +246,7 @@ export function ExecutiveLuxuryCTA({ lang, onAction }: CTAProps) {
               ? 'Located on Bd du 13 Janvier, Lomé, Togo. Easily accessible with secure on-site parking.' 
               : 'Situé sur le Bd du 13 Janvier, Lomé, Togo. Facile d’accès avec parking sécurisé.'}
           </p>
-          <div className="h-[1px] bg-slate-900 w-full my-3"></div>
+          <div className="h-[1px] bg-brand-800 w-full my-3"></div>
           <p className="text-[10px] text-slate-500 font-extrabold uppercase">
             {lang === 'en' ? 'OPEN MON - SAT: 7:30 - 20:30' : 'OUVERT LUN - SAM : 7h30 - 20h30'}
           </p>
@@ -388,8 +388,8 @@ export function DiplomaticShowcaseCTA({ lang, onAction }: CTAProps) {
   return (
     <div className="relative overflow-hidden bg-slate-950 text-white rounded-[2rem] border border-slate-800 p-8 sm:p-12 lg:p-16 my-16 shadow-2xl">
       {/* Flag aesthetic graphics subtly blurred in the background */}
-      <div className="absolute top-1/2 left-0 w-44 h-44 bg-blue-600/5 rounded-full blur-2xl pointer-events-none"></div>
-      <div className="absolute top-1/2 right-0 w-44 h-44 bg-red-600/5 rounded-full blur-2xl pointer-events-none"></div>
+      <div className="absolute top-1/2 left-0 w-44 h-44 bg-brand-600/5 rounded-full blur-2xl pointer-events-none"></div>
+      <div className="absolute top-1/2 right-0 w-44 h-44 bg-accent-500/5 rounded-full blur-2xl pointer-events-none"></div>
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
         
@@ -406,16 +406,16 @@ export function DiplomaticShowcaseCTA({ lang, onAction }: CTAProps) {
             <span className="text-xl sm:text-2xl font-mono">⇄</span>
           </div>
           <div>
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-blue-900 to-red-600 flex items-center justify-center text-white text-lg font-black shadow-lg uppercase relative overflow-hidden border border-white/10">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-brand-600 to-accent-500 flex items-center justify-center text-white text-lg font-black shadow-lg uppercase relative overflow-hidden border border-white/10">
               <span className="relative z-10">EN</span>
-              <div className="absolute bottom-0 right-0 w-full h-1 bg-red-500"></div>
+              <div className="absolute bottom-0 right-0 w-full h-1 bg-accent-500"></div>
             </div>
           </div>
         </div>
 
         {/* Text column */}
         <div className="lg:col-span-8 text-left">
-          <span className="text-[#a2df33] text-[10px] font-black tracking-widest uppercase block mb-3">
+          <span className="text-accent-400 text-[10px] font-black tracking-widest uppercase block mb-3">
             {lang === 'en' ? 'DIPLOMATIC & EXECUTIVE COHORT' : 'COHORTE DIPLOMATIQUE & EXÉCUTIVE'}
           </span>
 
@@ -434,17 +434,17 @@ export function DiplomaticShowcaseCTA({ lang, onAction }: CTAProps) {
           <div className="flex flex-wrap gap-4">
             <button
               onClick={() => onAction?.('Diplomatic Placement Audit')}
-              className="bg-[#a2df33] hover:bg-[#b5ee44] text-slate-950 font-black text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-all duration-300 shadow-xl hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+              className="bg-accent-500 hover:bg-accent-600 text-brand-950 font-black text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-all duration-300 shadow-xl hover:-translate-y-0.5 active:scale-95 cursor-pointer"
             >
               {lang === 'en' ? 'Book Placement Audit' : 'Planifier un Audit de Niveau'}
             </button>
             <a
-              href="https://wa.me/22890000000"
+              href="https://wa.me/22891883867"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white/5 hover:bg-white/10 text-white border border-white/10 font-black text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-all active:scale-95 cursor-pointer flex items-center gap-2"
             >
-              <MessagesSquare className="w-4 h-4 text-[#a2df33]" />
+              <MessagesSquare className="w-4 h-4 text-accent-400" />
               <span>{lang === 'en' ? 'Direct Chat' : 'Discussion Directe'}</span>
             </a>
           </div>
@@ -461,27 +461,27 @@ export function DiplomaticShowcaseCTA({ lang, onAction }: CTAProps) {
  */
 export function GedFlashCTA({ lang, onAction }: CTAProps) {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-r from-[#a2df33] to-[#b5ee44] text-[#091e16] rounded-[2.5rem] p-8 sm:p-12 lg:p-14 my-16 shadow-2xl text-left">
+    <div className="relative overflow-hidden bg-gradient-to-r from-accent-300 to-accent-500 text-brand-950 rounded-[2.5rem] p-8 sm:p-12 lg:p-14 my-16 shadow-2xl text-left">
       {/* Dark dynamic shapes in back */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-950/5 rounded-full blur-2xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-10 w-96 h-96 bg-emerald-950/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-64 h-64 bg-brand-900/5 rounded-full blur-2xl pointer-events-none"></div>
+      <div className="absolute bottom-0 left-10 w-96 h-96 bg-brand-900/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
         
         {/* Main Content text */}
         <div className="lg:col-span-8">
-          <div className="inline-flex items-center gap-2 bg-emerald-950 text-white text-[10px] font-black tracking-widest px-3.5 py-1.5 rounded-full uppercase mb-5">
-            <ShieldCheck className="w-4 h-4 text-[#a2df33] shrink-0" />
+          <div className="inline-flex items-center gap-2 bg-brand-950 text-white text-[10px] font-black tracking-widest px-3.5 py-1.5 rounded-full uppercase mb-5">
+            <ShieldCheck className="w-4 h-4 text-accent-400 shrink-0" />
             <span>{lang === 'en' ? '98% PASS RATE GUARANTEE' : 'GARANTIE DE RÉUSSITE DE 98%'}</span>
           </div>
 
-          <h3 className="text-3xl sm:text-4xl font-black text-emerald-950 tracking-tight leading-none font-display mb-4">
+          <h3 className="text-3xl sm:text-4xl font-black text-brand-950 tracking-tight leading-none font-display mb-4">
             {lang === 'en' 
               ? 'Ready to Pass Your Official GED Exam?' 
               : 'Prêt à Valider Votre Examen Officiel GED ?'}
           </h3>
 
-          <p className="text-emerald-950/80 text-xs sm:text-sm leading-relaxed mb-6 font-semibold max-w-xl">
+          <p className="text-brand-950/80 text-xs sm:text-sm leading-relaxed mb-6 font-semibold max-w-xl">
             {lang === 'en'
               ? 'Get customized timetables, structured revision bootcamps, and real mock simulations in Lomé. Our certified experts ensure you earn your credential with absolute confidence.'
               : 'Bénéficiez d’horaires adaptés, d’ateliers de révision structurés et de simulations réelles d’examens à Lomé. Nos experts certifiés vous guident vers le succès.'}
@@ -490,7 +490,7 @@ export function GedFlashCTA({ lang, onAction }: CTAProps) {
           <div className="flex flex-wrap gap-4">
             <button
               onClick={() => onAction?.('GED Bootcamp Enrollment')}
-              className="bg-emerald-950 hover:bg-emerald-900 text-white font-black text-xs uppercase tracking-widest px-8 py-4.5 rounded-2xl transition-all duration-300 shadow-xl hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+              className="bg-brand-950 hover:bg-brand-900 text-white font-black text-xs uppercase tracking-widest px-8 py-4.5 rounded-2xl transition-all duration-300 shadow-xl hover:-translate-y-0.5 active:scale-95 cursor-pointer"
             >
               {lang === 'en' ? 'Join the Next Cohort' : 'Rejoindre la Prochaine Cohorte'}
             </button>
@@ -499,7 +499,7 @@ export function GedFlashCTA({ lang, onAction }: CTAProps) {
                 const form = document.getElementById('contact-form-section');
                 if (form) form.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="bg-emerald-950/10 hover:bg-emerald-950/25 text-emerald-950 border border-emerald-950/20 font-black text-xs uppercase tracking-widest px-6 py-4.5 rounded-2xl transition-all active:scale-95 cursor-pointer"
+              className="bg-brand-950/10 hover:bg-brand-950/20 text-brand-950 border border-brand-950/20 font-black text-xs uppercase tracking-widest px-6 py-4.5 rounded-2xl transition-all active:scale-95 cursor-pointer"
             >
               {lang === 'en' ? 'Get Syllabus PDF' : 'Télécharger le Syllabus PDF'}
             </button>
@@ -507,10 +507,10 @@ export function GedFlashCTA({ lang, onAction }: CTAProps) {
         </div>
 
         {/* Side Mini HUD */}
-        <div className="lg:col-span-4 bg-emerald-950 text-white rounded-3xl p-6 shadow-xl border border-emerald-900/40 text-center relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-900/20 rounded-full blur-xl pointer-events-none"></div>
+        <div className="lg:col-span-4 bg-brand-950 text-white rounded-3xl p-6 shadow-xl border border-brand-900/40 text-center relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-brand-900/20 rounded-full blur-xl pointer-events-none"></div>
           
-          <span className="text-3xl sm:text-4xl font-black text-[#a2df33] font-display block mb-1">90 DAYS</span>
+          <span className="text-3xl sm:text-4xl font-black text-accent-400 font-display block mb-1">90 DAYS</span>
           <h4 className="text-[11px] font-black text-slate-200 uppercase tracking-widest mb-3">
             {lang === 'en' ? 'INTENSIVE STRATEGY BOOTCAMP' : 'ENTRAÎNEMENT INTENSIF ACCÉLÉRÉ'}
           </h4>

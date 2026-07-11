@@ -386,7 +386,7 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
                         className="flex flex-col md:flex-row items-center justify-between gap-4"
                       >
                         <div className="text-left">
-                          <h4 className="font-extrabold text-sm text-emerald-400 flex items-center gap-1.5">
+                          <h4 className="font-extrabold text-sm text-accent-400 flex items-center gap-1.5">
                             <Check className="w-4 h-4" />
                             {lang === 'en' ? 'Optimal Pathway Identified!' : 'Parcours Idéal Déterminé !'}
                           </h4>
@@ -456,14 +456,14 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
                       >
                         {ticketResult ? (
                           <div className="text-left flex items-center gap-3">
-                            <div className="w-9 h-9 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0">
+                            <div className="w-9 h-9 rounded-full bg-accent-500/15 border border-accent-500/30 text-accent-400 flex items-center justify-center shrink-0">
                               <Check className="w-5 h-5" />
                             </div>
                             <div>
                               <h4 className="font-extrabold text-xs text-white">
                                 Student: Jean-Marc KOFFI | <span className="text-accent-400">ID: TK-2026</span>
                               </h4>
-                              <p className="text-[11px] text-emerald-400 font-bold mt-0.5">
+                              <p className="text-[11px] text-accent-400 font-bold mt-0.5">
                                 {ticketResult.status} (Lomé Campus) - Start: {ticketResult.date}
                               </p>
                             </div>

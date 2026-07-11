@@ -139,22 +139,22 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
   };
 
   return (
-    <div className="bg-[#091e16] text-white">
+    <div className="bg-brand-950 text-white">
       
-      {/* 1. IMMERSIVE HERO SECTION (Forest green bg-[#091e16] like the mockup) */}
-      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden bg-[#091e16]">
-        {/* Soft elegant green glowing light behind the hero */}
-        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#a2df33]/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div className="absolute bottom-10 left-10 w-[300px] h-[300px] bg-emerald-700/10 rounded-full blur-[100px] pointer-events-none"></div>
+      {/* 1. IMMERSIVE HERO SECTION (Navy Blue bg-brand-950) */}
+      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden bg-brand-950">
+        {/* Soft elegant gold glowing light behind the hero */}
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-10 left-10 w-[300px] h-[300px] bg-brand-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Content Column */}
             <div className="lg:col-span-6 text-left">
-              {/* Greenish Accent Badge */}
+              {/* Gold Accent Badge */}
               <div className="inline-block mb-6">
-                <span className="bg-emerald-950/80 border border-emerald-800 text-[#a2df33] text-xs font-black tracking-widest px-4 py-2 rounded-full uppercase">
+                <span className="bg-brand-900/80 border border-brand-800 text-accent-400 text-xs font-black tracking-widest px-4 py-2 rounded-full uppercase">
                   {lang === 'en' ? content.badgeHero.en : content.badgeHero.fr}
                 </span>
               </div>
@@ -162,14 +162,14 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
               {/* Bold Title */}
               <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-black tracking-tight leading-[1.1] text-white font-display mb-6">
                 {lang === 'en' ? content.titlePre.en : content.titlePre.fr}
-                <span className="text-[#a2df33]">
+                <span className="text-accent-400">
                   {lang === 'en' ? content.titleHighlight.en : content.titleHighlight.fr}
                 </span>
                 {lang === 'en' ? content.titlePost.en : content.titlePost.fr}
               </h1>
 
               {/* Subtitle Description */}
-              <p className="text-sm sm:text-base text-emerald-100/70 leading-relaxed font-semibold mb-8 max-w-xl">
+              <p className="text-sm sm:text-base text-brand-100/70 leading-relaxed font-semibold mb-8 max-w-xl">
                 {lang === 'en' ? content.subtitleHero.en : content.subtitleHero.fr}
               </p>
 
@@ -177,36 +177,36 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
               <div className="flex flex-wrap items-center gap-6 mb-10">
                 <button
                   onClick={handleAction}
-                  className="bg-[#a2df33] hover:bg-[#b5ee44] text-[#091e16] font-black text-xs uppercase tracking-widest px-8 py-4 rounded-full transition-all duration-300 shadow-xl hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+                  className="bg-accent-500 hover:bg-accent-600 text-brand-950 font-black text-xs uppercase tracking-widest px-8 py-4 rounded-full transition-all duration-300 shadow-xl hover:-translate-y-0.5 active:scale-95 cursor-pointer"
                 >
                   {lang === 'en' ? content.btnHero.en : content.btnHero.fr}
                 </button>
               </div>
 
               {/* Candidate Social Proof Row */}
-              <div className="flex items-center gap-3 border-t border-emerald-900/60 pt-6">
+              <div className="flex items-center gap-3 border-t border-brand-900/60 pt-6">
                 {/* Simulated Avatar Stack */}
                 <div className="flex -space-x-2.5">
                   <img
                     src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop"
                     alt="Candidate A"
-                    className="w-8.5 h-8.5 rounded-full border-2 border-[#091e16] object-cover"
+                    className="w-8.5 h-8.5 rounded-full border-2 border-brand-950 object-cover"
                     referrerPolicy="no-referrer"
                   />
                   <img
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
                     alt="Candidate B"
-                    className="w-8.5 h-8.5 rounded-full border-2 border-[#091e16] object-cover"
+                    className="w-8.5 h-8.5 rounded-full border-2 border-brand-950 object-cover"
                     referrerPolicy="no-referrer"
                   />
                   <img
                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop"
                     alt="Candidate C"
-                    className="w-8.5 h-8.5 rounded-full border-2 border-[#091e16] object-cover"
+                    className="w-8.5 h-8.5 rounded-full border-2 border-brand-950 object-cover"
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <span className="text-[11px] sm:text-xs font-bold text-emerald-100/60">
+                <span className="text-[11px] sm:text-xs font-bold text-brand-100/60">
                   {lang === 'en' ? content.socialProof.en : content.socialProof.fr}
                 </span>
               </div>
@@ -214,7 +214,7 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
 
             {/* Right Column: Hero Visual Photo & Expert Badge Card */}
             <div className="lg:col-span-6 relative flex justify-center">
-              <div className="relative w-full max-w-md md:max-w-lg aspect-[10/9] sm:aspect-square bg-[#0e271e] rounded-[2.5rem] overflow-hidden shadow-2xl border border-emerald-900/40">
+              <div className="relative w-full max-w-md md:max-w-lg aspect-[10/9] sm:aspect-square bg-brand-900 rounded-[2.5rem] overflow-hidden shadow-2xl border border-brand-800/40">
                 {/* High quality student image matching mockup */}
                 <img
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop"
@@ -224,12 +224,12 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
                 />
                 
                 {/* Warm filter overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#091e16]/80 via-transparent to-[#091e16]/20"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-950/80 via-transparent to-brand-950/20"></div>
 
                 {/* Floating Rating Card Badge in bottom right corner */}
                 <div className="absolute bottom-6 right-6 bg-white text-slate-900 rounded-3xl p-5 shadow-2xl flex flex-col items-center max-w-[210px] text-center border border-slate-100/80">
                   <span className="text-3xl font-black text-slate-900 leading-none mb-1 font-display">
-                    200<span className="text-[#a2df33] font-black">+</span>
+                    200<span className="text-accent-500 font-black">+</span>
                   </span>
                   <p className="text-[10px] font-black text-slate-500 uppercase tracking-wider mb-2 leading-tight">
                     {lang === 'en' ? content.expertBadge.en : content.expertBadge.fr}
@@ -267,7 +267,7 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
             <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-start border-l-0 lg:border-l lg:border-slate-100 lg:pl-12">
               {content.stats.map((stat, i) => (
                 <div key={i} className="text-left">
-                  <div className="text-4xl sm:text-5xl font-black text-[#091e16] mb-2 font-display">
+                  <div className="text-4xl sm:text-5xl font-black text-brand-600 mb-2 font-display">
                     {stat.num}
                   </div>
                   <h3 className="text-sm font-extrabold text-slate-900 mb-2 leading-snug">
@@ -285,15 +285,15 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
       </section>
 
       {/* 3. "WHY CHOOSE US" / FEATURES SECTION (Light gray clean backdrop) */}
-      <section className="py-24 bg-[#f4f7f5] text-slate-900">
+      <section className="py-24 bg-brand-50 text-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           
           {/* Header Row */}
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="bg-emerald-950/10 border border-emerald-900/10 text-[#091e16] text-[10px] font-black tracking-widest px-4 py-2 rounded-full uppercase inline-block mb-4">
+            <span className="bg-brand-600/10 border border-brand-600/10 text-brand-600 text-[10px] font-black tracking-widest px-4 py-2 rounded-full uppercase inline-block mb-4">
               {lang === 'en' ? content.whyBadge.en : content.whyBadge.fr}
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#091e16] tracking-tight font-display">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-600 tracking-tight font-display">
               {lang === 'en' ? content.whyTitle.en : content.whyTitle.fr}
             </h2>
           </div>
@@ -303,11 +303,11 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
             {content.whyCards.map((card, i) => (
               <div
                 key={i}
-                className="bg-white border border-slate-100/60 rounded-[2rem] p-8 shadow-xl flex flex-col justify-between text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-emerald-700/5"
+                className="bg-white border border-slate-100/60 rounded-[2rem] p-8 shadow-xl flex flex-col justify-between text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-brand-500/10"
               >
                 <div>
                   {/* Distinct Icon Container */}
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-800 flex items-center justify-center mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-600 flex items-center justify-center mb-6">
                     {i === 0 && <BookOpen className="w-6 h-6 stroke-[2]" />}
                     {i === 1 && <FileText className="w-6 h-6 stroke-[2]" />}
                     {i === 2 && <Users className="w-6 h-6 stroke-[2]" />}
@@ -328,37 +328,37 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
         </div>
       </section>
 
-      {/* 4. PROCESS SECTION (Immersive Dark-Green, matches the mockup layout exactly) */}
-      <section className="py-24 bg-[#091e16] text-white border-t border-emerald-900/20">
+      {/* 4. PROCESS SECTION (Immersive Navy Blue bg-brand-950) */}
+      <section className="py-24 bg-brand-950 text-white border-t border-brand-800/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Left Column: Title, description & picture */}
             <div className="lg:col-span-5 text-left">
-              <span className="text-[#a2df33] bg-emerald-950/80 border border-emerald-800 text-[10px] font-black tracking-widest px-4 py-2 rounded-full uppercase inline-block mb-4">
+              <span className="text-accent-400 bg-brand-900/80 border border-brand-800 text-[10px] font-black tracking-widest px-4 py-2 rounded-full uppercase inline-block mb-4">
                 {lang === 'en' ? content.processBadge.en : content.processBadge.fr}
               </span>
               
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4 font-display">
                 {lang === 'en' ? content.processTitlePre.en : content.processTitlePre.fr}
-                <span className="text-[#a2df33]">
+                <span className="text-accent-400">
                   {lang === 'en' ? content.processTitleHighlight.en : content.processTitleHighlight.fr}
                 </span>
               </h2>
 
-              <p className="text-xs sm:text-sm text-emerald-100/60 leading-relaxed font-semibold mb-8">
+              <p className="text-xs sm:text-sm text-brand-100/60 leading-relaxed font-semibold mb-8">
                 {lang === 'en' ? content.processSubtitle.en : content.processSubtitle.fr}
               </p>
 
               {/* Picture of a student writing */}
-              <div className="aspect-[4/3] rounded-[2rem] overflow-hidden border border-emerald-900/40 relative shadow-2xl">
+              <div className="aspect-[4/3] rounded-[2rem] overflow-hidden border border-brand-800/40 relative shadow-2xl">
                 <img
                   src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop"
                   alt="Student taking notes in active study session"
                   className="w-full h-full object-cover grayscale-[10%]"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#091e16]/60 via-transparent to-[#091e16]/10"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-950/60 via-transparent to-brand-950/10"></div>
               </div>
             </div>
 
@@ -367,10 +367,10 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
               {content.processSteps.map((step, i) => (
                 <div
                   key={i}
-                  className="bg-white/[0.02] hover:bg-white/[0.04] border border-white/[0.04] hover:border-emerald-800/40 transition-all duration-300 rounded-3xl p-6 flex flex-col sm:flex-row gap-5 items-start text-left"
+                  className="bg-white/[0.02] hover:bg-white/[0.04] border border-white/[0.04] hover:border-brand-500/40 transition-all duration-300 rounded-3xl p-6 flex flex-col sm:flex-row gap-5 items-start text-left"
                 >
-                  {/* Step Number in Lime Green */}
-                  <div className="text-2xl font-black text-[#a2df33] font-display leading-none bg-[#a2df33]/10 px-4 py-2.5 rounded-xl border border-[#a2df33]/15">
+                  {/* Step Number in Gold */}
+                  <div className="text-2xl font-black text-accent-400 font-display leading-none bg-accent-500/10 px-4 py-2.5 rounded-xl border border-accent-500/20">
                     {step.num}
                   </div>
                   
@@ -379,7 +379,7 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
                     <h3 className="text-base font-extrabold text-white mb-2 font-display">
                       {lang === 'en' ? step.title.en : step.title.fr}
                     </h3>
-                    <p className="text-xs text-emerald-100/60 leading-relaxed font-semibold">
+                    <p className="text-xs text-brand-100/60 leading-relaxed font-semibold">
                       {lang === 'en' ? step.desc.en : step.desc.fr}
                     </p>
                   </div>
@@ -390,7 +390,7 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
               <div className="pt-4 flex justify-start">
                 <button
                   onClick={handleAction}
-                  className="inline-flex items-center gap-2 text-[#a2df33] font-black text-xs uppercase tracking-widest hover:text-white transition-colors duration-300 cursor-pointer focus:outline-none"
+                  className="inline-flex items-center gap-2 text-accent-400 font-black text-xs uppercase tracking-widest hover:text-accent-300 transition-colors duration-300 cursor-pointer focus:outline-none"
                 >
                   <span>{lang === 'en' ? content.processBtn.en : content.processBtn.fr}</span>
                   <ArrowRight className="w-4 h-4" />
