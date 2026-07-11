@@ -29,6 +29,7 @@ export default function Header({ lang, setLang, onRegisterClick, activePage, set
   const navLinks = [
     { name: { en: 'Home', fr: 'Accueil' }, id: 'home' },
     { name: { en: 'Services & Modules', fr: 'Services & Modules' }, id: 'services' },
+    { name: { en: 'GED Prep', fr: 'Préparation GED' }, id: 'ged-prep' },
     { name: { en: 'Pricing', fr: 'Tarifs & Horaires' }, id: 'pricing' },
     { name: { en: 'About', fr: 'À Propos' }, id: 'about' },
     { name: { en: 'Student Portal', fr: 'Espace Candidat' }, id: 'student-space', badge: true },

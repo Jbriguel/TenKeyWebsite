@@ -19,6 +19,8 @@ import LocationMap from './components/LocationMap';
 import TestimonialsFaq from './components/TestimonialsFaq';
 import WhatsAppWidget from './components/WhatsAppWidget';
 import Footer from './components/Footer';
+import GedPrepPage from './components/GedPrepPage';
+import { NeonGlowCTA, ExecutiveLuxuryCTA, BentoLevelTesterCTA, DiplomaticShowcaseCTA, GedFlashCTA } from './components/CoolCTAs';
 
 export default function App() {
   // Localization: Defaults to 'fr' (French) for Lomé, Togo local audience, with a fast switch to 'en'
@@ -130,6 +132,11 @@ export default function App() {
               {/* Quick Testimonials & FAQ Section */}
               <TestimonialsFaq lang={lang} />
 
+              {/* STYLISH NEON GLOW CALL TO ACTION */}
+              <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                <NeonGlowCTA lang={lang} onAction={handleRegisterRedirect} />
+              </div>
+
               {/* Registration Form directly on home */}
               <div id="contact-form-section">
                 <RegistrationForm
@@ -177,10 +184,43 @@ export default function App() {
               {/* Value Proposition block */}
               <ValueProposition lang={lang} />
 
+              {/* EXECUTIVE LUXURY CALL TO ACTION */}
+              <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                <ExecutiveLuxuryCTA lang={lang} onAction={handleRegisterRedirect} />
+              </div>
+
               <div id="contact-form-section">
                 <RegistrationForm
                   lang={lang}
                   selectedModuleName={selectedModuleName}
+                  setSelectedModuleName={setSelectedModuleName}
+                />
+              </div>
+            </motion.div>
+          )}
+
+          {activePage === 'ged-prep' && (
+            <motion.div
+              key="ged-prep-page"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3 }}
+            >
+              <GedPrepPage
+                lang={lang}
+                onGetStarted={() => handleRegisterRedirect('GED Prep - Examen Officiel')}
+              />
+
+              {/* VIBRANT GED FLASH CALL TO ACTION */}
+              <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                <GedFlashCTA lang={lang} onAction={(actName) => handleRegisterRedirect(actName || 'GED Prep - Examen Officiel')} />
+              </div>
+
+              <div id="contact-form-section">
+                <RegistrationForm
+                  lang={lang}
+                  selectedModuleName={selectedModuleName || 'GED Prep - Examen Officiel'}
                   setSelectedModuleName={setSelectedModuleName}
                 />
               </div>
@@ -199,6 +239,11 @@ export default function App() {
                 lang={lang}
                 onSelectPlan={(name) => handleRegisterRedirect(name)}
               />
+
+              {/* BENTO INTERACTIVE SCHEDULER CALL TO ACTION */}
+              <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                <BentoLevelTesterCTA lang={lang} onAction={handleRegisterRedirect} />
+              </div>
 
               <div id="contact-form-section">
                 <RegistrationForm
@@ -237,6 +282,11 @@ export default function App() {
               <About lang={lang} />
               
               <TestimonialsFaq lang={lang} />
+
+              {/* DIPLOMATIC SHOWCASE CALL TO ACTION */}
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
+                <DiplomaticShowcaseCTA lang={lang} onAction={(actName) => handleRegisterRedirect(actName || 'About Page - Diplomatic Audit')} />
+              </div>
             </motion.div>
           )}
 
