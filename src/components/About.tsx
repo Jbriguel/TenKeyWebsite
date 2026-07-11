@@ -30,148 +30,153 @@ export default function About({ lang }: AboutProps) {
       {/* SECTION 1: Why Choose Us (Our Selections) */}
       <Selections lang={lang} />
 
-      {/* SECTION 2: Language Expertise You Can Count On */}
+      {/* SECTION 2: MORE ABOUT US - Highly polished premium layout matching the screenshot */}
       <section className="py-24 bg-white text-slate-900 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          
-          {/* Header Row with Action Trigger buttons */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
-            <div className="lg:col-span-6 text-left">
-              <span className="text-violet-700 bg-violet-50 text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full uppercase inline-block mb-4">
-                {lang === 'en' ? section2Data.badge.en : section2Data.badge.fr}
-              </span>
-              <h2 className="text-3xl sm:text-4.5xl font-black text-slate-950 tracking-tight font-display leading-tight">
-                {lang === 'en' ? section2Data.title.en : section2Data.title.fr}
-              </h2>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            <div className="lg:col-span-6 text-left lg:text-right flex flex-col md:flex-row items-start md:items-center lg:justify-end gap-6">
-              <p className="text-sm text-slate-500 max-w-md leading-relaxed font-medium text-left">
-                {lang === 'en' ? section2Data.desc.en : section2Data.desc.fr}
+            {/* Left Column: Content, Bullet Points, Founder, Call Callout */}
+            <div className="lg:col-span-6 text-left">
+              {/* Badge: MORE ABOUT US */}
+              <span className="text-accent-500 text-xs font-black tracking-widest uppercase block mb-4">
+                {lang === 'en' ? 'MORE ABOUT US' : 'À PROPOS DE NOUS'}
+              </span>
+              
+              {/* Heading */}
+              <h2 className="text-3xl sm:text-4.5xl font-black text-brand-600 tracking-tight font-display leading-tight mb-6">
+                {lang === 'en' 
+                  ? 'We Provide the Best Bilingual & Prep Solutions in Town' 
+                  : 'Nous Proposons les Meilleures Solutions Bilingues en Ville'}
+              </h2>
+              
+              {/* Description paragraph */}
+              <p className="text-sm text-slate-500 leading-relaxed font-medium mb-8">
+                {lang === 'en'
+                  ? 'TEN KEY is Lomé’s premier accredited bilingual training hub and official translation center. We provide structured executive programs, GED/TOEFL/IELTS preparation bootcamps, and high-precision certified translations designed to elevate your global career.'
+                  : 'TEN KEY est le premier centre de formation bilingue agréé et de préparation aux examens officiels à Lomé. Nous proposons des programmes d’excellence pour cadres, des bootcamps intensifs GED/TOEFL/IELTS et des traductions certifiées de haute précision.'}
               </p>
               
-              <div className="flex items-center gap-3 shrink-0">
-                <button
-                  onClick={handleScrollToForm}
-                  className="bg-slate-950 text-white font-black text-xs uppercase tracking-wider px-6 py-4 rounded-full shadow-lg transition-transform hover:scale-105 inline-flex items-center gap-1.5 cursor-pointer"
-                >
-                  {lang === 'en' ? 'Learn More' : 'En Savoir Plus'} <ArrowUpRight className="w-4 h-4" />
-                </button>
-                
-                {/* Micro Animated Play action loop to mimic the mockup */}
-                <button 
-                  onClick={handleScrollToForm}
-                  className="w-12 h-12 rounded-full border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-950 hover:bg-slate-100 hover:text-violet-600 transition-all shadow-sm shrink-0"
-                >
-                  <Play className="w-4 h-4 fill-slate-950 stroke-slate-950 ml-0.5" />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Bento-style Grid Layout */}
-          <div className="grid grid-cols-12 gap-6 items-stretch">
-            
-            {/* Bento Card 1: Portrait close-up hands working */}
-            <div className="col-span-12 md:col-span-6 lg:col-span-3 rounded-3xl overflow-hidden aspect-[4/3] md:aspect-auto min-h-[220px] shadow-sm border border-slate-100">
-              <img
-                src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600&auto=format&fit=crop"
-                alt="Intensive training and business planning"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-
-            {/* Bento Card 2: Solid light violet - Years Experience */}
-            <div className="col-span-12 md:col-span-6 lg:col-span-2 bg-[#e9e3f8] text-slate-950 rounded-3xl p-6 flex flex-col justify-between text-left shadow-sm">
-              <div className="text-4xl sm:text-5xl font-black text-violet-800 font-display">
-                14+
-              </div>
-              <div className="mt-4">
-                <h4 className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
-                  {lang === 'en' ? 'Years Experience' : "Années d'Expérience"}
-                </h4>
-                <p className="text-[11px] text-slate-600 leading-relaxed font-semibold">
-                  {lang === 'en' 
-                    ? 'Delivering elite bilingual instruction and authorized coaching in Lomé since 2012.' 
-                    : 'Leader de l’apprentissage linguistique immersif et certifié au Togo depuis 2012.'}
-                </p>
-              </div>
-            </div>
-
-            {/* Bento Card 3: Micro White Badge card with clock and Happy Client tracker */}
-            <div className="col-span-12 md:col-span-6 lg:col-span-2 bg-[#faf9fe] border border-slate-100 text-slate-950 rounded-3xl p-6 flex flex-col justify-between text-left shadow-sm relative overflow-hidden">
-              <div className="w-8 h-8 rounded-lg bg-violet-100 text-violet-700 flex items-center justify-center shrink-0 mb-4">
-                <Clock className="w-4 h-4" />
-              </div>
-              <div>
-                <span className="text-[9px] font-black uppercase tracking-wider text-slate-400 flex items-center gap-1">
-                  {lang === 'en' ? 'Happy Client' : 'Apprenants Satisfaits'}
-                </span>
-                <div className="text-2xl sm:text-3xl font-black text-slate-950 font-display mt-1">
-                  3,345+
+              {/* 2-Column Bullet List */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                {/* Left Column Bullets */}
+                <div className="space-y-3.5">
+                  {[
+                    lang === 'en' ? '24/7 Call Services Available' : 'Services d’appel 24h/24',
+                    lang === 'en' ? 'Great Skilled Consultant' : 'Consultants hautement qualifiés',
+                    lang === 'en' ? 'Expert Team Members' : 'Formateurs certifiés experts'
+                  ].map((bullet, idx) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <div className="w-5 h-5 rounded-full bg-accent-500/10 text-accent-500 flex items-center justify-center shrink-0">
+                        <span className="text-xs font-black">✓</span>
+                      </div>
+                      <span className="text-xs font-extrabold text-slate-800 tracking-wide uppercase">
+                        {bullet}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-                <p className="text-[10px] text-slate-500 mt-1 leading-normal font-medium">
-                  {lang === 'en' ? 'Students and professionals successfully certified.' : 'Diplomates, cadres et bacheliers formés avec succès.'}
-                </p>
+                
+                {/* Right Column Bullets */}
+                <div className="space-y-3.5">
+                  {[
+                    lang === 'en' ? 'How to improve business' : 'Comment réussir vos examens',
+                    lang === 'en' ? 'Business is the best plan' : 'Ateliers bilingues intensifs',
+                    lang === 'en' ? 'Services we provide' : 'Formations certifiantes adaptées'
+                  ].map((bullet, idx) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <div className="w-5 h-5 rounded-full bg-accent-500/10 text-accent-500 flex items-center justify-center shrink-0">
+                        <span className="text-xs font-black">✓</span>
+                      </div>
+                      <span className="text-xs font-extrabold text-slate-800 tracking-wide uppercase">
+                        {bullet}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Founder/CEO block & Contact Button Row */}
+              <div className="flex flex-wrap items-center justify-between gap-6 pt-8 border-t border-slate-100">
+                {/* Founder Info */}
+                <div className="flex items-center gap-4">
+                  <img
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=120&auto=format&fit=crop"
+                    alt="Andrew David"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-brand-100"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div>
+                    <h4 className="text-sm font-black text-slate-900 font-display">Adrew David</h4>
+                    <p className="text-[10px] text-accent-500 font-extrabold uppercase tracking-wider">
+                      {lang === 'en' ? 'CEO & Founder' : 'CEO & Fondateur'}
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Contact Phone Callout */}
+                <a
+                  href="tel:+22891883867"
+                  className="flex items-center gap-4 group"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-accent-500 text-white flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 shadow-lg">
+                    <Play className="w-4 h-4 fill-white stroke-white rotate-90 ml-0.5" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider leading-none mb-1">
+                      {lang === 'en' ? 'Call us anytime' : 'Appelez-nous à tout moment'}
+                    </p>
+                    <p className="text-xs sm:text-sm font-black text-slate-900 group-hover:text-accent-500 transition-colors">
+                      +228 91 88 38 67
+                    </p>
+                  </div>
+                </a>
               </div>
             </div>
 
-            {/* Bento Card 4: Solid light violet - Expert Coaches */}
-            <div className="col-span-12 md:col-span-6 lg:col-span-2 bg-[#e9e3f8] text-slate-950 rounded-3xl p-6 flex flex-col justify-between text-left shadow-sm">
-              <div className="text-4xl sm:text-5xl font-black text-violet-800 font-display">
-                25
-              </div>
-              <div className="mt-4">
-                <h4 className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
-                  {lang === 'en' ? 'Expert Coaches' : 'Formateurs Experts'}
-                </h4>
-                <p className="text-[11px] text-slate-600 leading-relaxed font-semibold">
-                  {lang === 'en' 
-                    ? 'Native teachers, certified lecturers, and expert legal translators.' 
-                    : 'Professeurs natifs qualifiés, bilingues et traducteurs-interprètes agréés.'}
-                </p>
+            {/* Right Column: Visual Layout with overlapping images & floating experience badge */}
+            <div className="lg:col-span-6 relative flex items-center justify-center">
+              <div className="relative w-full max-w-[480px] aspect-[4/3] md:aspect-[1.2] rounded-[2rem]">
+                
+                {/* Primary Large Image */}
+                <div className="w-full h-full rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100/40 relative z-10">
+                  <img
+                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop"
+                    alt="Consultants working at laptop"
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                
+                {/* Secondary Small Overlapping Image (Top-Left) */}
+                <div className="absolute -top-10 -left-6 w-1/3 min-w-[130px] aspect-[4/3] rounded-2xl overflow-hidden border-4 border-white shadow-2xl z-20">
+                  <img
+                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop"
+                    alt="Consultation meeting"
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                
+                {/* Floating Experience Badge (Bottom-Left) */}
+                <div className="absolute -bottom-6 -left-6 bg-accent-500 text-white rounded-2xl p-5 shadow-2xl z-20 flex items-center gap-4 max-w-[240px] text-left border border-white/20">
+                  <div className="text-2xl sm:text-3xl font-black font-display tracking-tight leading-none">
+                    25+
+                  </div>
+                  <div className="h-8 w-[1px] bg-white/20"></div>
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-wider leading-tight">
+                      {lang === 'en' ? 'Years' : 'Ans'}
+                    </p>
+                    <p className="text-[9px] font-extrabold text-white/80 leading-normal">
+                      {lang === 'en' ? 'Of experience in consulting service' : "D'expérience dans l'éducation et conseil"}
+                    </p>
+                  </div>
+                </div>
+
               </div>
             </div>
-
-            {/* Bento Card 5: Gradient purple with overlapping avatars */}
-            <div className="col-span-12 md:col-span-12 lg:col-span-3 bg-gradient-to-br from-violet-600 to-indigo-700 text-white rounded-3xl p-6 flex flex-col justify-between text-left shadow-lg relative overflow-hidden">
-              {/* Overlapping Avatars Header mimicking mockup exactly */}
-              <div className="flex items-center -space-x-2.5 mb-6">
-                <img
-                  className="w-8 h-8 rounded-full border-2 border-violet-600 object-cover"
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop"
-                  alt="Student 1"
-                  referrerPolicy="no-referrer"
-                />
-                <img
-                  className="w-8 h-8 rounded-full border-2 border-violet-600 object-cover"
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop"
-                  alt="Student 2"
-                  referrerPolicy="no-referrer"
-                />
-                <img
-                  className="w-8 h-8 rounded-full border-2 border-violet-600 object-cover"
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=120&auto=format&fit=crop"
-                  alt="Student 3"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-
-              <div>
-                <h3 className="text-lg sm:text-xl font-black font-display tracking-tight leading-none text-white">
-                  {lang === 'en' ? 'Get Start With Us' : 'Lancez-vous Avec Nous'}
-                </h3>
-                <p className="text-[11px] text-violet-100 leading-relaxed mt-2 font-medium">
-                  {lang === 'en' 
-                    ? 'Schedule a direct diagnostic interview or call to build your tailored linguistic curriculum.' 
-                    : 'Inscrivez-vous maintenant pour réserver votre test d’évaluation et planifier vos cours.'}
-                </p>
-              </div>
-            </div>
-
+            
           </div>
-
         </div>
       </section>
     </div>
