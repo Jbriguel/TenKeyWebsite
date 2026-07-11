@@ -46,20 +46,20 @@ export default function Selections({ lang }: SelectionsProps) {
   };
 
   return (
-    <section className="py-24 bg-[#f4effc] text-slate-900 relative overflow-hidden">
+    <section className="py-24 bg-brand-50 text-slate-900 relative overflow-hidden">
       {/* Subtle decorative curves to emulate the mockup wave context */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-violet-200/20 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute -bottom-10 left-10 w-[400px] h-[400px] bg-violet-100/30 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-500/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -bottom-10 left-10 w-[400px] h-[400px] bg-brand-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Header Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
           <div className="lg:col-span-6 text-left">
-            <span className="text-violet-700 bg-violet-100 text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full uppercase inline-block mb-4">
+            <span className="text-accent-500 bg-accent-500/10 text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full uppercase inline-block mb-4">
               {lang === 'en' ? sectionData.badge.en : sectionData.badge.fr}
             </span>
-            <h2 className="text-3xl sm:text-4.5xl font-black text-slate-950 tracking-tight font-display leading-tight">
+            <h2 className="text-3xl sm:text-4.5xl font-black text-brand-600 tracking-tight font-display leading-tight">
               {lang === 'en' ? sectionData.title.en : sectionData.title.fr}
             </h2>
           </div>
@@ -81,23 +81,23 @@ export default function Selections({ lang }: SelectionsProps) {
               transition={{ duration: 0.5, delay: idx * 0.15 }}
               className={`flex flex-col justify-between rounded-[2rem] p-6 sm:p-8 transition-transform duration-300 hover:-translate-y-1 shadow-md ${
                 card.isDark 
-                  ? 'bg-slate-950 text-white' 
-                  : 'bg-[#e9e3f8] text-slate-900 border border-violet-100'
+                  ? 'bg-brand-950 text-white border border-brand-800' 
+                  : 'bg-white text-slate-900 border border-brand-100'
               }`}
             >
               <div>
                 <div className="flex justify-between items-start gap-4 mb-4">
-                  <h3 className="text-lg sm:text-xl font-black tracking-tight leading-tight">
+                  <h3 className="text-lg sm:text-xl font-black tracking-tight leading-tight font-display">
                     {lang === 'en' ? card.title.en : card.title.fr}
                   </h3>
                   <div className={`p-2 rounded-full shrink-0 ${
-                    card.isDark ? 'bg-white/10 text-white' : 'bg-slate-950/5 text-slate-950'
+                    card.isDark ? 'bg-white/10 text-white' : 'bg-brand-100 text-brand-600'
                   }`}>
                     <ArrowUpRight className="w-5 h-5" />
                   </div>
                 </div>
                 <p className={`text-xs leading-relaxed mb-6 font-medium ${
-                  card.isDark ? 'text-slate-400' : 'text-slate-600'
+                  card.isDark ? 'text-brand-100/70' : 'text-slate-500'
                 }`}>
                   {lang === 'en' ? card.desc.en : card.desc.fr}
                 </p>
