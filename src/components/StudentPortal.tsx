@@ -208,24 +208,87 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8 text-left">
-      <div className="max-w-7xl mx-auto">
-        
-        {/* Page Title & Breadcrumb */}
-        <div className="mb-10 text-center sm:text-left">
-          <span className="inline-flex items-center gap-1.5 bg-brand-50 text-brand-700 text-xs font-extrabold px-3 py-1.5 rounded-full border border-brand-100 mb-3">
-            <GraduationCap className="w-4 h-4 text-brand-600" />
-            <span>{lang === 'en' ? 'ONLINE STUDENT PORTAL' : 'PORTAL ÉTUDIANT & CANDIDATS'}</span>
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-display">
-            {lang === 'en' ? 'Candidate Workspace' : 'Espace Numérique Candidat'}
-          </h1>
-          <p className="text-slate-500 text-sm mt-2 max-w-2xl">
-            {lang === 'en' 
-              ? 'Self-assess your English level, search & download your official physical onboarding registration pass, or custom-plan your future weekly schedules.'
-              : 'Évaluez instantanément votre niveau d\'anglais, recherchez & téléchargez votre ticket d\'inscription officiel, ou planifiez votre futur calendrier d\'études.'}
-          </p>
+    <div className="bg-slate-50 min-h-screen text-left">
+      {/* IMMERSIVE PREMIUM STUDENT PORTAL HERO */}
+      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-brand-950 text-white overflow-hidden border-b border-brand-900/40">
+        {/* Glowing gold and brand blue backdrop light leaks */}
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent-500/10 rounded-full blur-[110px] pointer-events-none"></div>
+        <div className="absolute bottom-5 left-10 w-[300px] h-[300px] bg-brand-500/10 rounded-full blur-[90px] pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
+            
+            {/* Left Column: Text & Workspace info */}
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-1.5 bg-brand-900/80 border border-brand-800 text-accent-400 text-xs font-black tracking-widest px-4 py-2 rounded-full uppercase mb-6 shadow-sm">
+                <GraduationCap className="w-4.5 h-4.5 text-accent-500" />
+                <span>{lang === 'en' ? 'ONLINE STUDENT PORTAL' : 'PORTAIL ÉTUDIANT & CANDIDATS'}</span>
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight leading-[1.1] text-white font-display mb-6">
+                {lang === 'en' ? 'Candidate' : 'Espace Numérique'}{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-amber-300">
+                  {lang === 'en' ? 'Workspace' : 'Candidat'}
+                </span>
+              </h1>
+
+              <p className="text-sm sm:text-base text-brand-100/70 leading-relaxed font-semibold mb-8 max-w-xl">
+                {lang === 'en'
+                  ? 'Self-assess your English level, search & download your official physical onboarding registration pass, or custom-plan your future weekly schedules.'
+                  : 'Évaluez instantanément votre niveau d\'anglais, recherchez & téléchargez votre ticket d\'inscription officiel, ou planifiez votre futur calendrier d\'études.'}
+              </p>
+
+              {/* Workspace quick highlights */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  lang === 'en' ? 'Interactive placement test' : 'Test de placement interactif',
+                  lang === 'en' ? 'Onboarding pass lookups' : 'Recherche de ticket d’inscription',
+                  lang === 'en' ? 'Interactive study planners' : 'Simulateur d’emploi du temps',
+                  lang === 'en' ? 'Instant result certifications' : 'Attestation de niveau immédiate'
+                ].map((hl, idx) => (
+                  <div key={idx} className="flex items-center gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-accent-400 shrink-0" />
+                    <span className="text-xs font-bold text-brand-100">{hl}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: Visual illustration element */}
+            <div className="lg:col-span-5 relative flex justify-center">
+              <div className="relative w-full max-w-[380px] aspect-square">
+                {/* Visual Collage Card */}
+                <div className="w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-brand-800/40 relative z-10">
+                  <img
+                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop"
+                    alt="Digital learning dashboard workspace"
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-transparent to-brand-950/10"></div>
+                </div>
+
+                {/* Floating Glassmorphism Metric Badge */}
+                <div className="absolute -bottom-6 -right-6 bg-brand-900/90 backdrop-blur-md border border-brand-800 text-white rounded-2xl p-4 shadow-2xl z-20 flex items-center gap-3.5 max-w-[200px] text-left">
+                  <div className="w-10 h-10 rounded-xl bg-accent-500/10 text-accent-400 flex items-center justify-center shrink-0">
+                    <Sparkles className="w-5.5 h-5.5" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-black font-display text-accent-400">A1 - C2</p>
+                    <p className="text-[9px] font-bold text-brand-100 leading-normal">
+                      {lang === 'en' ? 'CEFR Level Assessment Standards' : 'Normes d’Évaluation Cadre Européen'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
+      </section>
+
+      {/* Main Workspace Workspace Tabs Content Area */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
         {/* Dynamic Multi-Tab Switcher (PREMIUM FEEL) */}
         <div className="grid grid-cols-3 gap-2 p-1.5 bg-slate-200/60 rounded-2xl mb-8 border border-slate-200">
