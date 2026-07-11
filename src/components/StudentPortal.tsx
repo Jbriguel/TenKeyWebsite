@@ -347,7 +347,7 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
               ) : (
                 /* TEST COMPLETED VIEW - VERY PREMIUM GAUGES */
                 <div className="text-center py-6">
-                  <div className="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md border border-emerald-100">
+                  <div className="w-20 h-20 bg-accent-50 text-accent-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md border border-accent-100">
                     <ShieldCheck className="w-10 h-10" />
                   </div>
 
@@ -473,7 +473,7 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
                           <p className="text-[10px] text-slate-400 uppercase tracking-widest font-extrabold">TEN KEY CENTER PASSPORT</p>
                           <h4 className="text-base font-extrabold text-slate-900 font-display mt-0.5">{retrievedTicket.name}</h4>
                         </div>
-                        <span className="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">
+                        <span className="bg-brand-100 text-brand-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">
                           {lang === 'en' ? retrievedTicket.status.en : retrievedTicket.status.fr}
                         </span>
                       </div>
@@ -494,7 +494,7 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
                         </div>
                         <div>
                           <p className="text-slate-400 font-bold uppercase tracking-wider text-[10px]">{lang === 'en' ? 'PAYMENT STATUS' : 'STATUT FINANCIER'}</p>
-                          <p className="font-extrabold text-emerald-700 mt-1">{lang === 'en' ? retrievedTicket.payment.en : retrievedTicket.payment.fr}</p>
+                          <p className="font-extrabold text-accent-500 mt-1">{lang === 'en' ? retrievedTicket.payment.en : retrievedTicket.payment.fr}</p>
                         </div>
                       </div>
 

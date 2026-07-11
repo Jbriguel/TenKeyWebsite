@@ -150,7 +150,7 @@ export default function PricingTable({ lang, onSelectPlan }: PricingTableProps) 
 
                     {/* Cost */}
                     <td className="py-5 px-6">
-                      <div className="whitespace-pre-line font-bold text-brand-900 bg-emerald-50 text-emerald-800 text-xs px-3 py-1.5 rounded-lg inline-block leading-relaxed">
+                      <div className="whitespace-pre-line font-bold text-brand-900 bg-brand-50 text-brand-800 text-xs px-3 py-1.5 rounded-lg inline-block leading-relaxed">
                         {plan.cost}
                       </div>
                     </td>
@@ -189,7 +189,7 @@ export default function PricingTable({ lang, onSelectPlan }: PricingTableProps) 
                   <h3 className="font-extrabold text-brand-950 font-display text-base">
                     {lang === 'en' ? plan.moduleName : plan.frenchModuleName}
                   </h3>
-                  <span className="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase shrink-0">
+                  <span className="bg-brand-50 text-brand-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase shrink-0">
                     {plan.id === 'p6' ? (lang === 'en' ? 'Free' : 'Gratuit') : (lang === 'en' ? 'Premium' : 'Premium')}
                   </span>
                 </div>
@@ -202,7 +202,7 @@ export default function PricingTable({ lang, onSelectPlan }: PricingTableProps) 
                     </span>
                   </div>
                   <div className="flex items-start gap-2 text-gray-500">
-                    <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-accent-500 shrink-0 mt-0.5" />
                     <span className="whitespace-pre-line font-medium leading-normal">
                       {lang === 'en' ? plan.option : plan.frenchOption}
                     </span>
@@ -214,7 +214,7 @@ export default function PricingTable({ lang, onSelectPlan }: PricingTableProps) 
                     <p className="text-[10px] uppercase tracking-wider text-gray-400 font-bold mb-0.5">
                       {lang === 'en' ? 'FEES / COÛTS' : 'TARIFS / COÛTS'}
                     </p>
-                    <div className="whitespace-pre-line text-xs font-extrabold text-brand-900 bg-emerald-50/50 text-emerald-800 px-3 py-1 rounded-lg">
+                    <div className="whitespace-pre-line text-xs font-extrabold text-brand-900 bg-brand-50/50 text-brand-800 px-3 py-1 rounded-lg">
                       {plan.cost}
                     </div>
                   </div>

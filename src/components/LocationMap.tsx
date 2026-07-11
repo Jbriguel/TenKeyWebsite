@@ -162,7 +162,7 @@ export default function LocationMap({ lang }: LocationMapProps) {
                   {lang === 'en' ? 'Interactive Area Map' : 'Plan d\'Accès Interactif'}
                 </span>
               </div>
-              <span className="bg-emerald-500 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider animate-pulse">
+              <span className="bg-accent-500 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider animate-pulse">
                 {lang === 'en' ? 'Near Laus Deo' : 'Quartier Avedji'}
               </span>
             </div>

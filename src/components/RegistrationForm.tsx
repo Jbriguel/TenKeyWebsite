@@ -240,7 +240,7 @@ export default function RegistrationForm({ lang, selectedModuleName, setSelected
 
               {/* Quiz Completed Banner */}
               {quizCompleted && (
-                <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-4 text-center">
+                <div className="bg-brand-50 border border-brand-100 rounded-2xl p-4 text-center">
                   <span className="text-2xl">🎉</span>
                   <h4 className="font-extrabold text-brand-950 text-sm font-display mt-2">
                     {lang === 'en' ? 'Quiz Completed!' : 'Test de Niveau Terminé !'}
@@ -248,10 +248,10 @@ export default function RegistrationForm({ lang, selectedModuleName, setSelected
                   <p className="text-gray-500 text-[11px] mt-1 mb-3">
                     {lang === 'en' ? 'Your estimated proficiency is:' : 'Votre niveau estimé est :'}
                   </p>
-                  <div className="inline-block bg-emerald-600 text-white font-extrabold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider mb-3">
+                  <div className="inline-block bg-accent-500 text-white font-extrabold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider mb-3">
                     {estimatedLevel}
                   </div>
-                  <p className="text-[10px] text-emerald-800 font-semibold leading-relaxed mb-4">
+                  <p className="text-[10px] text-brand-800 font-semibold leading-relaxed mb-4">
                     {lang === 'en'
                       ? `We have automatically selected "${selectedModuleName}" in your registration form below.`
                       : `Nous avons automatiquement présélectionné "${selectedModuleName}" dans le formulaire ci-dessous.`}
@@ -445,8 +445,8 @@ export default function RegistrationForm({ lang, selectedModuleName, setSelected
                   exit={{ opacity: 0, scale: 0.95 }}
                   className="bg-white border border-gray-100 rounded-3xl p-6 sm:p-8 shadow-2xl text-left"
                 >
-                  <div className="bg-emerald-50 text-emerald-800 p-4 rounded-2xl flex items-center gap-3 mb-6">
-                    <CheckCircle2 className="w-5 h-5 shrink-0" />
+                  <div className="bg-brand-50 text-brand-800 p-4 rounded-2xl flex items-center gap-3 mb-6">
+                    <CheckCircle2 className="w-5 h-5 shrink-0 text-accent-500" />
                     <div className="text-xs font-bold leading-normal">
                       {lang === 'en'
                         ? 'Admission Reservation Confirmed! Your official boarding pass is listed below.'
