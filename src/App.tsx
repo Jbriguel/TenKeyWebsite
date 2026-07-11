@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Selections from './components/Selections';
+import SuccessManagement from './components/SuccessManagement';
 import Services from './components/Services';
 import About from './components/About';
 import ValueProposition from './components/ValueProposition';
@@ -113,6 +114,9 @@ export default function App() {
 
               {/* Our Selections Section */}
               <Selections lang={lang} />
+
+              {/* Success Management Showcase */}
+              <SuccessManagement lang={lang} />
 
               {/* Quick Services Preview */}
               <Services
