@@ -174,86 +174,111 @@ export function NeonGlowCTA({ lang, onAction }: CTAProps) {
 }
 
 /**
- * STYLE B: "THE EXECUTIVE LUXURY PANEL" (Sleek corporate style)
- * Ideal for Services Page - Structured, elegant, showcasing credibility, physical address & hybrid learning.
+ * STYLE B: "FULL-WIDTH EXECUTIVE CTA"
+ * Clean, centered, high-conversion CTA with animated stats.
  */
 export function ExecutiveLuxuryCTA({ lang, onAction }: CTAProps) {
-  return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-brand-950 to-brand-900 rounded-[2rem] border border-brand-800 p-8 sm:p-12 lg:p-14 my-16 shadow-2xl text-left">
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent-500/5 rounded-full blur-3xl pointer-events-none"></div>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
-        
-        {/* Main Text Content */}
-        <div className="lg:col-span-8">
-          <div className="inline-flex items-center gap-1.5 bg-accent-500/10 border border-accent-500/20 text-accent-400 text-[10px] font-black tracking-widest px-3 py-1.5 rounded-md uppercase mb-5">
-            <Award className="w-3.5 h-3.5 text-accent-500" />
-            <span>{lang === 'en' ? 'ACCREDITED BILINGUAL HUB' : 'CENTRE BILIGUE AGRÉÉ'}</span>
-          </div>
+  const stats = [
+    { value: '98%', label: { en: 'Exam Success', fr: 'Réussite Examens' } },
+    { value: '15+', label: { en: 'Corporate Clients', fr: 'Clients Entreprises' } },
+    { value: '8', label: { en: 'Training Modules', fr: 'Modules de Formation' } },
+    { value: '10+', label: { en: 'Years of Expertise', fr: "Années d'Expertise" } },
+  ];
 
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight font-display mb-4">
-            {lang === 'en' 
-              ? 'Need a Customized Corporate Plan or Certified Translation Audit?'
-              : 'Besoin d’un Plan Entreprise Sur-Mesure ou d’un Audit de Traduction ?'}
+  return (
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white via-brand-50/30 to-white py-24 sm:py-32">
+      {/* Decorative wavy lines */}
+      {/* <svg
+        className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 opacity-20 pointer-events-none"
+        viewBox="0 0 400 400"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M50 100c40-40 120-40 160 0s120 40 160 0"
+          stroke="currentColor"
+          strokeWidth="2"
+          className="text-brand-600"
+        />
+        <path
+          d="M50 150c40-40 120-40 160 0s120 40 160 0"
+          stroke="currentColor"
+          strokeWidth="2"
+          className="text-brand-600"
+        />
+        <path
+          d="M50 200c40-40 120-40 160 0s120 40 160 0"
+          stroke="currentColor"
+          strokeWidth="2"
+          className="text-brand-600"
+        />
+        <path
+          d="M50 250c40-40 120-40 160 0s120 40 160 0"
+          stroke="currentColor"
+          strokeWidth="2"
+          className="text-brand-600"
+        />
+      </svg> */}
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center max-w-3xl mx-auto"
+        > 
+          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-tight font-display mb-5">
+            {lang === 'en'
+              ? 'Ready to Transform Your Team’s Language Skills?'
+              : 'Prêt à Transformer les Compétences Linguistiques de Votre Équipe ?'}
           </h3>
 
-          <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 max-w-2xl font-medium">
+          <p className="text-slate-500 text-sm sm:text-base leading-relaxed mb-8 max-w-2xl mx-auto font-medium">
             {lang === 'en'
-              ? 'Whether you require private executive coaching (VIP) or intensive group sessions for your company staff, we create structured curriculum targeted to your sector.'
-              : 'Que vous ayez besoin d’un coaching exécutif privé (VIP) ou de sessions de groupe intensives pour vos équipes, nous formulons un programme sur-mesure pour votre secteur d’activité.'}
+              ? 'Book a free placement test or request a custom corporate proposal. Our advisors will reply within 24 hours.'
+              : 'Réservez un test de placement gratuit ou demandez une proposition entreprise personnalisée. Nos conseillers répondent sous 24h.'}
           </p>
 
-          {/* Three horizontal highlights */}
-          <div className="flex flex-wrap gap-x-8 gap-y-3 mb-8">
-            {[
-              lang === 'en' ? '✓ ISO-aligned modules' : '✓ Modules alignés ISO',
-              lang === 'en' ? '✓ Official Certifications' : '✓ Diplômes officiels certifiés',
-              lang === 'en' ? '✓ Center & Online hybrid' : '✓ Formats Présentiel & En ligne'
-            ].map((text, idx) => (
-              <span key={idx} className="text-xs font-black text-accent-400 tracking-wider uppercase">
-                {text}
-              </span>
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
+            <motion.button
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => onAction?.('Executive Corporate Custom Plan')}
+              className="bg-brand-600 hover:bg-brand-700 text-white font-black text-xs uppercase tracking-widest px-8 py-4 rounded-xl transition-colors duration-300 shadow-lg shadow-brand-900/15 cursor-pointer inline-flex items-center gap-2"
+            >
+              <span>{lang === 'en' ? 'Book Free Placement' : 'Réserver Mon Test Gratuit'}</span>
+              <ArrowRight className="w-4 h-4" />
+            </motion.button>
+            <motion.button
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => onAction?.('Custom Corporate Plan')}
+              className="bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 font-black text-xs uppercase tracking-widest px-8 py-4 rounded-xl transition-colors duration-300 cursor-pointer"
+            >
+              {lang === 'en' ? 'Request a Proposal' : 'Demander un Devis'}
+            </motion.button>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-200 rounded-2xl overflow-hidden border border-slate-200">
+            {stats.map((stat, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="bg-white p-6 sm:p-8 text-center"
+              >
+                <p className="text-2xl sm:text-3xl font-black text-slate-950 font-display mb-1">{stat.value}</p>
+                <p className="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider">{lang === 'en' ? stat.label.en : stat.label.fr}</p>
+              </motion.div>
             ))}
           </div>
-
-          <div className="flex flex-wrap gap-4">
-            <button
-              onClick={() => onAction?.('Executive Corporate Custom Plan')}
-              className="bg-accent-500 hover:bg-accent-600 text-brand-950 font-black text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-all duration-300 shadow-md hover:-translate-y-0.5 active:scale-95 cursor-pointer"
-            >
-              {lang === 'en' ? 'Consult Our Experts' : 'Consulter Nos Experts'}
-            </button>
-            <button
-              onClick={() => {
-                const form = document.getElementById('contact-form-section');
-                if (form) form.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="bg-white/5 hover:bg-white/10 text-white border border-white/10 font-black text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-all active:scale-95 cursor-pointer"
-            >
-              {lang === 'en' ? 'Download Brochure' : 'Télécharger la Brochure'}
-            </button>
-          </div>
-        </div>
-
-        {/* Side Badge Panel */}
-        <div className="lg:col-span-4 w-full bg-brand-950/40 border border-brand-800 rounded-2xl p-6 text-center">
-          <MapPin className="w-8 h-8 text-accent-500 mx-auto mb-3" />
-          <h4 className="text-xs font-black text-white uppercase tracking-widest mb-1">
-            {lang === 'en' ? 'Lomé Head Office' : 'Siège Principal à Lomé'}
-          </h4>
-          <p className="text-[11px] text-slate-400 font-bold leading-relaxed mb-4">
-            {lang === 'en' 
-              ? 'Located on Bd du 13 Janvier, Lomé, Togo. Easily accessible with secure on-site parking.' 
-              : 'Situé sur le Bd du 13 Janvier, Lomé, Togo. Facile d’accès avec parking sécurisé.'}
-          </p>
-          <div className="h-[1px] bg-brand-800 w-full my-3"></div>
-          <p className="text-[10px] text-slate-500 font-extrabold uppercase">
-            {lang === 'en' ? 'OPEN MON - SAT: 7:30 - 20:30' : 'OUVERT LUN - SAM : 7h30 - 20h30'}
-          </p>
-        </div>
-
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
 

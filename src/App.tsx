@@ -97,10 +97,8 @@ export default function App() {
               transition={{ duration: 0.3 }}
             >
               <ServicesPage
-                lang={lang}
+                currentLang={lang}
                 onRegisterRedirect={handleRegisterRedirect}
-                selectedModuleName={selectedModuleName}
-                setSelectedModuleName={setSelectedModuleName}
               />
             </motion.div>
           )}
