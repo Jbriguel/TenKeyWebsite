@@ -93,10 +93,11 @@ export default function Selections({ lang }: SelectionsProps) {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
-              className={`flex flex-col justify-between rounded-[2rem] p-6 sm:p-8 transition-transform duration-300 hover:-translate-y-1 shadow-md ${
-                card.isDark 
-                  ? 'bg-brand-950 text-white border border-brand-800' 
+              transition={{ duration: 0.6, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -8, transition: { duration: 0.25, ease: 'easeOut' } }}
+              className={`group flex flex-col justify-between rounded-[2rem] p-6 sm:p-8 shadow-md transition-shadow duration-300 hover:shadow-xl ${
+                card.isDark
+                  ? 'bg-brand-950 text-white border border-brand-800'
                   : 'bg-white text-slate-900 border border-brand-100'
               }`}
             >
@@ -105,7 +106,7 @@ export default function Selections({ lang }: SelectionsProps) {
                   <h3 className="text-lg sm:text-xl font-black tracking-tight leading-tight font-display">
                     {lang === 'en' ? card.title.en : card.title.fr}
                   </h3>
-                  <div className={`p-2 rounded-full shrink-0 ${
+                  <div className={`p-2 rounded-full shrink-0 transition-transform duration-300 group-hover:rotate-45 ${
                     card.isDark ? 'bg-white/10 text-white' : 'bg-brand-100 text-brand-600'
                   }`}>
                     <ArrowUpRight className="w-5 h-5" />
@@ -123,7 +124,7 @@ export default function Selections({ lang }: SelectionsProps) {
                 <img
                   src={card.image}
                   alt={lang === 'en' ? card.title.en : card.title.fr}
-                  className="w-full h-full object-cover grayscale-10 transition-transform duration-500 hover:scale-105"
+                  className="w-full h-full object-cover grayscale-10 transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
               </div>

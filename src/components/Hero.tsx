@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 
 interface HeroProps {
@@ -10,16 +10,19 @@ interface HeroProps {
 
 export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
   const bgImageSrc = '/src/assets/images/corporate_hero_bg_1783686207302.jpg';
+  const { scrollY } = useScroll();
+  const bgY = useTransform(scrollY, [0, 1000], [0, 180]);
 
   return (
-    <section
-      className="relative overflow-hidden bg-slate-950 w-full min-h-screen flex flex-col justify-center"
-      style={{
-        backgroundImage: `url('${bgImageSrc}')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
+    <section className="relative overflow-hidden bg-slate-950 w-full min-h-screen flex flex-col justify-center">
+      <motion.div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `url('${bgImageSrc}')`,
+          y: bgY,
+          scale: 1.1,
+        }}
+      />
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/30 pointer-events-none"></div>
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-600/15 rounded-full filter blur-3xl pointer-events-none animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent-50/5 rounded-full filter blur-3xl pointer-events-none"></div>
@@ -27,9 +30,9 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
         <div className="max-w-3xl text-left text-white">
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="text-3xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-black tracking-tight leading-[1.1] mb-6 font-display"
           >
             {/* {lang === 'en' ? (
@@ -58,9 +61,9 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed mb-8 font-medium"
           >
             {lang === 'en'
@@ -69,9 +72,9 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
           >
             <button

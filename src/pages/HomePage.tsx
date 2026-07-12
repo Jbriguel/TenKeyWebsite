@@ -114,7 +114,13 @@ export default function HomePage({
             </div>
 
             <div className="lg:col-span-6 grid grid-cols-12 gap-3.5">
-              <div className="col-span-7 relative group rounded-3xl overflow-hidden shadow-lg aspect-[3/4]">
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="col-span-7 relative group rounded-3xl overflow-hidden shadow-lg aspect-[3/4]"
+              >
                 <img
                   src="/src/assets/images/lome_bilingual_students_1783685197179.jpg"
                   alt="Students collaborating at Lomé language academy"
@@ -126,10 +132,16 @@ export default function HomePage({
                   <p className="text-[10px] font-black uppercase text-brand-500 tracking-wider">Lomé Campus</p>
                   <p className="text-xs sm:text-sm font-extrabold text-white">Executive Classrooms</p>
                 </div>
-              </div>
+              </motion.div>
 
               <div className="col-span-5 flex flex-col gap-3.5">
-                <div className="relative group rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-100">
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-100px' }}
+                  transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative group rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-100"
+                >
                   <img
                     src="/src/assets/images/lome_interpreter_booth_1783685229916.jpg"
                     alt="Translation cabin conference"
@@ -141,9 +153,15 @@ export default function HomePage({
                     <p className="text-[9px] font-black uppercase text-brand-500 tracking-wider">VIP Cabinet</p>
                     <p className="text-[11px] font-bold text-white">Interpretation</p>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="relative group rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-50">
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-100px' }}
+                  transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative group rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-50"
+                >
                   <img
                     src="/src/assets/images/learning_path_bg_1783685214853.jpg"
                     alt="Adaptive CEFR learning path background"
@@ -155,7 +173,7 @@ export default function HomePage({
                     <p className="text-[9px] font-black uppercase text-slate-900 tracking-wider">Structured</p>
                     <p className="text-[11px] font-extrabold text-slate-900">CEFRL Pathways</p>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>

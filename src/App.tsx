@@ -14,6 +14,8 @@ import GedPage from './pages/GedPage';
 import PricingPage from './pages/PricingPage';
 import AboutPage from './pages/AboutPage';
 import StudentSpacePage from './pages/StudentSpacePage';
+import TermsPage from './pages/TermsPage';
+import PrivacyPage from './pages/PrivacyPage';
 
 export default function App() {
   // Localization: Defaults to 'fr' (French) for Lomé, Togo local audience, with a fast switch to 'en'
@@ -164,6 +166,30 @@ export default function App() {
                 lang={lang}
                 onStudentPortalRedirect={handleStudentPortalRedirect}
               />
+            </motion.div>
+          )}
+
+          {activePage === 'terms' && (
+            <motion.div
+              key="terms-page"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3 }}
+            >
+              <TermsPage lang={lang} />
+            </motion.div>
+          )}
+
+          {activePage === 'privacy' && (
+            <motion.div
+              key="privacy-page"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3 }}
+            >
+              <PrivacyPage lang={lang} />
             </motion.div>
           )}
         </AnimatePresence>
