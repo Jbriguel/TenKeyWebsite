@@ -5,7 +5,7 @@ import { TRAINING_MODULES } from '../data';
 import TrustedExpertise from './TrustedExpertise';
 
 interface ServicesProps {
-  lang: 'en' | 'fr';
+  lang: string;
   onSelectService: (serviceName: string) => void;
 }
 

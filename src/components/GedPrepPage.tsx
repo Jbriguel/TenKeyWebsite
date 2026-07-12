@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { BookOpen, FileText, Users, ArrowRight, Star, CheckCircle } from 'lucide-react';
 
 interface GedPrepPageProps {
-  lang: 'en' | 'fr';
+  lang: string;
   onGetStarted?: () => void;
 }
 

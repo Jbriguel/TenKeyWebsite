@@ -3,41 +3,41 @@ import { motion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 
 interface SelectionsProps {
-  lang: 'en' | 'fr';
+  lang: string;
 }
 
 export default function Selections({ lang }: SelectionsProps) {
   const sectionData = {
-    badge: { en: 'Why Choose Us', fr: 'Pourquoi Nous Choisir' },
-    title: { en: 'Our Selections', fr: 'Nos Sélections' },
+    badge: { en: 'Why TEN KEY', fr: 'Pourquoi TEN KEY' },
+    title: { en: 'What We Deliver', fr: 'Ce Que Nous Apportons' },
     desc: {
-      en: 'We are committed to delivering the highest caliber of bilingual education, professional certification prep, and authorized corporate language training in Lomé. Discover our pathways.',
-      fr: 'Nous nous engageons à fournir le plus haut niveau d’éducation bilingue, de préparation aux examens officiels et de formation professionnelle continue au Togo.'
+      en: 'Practical language training built around real schedules in Lomé. Midday and evening sessions for working professionals, certified exam prep, and sworn translation services.',
+      fr: 'Des formations pratiques adaptées aux vrais rythmes de Lomé. Sessions de midi et de soir pour professionnels actifs, préparation certifiante aux examens et traductions assermentées.'
     },
     cards: [
       {
-        title: { en: 'Industry Recognition', fr: 'Reconnaissance Officielle' },
+        title: { en: 'Recognized Standards', fr: 'Des Standards Reconnus' },
         desc: {
-          en: 'Our language assessments are universally aligned with international benchmarks and recognized by regional bodies.',
-          fr: 'Nos évaluations de niveau et certificats sont alignés sur les standards internationaux (CECRL) reconnus partout.'
+          en: 'Our courses follow the CEFR framework and prepare you for TOEFL, IELTS, TOEIC, TEF, and TCF with official practice patterns.',
+          fr: 'Nos cours suivent le cadre CECRL et préparent aux examens TOEFL, IELTS, TOEIC, TEF et TCF avec des sujets d’entraînement officiels.'
         },
         image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop',
         isDark: false,
       },
       {
-        title: { en: 'Competitive Advantage', fr: 'Avantage Compétitif' },
+        title: { en: 'Schedules That Fit', fr: 'Des Horaires Qui Collent' },
         desc: {
-          en: 'Accelerate your career with customized executive workshops and interactive language training suites.',
-          fr: 'Propulsez votre carrière avec nos ateliers d’immersion active et nos cabinets linguistiques de pointe.'
+          en: 'Lunch-break and after-work classes so you do not have to choose between your job and your progress. VIP coaching is available on demand.',
+          fr: 'Cours en pause déjeuner et après le travail pour ne pas choisir entre votre emploi et votre progression. Coaching VIP sur demande.'
         },
         image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop',
         isDark: true,
       },
       {
-        title: { en: 'Commit To Professionalism', fr: 'Engagement Professionnel' },
+        title: { en: 'Trainers With Field Experience', fr: 'Formateurs D’Expérience Terrain' },
         desc: {
-          en: 'Learn from highly qualified certified native professors and professional legal translators.',
-          fr: 'Apprenez aux côtés d’experts chevronnés, de professeurs natifs et de traducteurs-interprètes agréés.'
+          en: 'Native and certified trainers who have worked with companies, ministries, and international organizations in West Africa.',
+          fr: 'Formateurs natifs et certifiés ayant travaillé avec des entreprises, des ministères et des organisations internationales en Afrique de l’Ouest.'
         },
         image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600&auto=format&fit=crop',
         isDark: false,
@@ -55,19 +55,34 @@ export default function Selections({ lang }: SelectionsProps) {
         
         {/* Header Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
-          <div className="lg:col-span-6 text-left">
-            <span className="text-accent-500 bg-accent-500/10 text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full uppercase inline-block mb-4">
-              {lang === 'en' ? sectionData.badge.en : sectionData.badge.fr}
-            </span>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-6 text-left"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-brand-600 text-[10px] font-black tracking-widest uppercase">
+                {lang === 'en' ? sectionData.badge.en : sectionData.badge.fr}
+              </span>
+              <span className="w-16 h-0.5 bg-brand-600" />
+            </div>
             <h2 className="text-3xl sm:text-4.5xl font-black text-brand-600 tracking-tight font-display leading-tight">
               {lang === 'en' ? sectionData.title.en : sectionData.title.fr}
             </h2>
-          </div>
-          <div className="lg:col-span-6 text-left lg:text-right">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-6 text-left lg:text-right"
+          >
             <p className="text-sm text-slate-500 max-w-xl lg:ml-auto leading-relaxed font-medium">
               {lang === 'en' ? sectionData.desc.en : sectionData.desc.fr}
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Three Column Cards Layout */}

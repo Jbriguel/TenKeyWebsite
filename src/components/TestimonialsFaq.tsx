@@ -4,7 +4,7 @@ import { TESTIMONIALS, FAQS } from '../data';
 import { Star, MessageSquare, ChevronDown, ChevronUp, Sparkles, HelpCircle } from 'lucide-react';
 
 interface TestimonialsFaqProps {
-  lang: 'en' | 'fr';
+  lang: string;
 }
 
 export default function TestimonialsFaq({ lang }: TestimonialsFaqProps) {
@@ -20,11 +20,14 @@ export default function TestimonialsFaq({ lang }: TestimonialsFaqProps) {
         {/* Testimonials Block */}
         <div className="mb-5">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-accent-500 font-extrabold text-xs uppercase tracking-widest bg-accent-50 px-3 py-1.5 rounded-full border border-accent-100">
-              {lang === 'en' ? 'STUDENT SUCCESS STORIES' : 'TEMOIGNAGES DE NOS LAUREATS'}
-            </span>
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <span className="text-brand-600 text-[10px] font-black tracking-widest uppercase">
+                {lang === 'en' ? 'TRAINED PROFESSIONALS' : 'PROFESSIONNELS FORMÉS'}
+              </span>
+              <span className="w-16 h-0.5 bg-brand-600" />
+            </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-950 mt-4 mb-5 tracking-tight font-display">
-              {lang === 'en' ? 'What Our Alumni Say' : 'Ce que disent nos étudiants'}
+              {lang === 'en' ? 'What Our Trainees Say' : 'Ce Que Disent Nos Stagiaires'}
             </h2>
             <div className="w-16 h-1 bg-accent-500 mx-auto rounded-full mb-5"></div>
           </div>

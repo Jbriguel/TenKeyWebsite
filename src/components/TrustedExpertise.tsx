@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { ArrowUpRight, ChevronLeft, ChevronRight, GripHorizontal } from 'lucide-react';
 
 interface TrustedExpertiseProps {
-  lang: 'en' | 'fr';
+  lang: string;
   onSelectService?: (serviceName: string) => void;
 }
 
@@ -54,8 +54,8 @@ export default function TrustedExpertise({ lang, onSelectService }: TrustedExper
       title: { en: 'Corporate &\nBusiness English', fr: 'Anglais des Affaires\n& Professionnel' },
       image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop',
       desc: {
-        en: 'Tailored executive workshops and bimonthly language programs designed for professionals, companies, and organizations to scale global operations.',
-        fr: 'Séminaires de pointe et formations linguistiques bilingues intensives pour cadres, diplomates et cabinets d’affaires.'
+        en: 'Group and one-on-one classes for teams in banking, logistics, ministries, and NGOs. Focus on emails, reports, calls, and presentations.',
+        fr: 'Cours en groupe ou individuels pour des équipes en banque, logistique, ministères et ONG. Emails, rapports, appels et présentations.'
       },
       isDark: false,
     },
@@ -65,11 +65,11 @@ export default function TrustedExpertise({ lang, onSelectService }: TrustedExper
       title: { en: 'Legal & Sworn\nTranslation', fr: 'Traduction Agréée\n& Juridique' },
       image: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=600&auto=format&fit=crop',
       desc: {
-        en: 'Certified high-accuracy translations of official, legal, and academic documents universally recognized by courts and ministries.',
-        fr: 'Traductions certifiées de documents administratifs, juridiques et académiques reconnus partout par les ministères et ambassades.'
+        en: 'Certified translations of contracts, diplomas, birth certificates, and legal acts. Accepted by courts, ministries, and embassies in the sub-region.',
+        fr: 'Traductions certifiées de contrats, diplômes, actes de naissance et documents légaux. Acceptées par tribunaux, ministères et ambassades de la sous-région.'
       },
-      isDark: true, // Dark card like the Litigation card in the mockup!
-      hasDragOverlay: true, // Special tag to place the < DRAG > capsule on the right border
+      isDark: true,
+      hasDragOverlay: true,
     },
     {
       id: 'exams',
@@ -77,8 +77,8 @@ export default function TrustedExpertise({ lang, onSelectService }: TrustedExper
       title: { en: 'Official Exams\nBootcamps', fr: 'Préparation Aux\nExamens Officiels' },
       image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600&auto=format&fit=crop',
       desc: {
-        en: 'Score-boosting training programs with complete diagnostic tests, real timing rules, and native exam expert tips to secure your admissions.',
-        fr: 'Bootcamps rigoureux avec examens blancs (TOEFL, IELTS, TOEIC, TEF) pour maximiser vos scores et valider vos bourses d’études.'
+        en: 'Structured prep for TOEFL, IELTS, TOEIC, TEF, and TCF with mock tests under real conditions, correction sessions, and progress tracking.',
+        fr: 'Préparation structurée aux TOEFL, IELTS, TOEIC, TEF et TCF avec examens blancs en conditions réelles, séances de correction et suivi des progrès.'
       },
       isDark: false,
     },
@@ -88,8 +88,8 @@ export default function TrustedExpertise({ lang, onSelectService }: TrustedExper
       title: { en: 'Executive Speaking\n& Coaching', fr: 'Art Oratoire\n& Leadership' },
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop',
       desc: {
-        en: 'Master cross-border negotiations, lead persuasive presentations, and command absolute authority in international boardrooms.',
-        fr: 'Formations intensives de prise de parole d’impact, de négociation internationale et de confiance devant les conseils d’administration.'
+        en: 'Coaching for public speaking, chairing meetings, and negotiating in English and French. Built for executives and public-sector leaders.',
+        fr: 'Coaching pour parler en public, animer des réunions et négocier en anglais et en français. Conçu pour cadres et responsables publics.'
       },
       isDark: false,
     },
@@ -99,8 +99,8 @@ export default function TrustedExpertise({ lang, onSelectService }: TrustedExper
       title: { en: 'General English\n& Debate Clubs', fr: 'Anglais Général\n& Immersion Active' },
       image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop',
       desc: {
-        en: 'Interactive speaking labs, daily situational simulations, and summer immersion camps designed to foster natural fluency at all ages.',
-        fr: "Clubs de débats d'actualité, ateliers de conversation immersive et camps d'été linguistiques pour libérer la fluidité naturelle."
+        en: 'Saturday conversation club, debate sessions, and intensive holiday programs for young learners and adults who want to speak without overthinking.',
+        fr: 'Club de conversation du samedi, débats d’actualité et stages intensifs de vacances pour jeunes et adultes qui veulent parler sans bloquer.'
       },
       isDark: false,
     }
@@ -134,30 +134,45 @@ export default function TrustedExpertise({ lang, onSelectService }: TrustedExper
         
         {/* Header Row: Matches the mockup typography & alignment exactly */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
-          <div className="lg:col-span-6 text-left">
-            <span className="text-slate-200 border border-slate-800 bg-slate-900/60 text-[10px] font-black tracking-widest px-4 py-2 rounded-full uppercase inline-block mb-5">
-              {lang === 'en' ? 'MY SERVICES' : 'NOS SERVICES'}
-            </span>
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-6 text-left"
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <span className="text-white text-[10px] font-black tracking-widest uppercase">
+                {lang === 'en' ? 'OUR FIELDS' : 'NOS DOMAINES'}
+              </span>
+              <span className="w-16 h-0.5 bg-white" />
+            </div>
             <h2 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold text-white tracking-tight font-display leading-[1.1] mt-1">
               {lang === 'en' ? (
                 <>
-                  Trusted <br />
-                  <span className="text-[#d97706] font-black">Expertise</span>
+                  What We Train <br />
+                  <span className="text-[#d97706] font-black">& Translate</span>
                 </>
               ) : (
                 <>
-                  <span className="text-[#d97706] font-black">Expertise</span> <br />
-                  de Confiance
+                  Ce Que Nous <br />
+                  <span className="text-[#d97706] font-black">Formons & Traduisons</span>
                 </>
               )}
             </h2>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-6 text-left lg:text-right flex flex-col md:flex-row items-start md:items-center lg:justify-end gap-6 pt-4 lg:pt-0">
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-6 text-left lg:text-right flex flex-col md:flex-row items-start md:items-center lg:justify-end gap-6 pt-4 lg:pt-0"
+          >
             <p className="text-sm text-slate-400 max-w-md leading-relaxed font-semibold text-left">
               {lang === 'en' 
-                ? 'We deliver elite language instruction, certified sworn translation near courts, and customized professional operations for global success.'
-                : 'Nous fournissons un enseignement linguistique d’élite, des traductions officielles certifiées et des formations professionnelles sur-mesure.'}
+                ? 'Language training for work, certified translations for administration, and exam preparation that follows official standards. All from our center in Avedji/Adidoadin.'
+                : 'Formations linguistiques pour le travail, traductions certifiées pour l’administration, et préparation aux examens selon les standards officiels. Le tout depuis notre centre à Avedji/Adidoadin.'}
             </p>
 
             {/* Micro navigation buttons exactly inspired by the mockup top right */}
@@ -181,7 +196,7 @@ export default function TrustedExpertise({ lang, onSelectService }: TrustedExper
                 <ChevronRight className="w-5 h-5" />
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Carousel container with mouse/touch drag scrolling and hidden scrollbar */}
@@ -190,9 +205,13 @@ export default function TrustedExpertise({ lang, onSelectService }: TrustedExper
             ref={scrollContainerRef}
             className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-12 pt-2 -mx-4 px-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] select-none scroll-smooth"
           >
-            {services.map((svc) => (
-              <div
+            {services.map((svc, idx) => (
+              <motion.div
                 key={svc.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="snap-start shrink-0 relative"
               >
                 {/* Individual Card */}
@@ -256,15 +275,15 @@ export default function TrustedExpertise({ lang, onSelectService }: TrustedExper
                 </div>
 
                 {/* Draggable Badge sitting between card 2 and card 3 exactly like the mockup! */}
-                {svc.hasDragOverlay && (
+                {/* {svc.hasDragOverlay && (
                   <div className="absolute top-1/2 -right-4.5 -translate-y-1/2 z-20 pointer-events-none hidden md:flex items-center justify-center">
                     <div className="bg-white text-slate-950 text-[9px] font-black tracking-widest px-3.5 py-2.5 rounded-full shadow-2xl border border-slate-100 flex items-center gap-1.5 uppercase">
                       <GripHorizontal className="w-3.5 h-3.5 text-slate-500 shrink-0" />
                       <span>{lang === 'en' ? 'DRAG' : 'GLISSER'}</span>
                     </div>
                   </div>
-                )}
-              </div>
+                )} */}
+              </motion.div>
             ))}
           </div>
         </div>

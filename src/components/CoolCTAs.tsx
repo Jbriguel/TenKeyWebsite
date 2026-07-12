@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Sparkles, CheckCircle2, Phone, Calendar, Send, HelpCircle, ShieldCheck, Clock, Users, Flame, Award, Lightbulb, MapPin, MessagesSquare, Check } from 'lucide-react';
 
 interface CTAProps {
-  lang: 'en' | 'fr';
+  lang: string;
   onAction?: (serviceName?: string) => void;
 }
 
@@ -379,82 +379,7 @@ export function BentoLevelTesterCTA({ lang, onAction }: CTAProps) {
     </div>
   );
 }
-
-/**
- * STYLE D: "THE DUAL-FLAG DIPLOMATIC SHOWCASE" (Bilingual diplomatic layout)
- * Ideal for About Page - Deep corporate trust, prestige accenting, Lomé success emphasis.
- */
-export function DiplomaticShowcaseCTA({ lang, onAction }: CTAProps) {
-  return (
-    <div className="relative overflow-hidden bg-slate-950 text-white rounded-[2rem] border border-slate-800 p-8 sm:p-12 lg:p-16 my-16 shadow-2xl">
-      {/* Flag aesthetic graphics subtly blurred in the background */}
-      <div className="absolute top-1/2 left-0 w-44 h-44 bg-brand-600/5 rounded-full blur-2xl pointer-events-none"></div>
-      <div className="absolute top-1/2 right-0 w-44 h-44 bg-accent-500/5 rounded-full blur-2xl pointer-events-none"></div>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
-        
-        {/* Flag emblems column */}
-        <div className="lg:col-span-4 flex justify-center lg:justify-start gap-4">
-          <div className="relative">
-            {/* Elegant physical layout of premium circular flags representing Togo and Anglophone partnerships */}
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-emerald-600 to-yellow-500 flex items-center justify-center text-white text-lg font-black shadow-lg uppercase relative overflow-hidden border border-white/10">
-              <span className="relative z-10">FR</span>
-              <div className="absolute bottom-0 right-0 w-full h-1 bg-yellow-500"></div>
-            </div>
-          </div>
-          <div className="flex items-center text-slate-400 font-extrabold">
-            <span className="text-xl sm:text-2xl font-mono">⇄</span>
-          </div>
-          <div>
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-brand-600 to-accent-500 flex items-center justify-center text-white text-lg font-black shadow-lg uppercase relative overflow-hidden border border-white/10">
-              <span className="relative z-10">EN</span>
-              <div className="absolute bottom-0 right-0 w-full h-1 bg-accent-500"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Text column */}
-        <div className="lg:col-span-8 text-left">
-          <span className="text-accent-400 text-[10px] font-black tracking-widest uppercase block mb-3">
-            {lang === 'en' ? 'DIPLOMATIC & EXECUTIVE COHORT' : 'COHORTE DIPLOMATIQUE & EXÉCUTIVE'}
-          </span>
-
-          <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug font-display mb-4">
-            {lang === 'en' 
-              ? 'Lomé’s Elite Bilingual Platform' 
-              : 'Le Hub Bilingue d’Élite de Lomé'}
-          </h3>
-
-          <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
-            {lang === 'en'
-              ? 'TEN KEY prepares diplomats, corporate executives, and students for global opportunities. Our native speakers and senior translation coaches guarantee uncompromised results.'
-              : 'TEN KEY forme les cadres d’organisations régionales, diplomates et directeurs aux exigences internationales. Nos locuteurs natifs et traducteurs seniors garantissent des résultats d’excellence.'}
-          </p>
-
-          <div className="flex flex-wrap gap-4">
-            <button
-              onClick={() => onAction?.('Diplomatic Placement Audit')}
-              className="bg-accent-500 hover:bg-accent-600 text-brand-950 font-black text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-all duration-300 shadow-xl hover:-translate-y-0.5 active:scale-95 cursor-pointer"
-            >
-              {lang === 'en' ? 'Book Placement Audit' : 'Planifier un Audit de Niveau'}
-            </button>
-            <a
-              href="https://wa.me/22891883867"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white/5 hover:bg-white/10 text-white border border-white/10 font-black text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-all active:scale-95 cursor-pointer flex items-center gap-2"
-            >
-              <MessagesSquare className="w-4 h-4 text-accent-400" />
-              <span>{lang === 'en' ? 'Direct Chat' : 'Discussion Directe'}</span>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  );
-}
-
+ 
 /**
  * STYLE E: "THE GED BOOTCAMP FLASH CARD" (Extreme highlight accent block)
  * Ideal for GED Prep Page - Vibrant green emphasis, high confidence guarantee.

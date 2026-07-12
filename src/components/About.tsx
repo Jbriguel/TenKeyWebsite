@@ -4,7 +4,7 @@ import { ArrowUpRight, Play, Clock } from 'lucide-react';
 import Selections from './Selections';
 
 interface AboutProps {
-  lang: 'en' | 'fr';
+  lang: string;
 }
 
 export default function About({ lang }: AboutProps) {

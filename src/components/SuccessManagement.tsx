@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 
 interface SuccessManagementProps {
-  lang: 'en' | 'fr';
+  lang: string;
 }
 
 export default function SuccessManagement({ lang }: SuccessManagementProps) {

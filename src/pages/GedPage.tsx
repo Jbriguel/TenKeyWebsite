@@ -26,13 +26,13 @@ export default function GedPage({
         <GedFlashCTA lang={lang} onAction={(actName) => onRegisterRedirect(actName || 'GED Prep - Examen Officiel')} />
       </div>
 
-      <div id="contact-form-section">
+      {/* <div id="contact-form-section">
         <RegistrationForm
           lang={lang}
           selectedModuleName={selectedModuleName || 'GED Prep - Examen Officiel'}
           setSelectedModuleName={setSelectedModuleName}
         />
-      </div>
+      </div> */}
     </>
   );
 }

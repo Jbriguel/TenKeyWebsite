@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MapPin, Navigation, Car, Compass, Landmark, Info } from 'lucide-react';
 
 interface LocationMapProps {
-  lang: 'en' | 'fr';
+  lang: string;
 }
 
 interface TransitRoute {

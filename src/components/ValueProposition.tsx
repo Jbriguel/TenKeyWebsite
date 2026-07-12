@@ -3,7 +3,7 @@ import { Check } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface ValuePropositionProps {
-  lang: 'en' | 'fr';
+  lang: string;
 }
 
 export default function ValueProposition({ lang }: ValuePropositionProps) {

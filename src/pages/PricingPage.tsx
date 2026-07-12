@@ -26,13 +26,13 @@ export default function PricingPage({
         <BentoLevelTesterCTA lang={lang} onAction={onRegisterRedirect} />
       </div>
 
-      <div id="contact-form-section">
+      {/* <div id="contact-form-section">
         <RegistrationForm
           lang={lang}
           selectedModuleName={selectedModuleName}
           setSelectedModuleName={setSelectedModuleName}
         />
-      </div>
+      </div> */}
     </>
   );
 }

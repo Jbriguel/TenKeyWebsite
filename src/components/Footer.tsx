@@ -2,7 +2,7 @@ import React from 'react';
 import { Mail, Phone, MapPin, Clock, Twitter, Instagram, Youtube, ArrowUp } from 'lucide-react';
 
 interface FooterProps {
-  lang: 'en' | 'fr';
+  lang: string;
   setActivePage?: (page: string) => void;
 }
 
@@ -38,9 +38,11 @@ export default function Footer({ lang, setActivePage }: FooterProps) {
           {/* Logo & Description */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="bg-accent-500 text-white font-extrabold text-base w-9 h-9 rounded-lg flex items-center justify-center shadow-md">
-                TK
-              </div>
+              <img
+                src="/logo.jpeg"
+                alt="TEN KEY Centre de Formations"
+                className="h-10 w-auto object-contain rounded-md bg-white p-1"
+              />
               <div className="flex flex-col">
                 <span className="font-extrabold tracking-wider text-white text-sm leading-tight font-display">
                   TEN KEY
@@ -53,8 +55,8 @@ export default function Footer({ lang, setActivePage }: FooterProps) {
 
             <p className="text-brand-200 text-xs leading-relaxed max-w-sm">
               {lang === 'en'
-                ? 'Immersive, interactive, and differentiated language learning programs designed to equip professionals, academics, and kids with world-class English and French fluency.'
-                : 'Programmes d’apprentissage immersifs, interactifs et différenciés conçus pour doter les professionnels, universitaires et enfants d’une maîtrise de l’anglais et du français.'}
+                ? 'Practical English and French training in Lomé for professionals, students, and children. Native trainers, work-compatible schedules, certified translations, and official exam preparation.'
+                : 'Formations pratiques d’anglais et de français à Lomé pour professionnels, étudiants et enfants. Formateurs natifs, horaires adaptés au travail, traductions certifiées et préparation aux examens officiels.'}
             </p>
 
             <div className="flex items-center gap-3 pt-2">

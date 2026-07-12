@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 
 interface StudentPortalProps {
-  lang: 'en' | 'fr';
+  lang: string;
   onRegisterRedirect: (moduleName: string) => void;
 }
 

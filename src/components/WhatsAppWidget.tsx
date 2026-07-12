@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { MessageSquare, Send, X, MessageCircle } from 'lucide-react';
 
 interface WhatsAppWidgetProps {
-  lang: 'en' | 'fr';
+  lang: string;
 }
 
 export default function WhatsAppWidget({ lang }: WhatsAppWidgetProps) {

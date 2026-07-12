@@ -5,8 +5,8 @@ export const TRAINING_MODULES: TrainingModule[] = [
     id: 'general-professional',
     title: 'General & Professional English',
     frenchTitle: 'Anglais Général & Professionnel',
-    description: 'Elevate your English to the level of your professional skills. Perfect for managers, executives, and modern professionals.',
-    frenchDescription: 'Élevez votre anglais au niveau de vos compétences professionnelles. Idéal pour les cadres, managers et professionnels.',
+    description: 'Practical English for daily professional situations : emails, calls, presentations, and negotiations. Built for managers, executives, and teams in Lomé.',
+    frenchDescription: 'Anglais pratique pour les situations professionnelles quotidiennes : emails, appels, présentations et négociations. Conçu pour cadres, managers et équipes à Lomé.',
     iconName: 'Briefcase',
     features: [
       'Tailored for workplace scenarios',
@@ -26,8 +26,8 @@ export const TRAINING_MODULES: TrainingModule[] = [
     id: 'academic',
     title: 'Academic English',
     frenchTitle: 'Anglais Académique',
-    description: 'Prepares you for university studies, academic research, and international professional training programs.',
-    frenchDescription: 'Préparez vos études universitaires, recherches académiques et formations professionnelles internationales.',
+    description: 'Structured preparation for university studies, academic writing, and international professional training programs. Twenty hours per week, Monday to Friday.',
+    frenchDescription: 'Préparation structurée aux études universitaires, à l’écrit académique et aux formations professionnelles internationales. Vingt heures par semaine, du lundi au vendredi.',
     iconName: 'GraduationCap',
     features: [
       'Intensive 20 hours per week',
@@ -46,8 +46,8 @@ export const TRAINING_MODULES: TrainingModule[] = [
     id: 'exams',
     title: 'Exam Preparation',
     frenchTitle: 'Préparation aux Examens',
-    description: 'Master international exams (TOEFL, IELTS, DUOLINGO, TOEIC) to secure your best score and open global doors.',
-    frenchDescription: 'Maîtrisez les examens internationaux (TOEFL, IELTS, DUOLINGO, TOEIC) pour obtenir vos meilleurs scores.',
+    description: 'Targeted preparation for TOEFL, IELTS, DUOLINGO, and TOEIC. Diagnostic tests, official-format exercises, and feedback sessions to reach the score you need.',
+    frenchDescription: 'Préparation ciblée aux TOEFL, IELTS, DUOLINGO et TOEIC. Tests diagnostiques, exercices au format officiel et séances de correction pour atteindre le score requis.',
     iconName: 'Award',
     features: [
       'Official practice exam patterns',
@@ -67,8 +67,8 @@ export const TRAINING_MODULES: TrainingModule[] = [
     id: 'vip',
     title: 'VIP English',
     frenchTitle: 'Anglais VIP (1-on-1)',
-    description: 'Personalized 1-on-1 English classes. One premium trainer dedicated fully to your unique learning speed and schedule.',
-    frenchDescription: 'Cours d\'anglais personnalisés en tête-à-tête. Un formateur dédié entièrement à votre rythme et vos objectifs.',
+    description: 'One-to-one English classes built around your diary and objectives. Ideal for executives, diplomats, and professionals preparing for a specific mission or deadline.',
+    frenchDescription: 'Cours d\'anglais en tête-à-tête construits autour de votre agenda et de vos objectifs. Idéal pour cadres, diplomates et professionnels qui préparent une mission ou une échéance spécifique.',
     iconName: 'Crown',
     features: [
       '1 trainer for 1 learner only',
@@ -107,8 +107,8 @@ export const TRAINING_MODULES: TrainingModule[] = [
     id: 'translation',
     title: 'Translation & Interpretation',
     frenchTitle: 'Cabinet de Traduction & Interprétation',
-    description: 'Translate your official and personal documents. High-quality professional interpretation services for meetings.',
-    frenchDescription: 'Traduisez vos documents officiels ou personnels. Services d\'interprétation haut de gamme pour vos événements.',
+    description: 'Certified translation of administrative, legal, and business documents. Interpretation available for conferences, hearings, and corporate meetings in Lomé and the sub-region.',
+    frenchDescription: 'Traduction certifiée de documents administratifs, légaux et commerciaux. Interprétation disponible pour conférences, audiences et réunions d’entreprise à Lomé et dans la sous-région.',
     iconName: 'FileText',
     features: [
       'Certified document translations',
@@ -147,8 +147,8 @@ export const TRAINING_MODULES: TrainingModule[] = [
     id: 'french-classes',
     title: 'French Classes',
     frenchTitle: 'Cours de Français',
-    description: 'Accelerated and flexible French learning programs for non-francophones living or working in Togo.',
-    frenchDescription: 'Programmes de français accélérés et flexibles pour non-francophones vivant ou travaillant au Togo.',
+    description: 'Practical French for non-francophones living or working in Togo. Conversation, professional writing, and local integration with flexible twice or thrice weekly sessions.',
+    frenchDescription: 'Français pratique pour non-francophones vivant ou travaillant au Togo. Conversation, expression écrite professionnelle et intégration locale, avec des séances flexibles deux ou trois fois par semaine.',
     iconName: 'Globe',
     features: [
       'Practical conversational French',
@@ -248,32 +248,32 @@ export const PRICING_PLANS: PricingPlan[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 't1',
-    name: 'Koffi Mawulikplimi',
-    role: 'Import-Export Officer',
+    name: 'M. Kossi A.',
+    role: 'Responsable Import-Export',
     company: 'Port Autonome de Lomé',
-    quote: 'Thanks to the VIP English sessions at TEN KEY, I was able to negotiate directly with partners in China and Ghana. The practical pedagogy is exactly what I needed.',
-    quoteFrench: 'Grâce aux sessions d\'anglais VIP chez TEN KEY, j\'ai pu négocier directement avec des partenaires en Chine et au Ghana. La pédagogie pratique est exactement ce dont j\'avais besoin.',
-    avatarSeed: 'Koffi',
+    quote: 'After twelve weeks of Executive English at TEN KEY, I led my first negotiation with suppliers in Ghana and China without a translator. The sessions are concrete and directly usable.',
+    quoteFrench: 'Après douze semaines d\'anglais exécutif à TEN KEY, j\'ai piloté ma première négociation avec des fournisseurs au Ghana et en Chine sans interprète. Les séances sont concrètes et immédiatement utilisables.',
+    avatarSeed: 'Kossi',
     rating: 5
   },
   {
     id: 't2',
-    name: 'Abla Jessica',
-    role: 'Graduate Student',
-    company: 'University of Lomé',
-    quote: 'Preparing for the TOEFL at TEN KEY was the turning point in my academic career. I scored 105 and secured a scholarship for my Masters in the UK. Highly recommended!',
-    quoteFrench: 'La préparation du TOEFL à TEN KEY a été le tournant de ma carrière académique. J\'ai obtenu un score de 105 et décroché une bourse pour mon Master au Royaume-Uni. Je recommande vivement !',
-    avatarSeed: 'Jessica',
+    name: 'Mme. Améyo K.',
+    role: 'Consultante Internationale',
+    company: 'Cabinet Afrique Conseils',
+    quote: 'I needed a strong TOEFL score for a consulting contract in Canada. TEN KEY prepared me with real exam conditions and I got 102. The mock tests made the difference.',
+    quoteFrench: 'J\'avais besoin d\'un bon score au TOEFL pour un contrat de consulting au Canada. TEN KEY m\'a préparée dans les conditions réelles de l\'examen et j\'ai obtenu 102. Les examens blancs ont fait la différence.',
+    avatarSeed: 'Ameyo',
     rating: 5
   },
   {
     id: 't3',
-    name: 'Emmanuel Johnson',
-    role: 'Software Engineer',
-    company: 'Fintech Togo',
-    quote: 'The Saturday English Club is simply awesome. It gave me the daily courage and vocabulary flow to shine during my technical interviews with pan-African tech firms.',
-    quoteFrench: 'Le Club d\'anglais du samedi est tout simplement génial. Cela m\'a donné l\'assurance et la fluidité nécessaires pour briller lors de mes entretiens techniques avec des entreprises panafricaines.',
-    avatarSeed: 'Emmanuel',
+    name: 'Dr. Kouamé B.',
+    role: 'Cadre en Institution Publique',
+    company: 'Cité Administrative, Lomé',
+    quote: 'The Saturday English Club helped me handle official correspondence and protocol meetings in English with much more confidence. Highly recommended for any public-sector manager.',
+    quoteFrench: 'Le Club d\'anglais du samedi m\'a aidé à gérer la correspondance officielle et les réunions de protocole en anglais avec beaucoup plus d\'assurance. Fortement recommandé pour tout cadre de la fonction publique.',
+    avatarSeed: 'Kouame',
     rating: 5
   }
 ];
@@ -282,25 +282,37 @@ export const FAQS = [
   {
     question: 'How do I register for courses at TEN KEY?',
     frenchQuestion: 'Comment s\'inscrire aux cours de TEN KEY ?',
-    answer: 'You can start by filling the contact form above, call our office, or visit our physical center at Avedji/Adidoadin near the LAUS DEO pharmacy. Registration requires a 10,000 FCFA fee which covers your Level Test, didactic materials, and an official center T-Shirt.',
-    frenchAnswer: 'Vous pouvez commencer par remplir le formulaire d\'inscription ci-dessus, nous appeler, ou visiter notre centre à Avedji/Adidoadin près de la pharmacie LAUS DEO. L\'inscription coûte 10 000 FCFA et comprend votre Test de Niveau, les supports didactiques et un T-Shirt officiel.'
+    answer: 'You can call us on +228 91 88 38 67, write via WhatsApp, or visit the center at Avedji/Adidoadin near the LAUS DEO pharmacy. Registration is 10,000 FCFA and includes your level test, learning materials, and an official TEN KEY T-Shirt.',
+    frenchAnswer: 'Vous pouvez nous appeler au +228 91 88 38 67, nous écrire sur WhatsApp, ou passer au centre à Avedji/Adidoadin près de la pharmacie LAUS DEO. L\'inscription est de 10 000 FCFA et comprend votre test de niveau, les supports pédagogiques et un T-Shirt officiel TEN KEY.'
   },
   {
-    question: 'Where is the center located in Lomé?',
-    frenchQuestion: 'Où est situé le centre à Lomé ?',
-    answer: 'We are located at Avedji/Adidoadin, Carrefour Adroukpape, right next to the LAUS DEO pharmacy in Lomé, Togo.',
-    frenchAnswer: 'Nous sommes situés à Avedji/Adidoadin, Carrefour Adroukpape, juste à côté de la pharmacie LAUS DEO à Lomé, Togo.'
+    question: 'Where is the center located, and is parking available?',
+    frenchQuestion: 'Où est situé le centre et y a-t-il un parking ?',
+    answer: 'We are at Avedji/Adidoadin, Carrefour Adroukpape, next to the LAUS DEO pharmacy. Parking space is available nearby and the area is accessible from the city center and the port district.',
+    frenchAnswer: 'Nous sommes à Avedji/Adidoadin, Carrefour Adroukpape, juste à côté de la pharmacie LAUS DEO. Un parking est disponible à proximité et le quartier est accessible depuis le centre-ville et le port.'
+  },
+  {
+    question: 'How do classes continue during power cuts?',
+    frenchQuestion: 'Comment les cours continuent-ils en cas de coupure EDM ?',
+    answer: 'Our classrooms are equipped with a backup generator and solar inverter system. Classes run on schedule even during neighborhood power cuts.',
+    frenchAnswer: 'Nos salles sont équipées d\'un groupe électrogène de secours et d\'un onduleur solaire. Les cours se déroulent normalement même en cas de coupure EDM dans le quartier.'
   },
   {
     question: 'What does the registration fee include?',
     frenchQuestion: 'Que comprennent les frais d\'inscription ?',
-    answer: 'The registration fee is 10,000 FCFA. It includes a compulsory level test to assign you to the correct class level, custom-made printed and digital learning materials, and an official TEN KEY T-Shirt.',
-    frenchAnswer: 'Les frais d\'inscription s\'élèvent à 10 000 FCFA. Ils comprennent un test de niveau obligatoire pour vous orienter, les supports d\'apprentissage imprimés et numériques personnalisés, ainsi qu\'un T-Shirt officiel TEN KEY.'
+    answer: 'The 10,000 FCFA registration fee covers a compulsory level test, printed and digital learning materials, and an official TEN KEY T-Shirt. Course fees are listed separately and can be paid in installments.',
+    frenchAnswer: 'Les frais d\'inscription de 10 000 FCFA couvrent le test de niveau obligatoire, les supports pédagogiques imprimés et numériques, ainsi qu\'un T-Shirt officiel TEN KEY. Les frais de cours sont indiqués à part et peuvent être payés en plusieurs tranches.'
+  },
+  {
+    question: 'Can I reach you on WhatsApp for quick questions?',
+    frenchQuestion: 'Puis-je vous joindre sur WhatsApp pour des questions rapides ?',
+    answer: 'Yes. Message us on +228 91 88 38 67. We reply during business hours and can send you the schedule, prices, and registration steps directly in the chat.',
+    frenchAnswer: 'Oui. Écrivez-nous au +228 91 88 38 67. Nous répondons pendant les heures de bureau et pouvons vous envoyer directement les horaires, les tarifs et les étapes d\'inscription dans la discussion.'
   },
   {
     question: 'Are there flexible schedule options for workers?',
-    frenchQuestion: 'Existe-t-il des horaires flexibles pour les professionnels ?',
-    answer: 'Yes! Our General and Professional English program has flexible hours: Midday sessions from 12:30 to 14:00, and evening sessions from 18:30 to 20:30. VIP classes offer total flexibility based on your customized program and availability.',
-    frenchAnswer: 'Oui ! Notre programme d\'Anglais Général et Professionnel propose des horaires adaptés : la pause déjeuner de 12h 30 à 14h 00 ou le soir de 18h 30 à 20h 30. Les cours VIP offrent quant à eux une flexibilité totale.'
+    frenchQuestion: 'Existe-t-il des horaires adaptés aux professionnels ?',
+    answer: 'Yes. Our General & Professional English runs at 12:30-14:00 and 18:30-20:30, Monday to Thursday. VIP classes are arranged around your agenda, including weekends.',
+    frenchAnswer: 'Oui. Notre Anglais Général et Professionnel a lieu de 12h 30 à 14h 00 et de 18h 30 à 20h 30, du lundi au jeudi. Les cours VIP s\'organisent selon votre agenda, y compris le week-end.'
   }
 ];

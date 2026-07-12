@@ -5,7 +5,7 @@ import { Send, CheckCircle2, Ticket, QrCode, ClipboardList, RefreshCw, Star, Inf
 import { RegistrationSubmission } from '../types';
 
 interface RegistrationFormProps {
-  lang: 'en' | 'fr';
+  lang: string;
   selectedModuleName: string;
   setSelectedModuleName: (name: string) => void;
 }

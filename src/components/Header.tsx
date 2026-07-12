@@ -1,6 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Phone, Mail, Menu, X, Sparkles } from 'lucide-react';
+import {
+  Globe,
+  Phone,
+  Menu,
+  X,
+  ChevronDown,
+  MessageCircle,
+  ArrowRight,
+  LayoutGrid,
+  Award,
+  MapPin,
+} from 'lucide-react';
 
 interface HeaderProps {
   lang: 'en' | 'fr';
@@ -10,236 +21,469 @@ interface HeaderProps {
   setActivePage: (page: string) => void;
 }
 
-export default function Header({ lang, setLang, onRegisterClick, activePage, setActivePage }: HeaderProps) {
-  const [isOpen, setIsOpen] = useState(false);
+interface NavChild {
+  page: string;
+  label: { en: string; fr: string };
+  description: { en: string; fr: string };
+  icon: React.ElementType;
+  iconColor: string;
+  iconBg: string;
+}
+
+interface NavItem extends Omit<NavChild, 'description' | 'icon' | 'iconColor' | 'iconBg'> {
+  children?: NavChild[];
+}
+
+const NAV_ITEMS: NavItem[] = [
+  { page: 'home', label: { en: 'Home', fr: 'Accueil' } },
+  {
+    page: 'services',
+    label: { en: 'Services', fr: 'Services' },
+    children: [
+      {
+        page: 'services',
+        label: { en: 'All Services', fr: 'Tous les services' },
+        description: { en: 'Browse our full training catalog', fr: 'Parcourir tout notre catalogue' },
+        icon: LayoutGrid,
+        iconColor: 'text-blue-600',
+        iconBg: 'bg-blue-50',
+      },
+      {
+        page: 'ged-prep',
+        label: { en: 'GED / Exam Prep', fr: 'Préparation GED / Examens' },
+        description: { en: 'International certification prep', fr: 'Préparation aux certifications internationales' },
+        icon: Award,
+        iconColor: 'text-amber-600',
+        iconBg: 'bg-amber-50',
+      },
+    ],
+  },
+  { page: 'pricing', label: { en: 'Pricing', fr: 'Tarifs' } },
+  {
+    page: 'about',
+    label: { en: 'About', fr: 'À Propos' },
+    children: [
+      {
+        page: 'about',
+        label: { en: 'Our Centre', fr: 'Notre centre' },
+        description: { en: 'Address, schedules & contact', fr: 'Adresse, horaires et contact' },
+        icon: MapPin,
+        iconColor: 'text-emerald-600',
+        iconBg: 'bg-emerald-50',
+      },
+    ],
+  },
+  { page: 'student-space', label: { en: 'Student Space', fr: 'Espace Élève' } },
+];
+
+const LANGUAGES: { code: 'en' | 'fr'; label: { en: string; fr: string }; flag: string }[] = [
+  { code: 'fr', label: { en: 'French', fr: 'Français' }, flag: 'FR' },
+  { code: 'en', label: { en: 'English', fr: 'Anglais' }, flag: 'EN' },
+];
+
+export default function Header({
+  lang,
+  setLang,
+  onRegisterClick,
+  activePage,
+  setActivePage,
+}: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const langRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: { en: 'Home', fr: 'Accueil' }, id: 'home' },
-    { name: { en: 'Services & Modules', fr: 'Services & Modules' }, id: 'services' },
-    { name: { en: 'GED Prep', fr: 'Préparation GED' }, id: 'ged-prep' },
-    { name: { en: 'Pricing', fr: 'Tarifs & Horaires' }, id: 'pricing' },
-    { name: { en: 'About', fr: 'À Propos' }, id: 'about' },
-    { name: { en: 'Student Portal', fr: 'Espace Candidat' }, id: 'student-space', badge: true },
-  ];
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(event.target as Node)) {
+        setIsLangOpen(false);
+      }
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const navLabel = (item: typeof NAV_ITEMS[0]) => item.label[lang];
+  const currentLang = LANGUAGES.find((l) => l.code === lang) || LANGUAGES[0];
+
+  const ctaLabel = lang === 'en' ? 'Register' : "S'inscrire";
+  const phone = '+228 91 88 38 67';
+  const whatsapp = '+22891883867';
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full pt-4 pb-2 px-4 sm:px-6 lg:px-8 bg-transparent transition-all duration-300">
-      {/* Detached Rounded Frosted Glass Container */}
-      <div 
-        className={`max-w-7xl mx-auto rounded-2xl md:rounded-full px-4 sm:px-6 py-3 flex justify-between items-center transition-all duration-300 border ${
-          isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-xl shadow-brand-900/5 border-slate-200/50' 
-            : 'bg-white/85 backdrop-blur-lg shadow-lg shadow-brand-900/5 border-slate-200/40'
-        }`}
-      >
-        {/* Logo */}
-        <button
-          onClick={() => {
-            setActivePage('home');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          className="flex items-center gap-2.5 group cursor-pointer text-left focus:outline-none"
-        >
-          <img
-            src="/logo.jpeg"
-            alt="TEN KEY Centre de Formations"
-            className="w-10 h-10 rounded-xl object-cover  group-hover:scale-105 transition-transform duration-300"
-          />
-          {/* <div className="flex flex-col">
-            <span className="font-black tracking-wider text-brand-950 text-sm sm:text-base leading-none font-display flex items-center gap-1">
-              TEN KEY <span className="text-accent-500 text-xs">★</span>
-            </span>
-            <span className="text-[8px] text-gray-500 font-bold tracking-widest uppercase mt-0.5">
-              CENTRE DE FORMATIONS
-            </span>
-          </div> */}
-        </button>
-
-        {/* Desktop Nav Links (High-end track pill styling) */}
-        {/* <div className="hidden md:flex items-center gap-1 bg-brand-50/50 p-1 rounded-full border border-brand-100/50"> */}
-        <div className="hidden md:flex items-center gap-1 p-1 ">
-          {navLinks.map((link, idx) => (
-            <button
-              key={idx}
-              onClick={() => {
-                setActivePage(link.id);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className={`relative text-xs font-medium py-1.5 px-4 rounded-full transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
-                activePage === link.id
-                  ? 'bg-brand-900 text-white shadow-xs'
-                  : 'text-brand-700 hover:text-brand-950 hover:bg-white/50'
-              }`}
-            >
-              <span>{lang === 'en' ? link.name.en : link.name.fr}</span>
-              {link.badge && (
-                <span className={`inline-block w-1.5 h-1.5 rounded-full ${activePage === link.id ? 'bg-accent-400' : 'bg-accent-500'} animate-pulse`}></span>
-              )}
-            </button>
-          ))}
-        </div>
-
-        {/* Right side CTAs & Controls */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          {/* Quick Contact Phone (Hidden on tablet/mobile, sleek hover style) */}
-          {/* <a 
-            href="tel:+22891883867" 
-            className="hidden lg:flex items-center gap-1.5 text-brand-700 hover:text-brand-950 text-xs font-extrabold transition-colors bg-brand-50 hover:bg-brand-100/80 px-3.5 py-1.5 rounded-full border border-brand-100/60"
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-200/60 py-3'
+          : 'bg-white/50 backdrop-blur-sm py-4'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <button
+            onClick={() => setActivePage('home')}
+            className="flex items-center gap-2.5 group cursor-pointer"
+            aria-label="TEN KEY Centre de Formations"
           >
-            <Phone className="w-3.5 h-3.5 text-accent-500 animate-pulse" />
-            <span>+228 91 88 38 67</span>
-          </a> */}
+            <img
+              src="/logo.jpeg"
+              alt="TEN KEY Centre de Formations"
+              className="h-9 w-auto object-contain rounded-md"
+            />
+            <div className="hidden sm:flex flex-col items-start leading-none">
+              <span className="font-black text-brand-900 text-sm tracking-wide font-display">TEN KEY</span>
+              <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">
+                Centre de Formations
+              </span>
+            </div>
+          </button>
 
-          {/* Compact Premium Language Switcher */}
-          <div className="hidden sm:flex items-center gap-0.5 bg-brand-50/80 rounded-full p-0.5 border border-brand-100/80">
-            <button
-              onClick={() => setLang('en')}
-              className={`px-2.5 py-1 rounded-full text-[10px] font-black transition-all cursor-pointer ${
-                lang === 'en'
-                  ? 'bg-brand-900 text-white shadow-xs'
-                  : 'text-brand-600 hover:text-brand-950'
-              }`}
+          {/* Desktop Navigation */}
+          <nav ref={dropdownRef} className="hidden lg:flex items-center gap-1">
+            {NAV_ITEMS.map((item) => {
+              const isActive = activePage === item.page;
+              const hasChildren = item.children && item.children.length > 0;
+              const isOpen = openDropdown === item.page;
+
+              if (hasChildren) {
+                return (
+                  <div
+                    key={item.page}
+                    className="relative"
+                    onMouseEnter={() => setOpenDropdown(item.page)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <button
+                      className={`relative flex items-center gap-1 px-3.5 py-2 text-xs font-bold rounded-full transition-all cursor-pointer ${
+                        isActive
+                          ? 'text-brand-900'
+                          : 'text-slate-600 hover:text-brand-900 hover:bg-slate-100/50'
+                      }`}
+                      aria-expanded={isOpen}
+                      aria-haspopup="menu"
+                    >
+                      {navLabel(item)}
+                      <ChevronDown
+                        className={`w-3 h-3 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                      />
+                      {isActive && (
+                        <motion.div
+                          layoutId="nav-pill"
+                          className="absolute inset-0 bg-slate-100 rounded-full -z-10"
+                          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                        />
+                      )}
+                    </button>
+
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 6, scale: 0.97 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute left-0 top-full pt-3 w-72 z-50"
+                          role="menu"
+                        >
+                          <div className="bg-white border border-slate-100 rounded-2xl shadow-2xl p-2">
+                            {item.children!.map((child) => {
+                              const Icon = child.icon;
+                              return (
+                                <button
+                                  key={child.page}
+                                  onClick={() => {
+                                    setActivePage(child.page);
+                                    setOpenDropdown(null);
+                                  }}
+                                  className={`w-full flex items-center gap-3 text-left px-3 py-3 rounded-xl transition-colors cursor-pointer ${
+                                    activePage === child.page
+                                      ? 'bg-slate-50'
+                                      : 'hover:bg-slate-50'
+                                  }`}
+                                  role="menuitem"
+                                >
+                                  <div
+                                    className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${child.iconBg}`}
+                                  >
+                                    <Icon className={`w-5 h-5 ${child.iconColor}`} />
+                                  </div>
+                                  <div className="min-w-0">
+                                    <p
+                                      className={`text-sm font-bold ${
+                                        activePage === child.page ? 'text-brand-900' : 'text-slate-900'
+                                      }`}
+                                    >
+                                      {child.label[lang]}
+                                    </p>
+                                    <p className="text-xs text-slate-500 font-medium leading-snug mt-0.5">
+                                      {child.description[lang]}
+                                    </p>
+                                  </div>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
+              return (
+                <button
+                  key={item.page}
+                  onClick={() => setActivePage(item.page)}
+                  className={`relative px-3.5 py-2 text-xs font-bold rounded-full transition-all cursor-pointer ${
+                    isActive
+                      ? 'text-brand-900'
+                      : 'text-slate-600 hover:text-brand-900 hover:bg-slate-100/50'
+                  }`}
+                >
+                  {navLabel(item)}
+                  {isActive && (
+                    <motion.div
+                      layoutId="nav-pill"
+                      className="absolute inset-0 bg-slate-100 rounded-full -z-10"
+                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </nav>
+
+          {/* Right Actions */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Language Dropdown */}
+            <div ref={langRef} className="relative">
+              <button
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className="flex items-center gap-1.5 px-2.5 py-2 rounded-lg text-xs font-bold text-slate-600 hover:bg-slate-100/60 transition-colors cursor-pointer"
+                aria-haspopup="listbox"
+                aria-expanded={isLangOpen}
+              >
+                <Globe className="w-4 h-4 text-brand-600" />
+                <span className="hidden sm:inline uppercase tracking-wide">{currentLang.flag}</span>
+                <ChevronDown className={`w-3 h-3 transition-transform ${isLangOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              <AnimatePresence>
+                {isLangOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute right-0 mt-2 w-36 bg-white border border-slate-100 rounded-xl shadow-xl p-1.5 z-50"
+                    role="listbox"
+                  >
+                    {LANGUAGES.map((config) => (
+                      <button
+                        key={config.code}
+                        onClick={() => {
+                          setLang(config.code);
+                          setIsLangOpen(false);
+                        }}
+                        className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-bold transition-colors cursor-pointer ${
+                          lang === config.code
+                            ? 'bg-brand-50 text-brand-900'
+                            : 'text-slate-600 hover:bg-slate-50'
+                        }`}
+                        role="option"
+                        aria-selected={lang === config.code}
+                      >
+                        <span className="w-5 text-center font-black text-[10px]">{config.flag}</span>
+                        <span>{config.label[lang]}</span>
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Quick Contact */}
+            <a
+              href={`tel:${phone.replace(/\s/g, '')}`}
+              className="hidden md:flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold text-slate-600 hover:bg-slate-100/60 transition-colors"
             >
-              EN
+              <Phone className="w-3.5 h-3.5 text-brand-600" />
+              <span>{phone}</span>
+            </a>
+
+            {/* WhatsApp shortcut */}
+            <a
+              href={`https://wa.me/${whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center justify-center w-9 h-9 rounded-full bg-emerald-50 text-emerald-600 hover:bg-emerald-100 transition-colors"
+              aria-label="WhatsApp"
+            >
+              <MessageCircle className="w-4 h-4" />
+            </a>
+
+            {/* CTA */}
+            <button
+              onClick={onRegisterClick}
+              className="flex items-center gap-1.5 bg-brand-900 hover:bg-brand-800 text-white text-xs font-black uppercase tracking-wider px-4 py-2.5 rounded-full shadow-lg shadow-brand-900/15 hover:shadow-brand-900/25 hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer"
+            >
+              <span>{ctaLabel}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
+
+            {/* Mobile Menu Toggle */}
             <button
-              onClick={() => setLang('fr')}
-              className={`px-2.5 py-1 rounded-full text-[10px] font-black transition-all cursor-pointer ${
-                lang === 'fr'
-                  ? 'bg-brand-900 text-white shadow-xs'
-                  : 'text-brand-600 hover:text-brand-950'
-              }`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+              aria-label="Toggle menu"
             >
-              FR
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
-
-          {/* Registration CTA (Desktop / Tablet) */}
-          <button
-            onClick={onRegisterClick}
-            className="hidden sm:flex bg-accent-500 hover:bg-accent-600 text-white font-black text-xs px-5 py-2.5 rounded-full shadow-md shadow-accent-500/10 hover:shadow-accent-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 items-center gap-1.5 cursor-pointer"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{lang === 'en' ? 'Register Now' : "S'inscrire"}</span>
-          </button>
-
-          {/* Mobile Registration CTA (Extra small screens) */}
-          <button
-            onClick={onRegisterClick}
-            className="flex sm:hidden bg-accent-500 text-white font-black text-[11px] px-3.5 py-1.5 rounded-full hover:bg-accent-600 active:scale-95 transition-all shadow-sm"
-          >
-            {lang === 'en' ? 'Register' : "S'inscrire"}
-          </button>
-
-          {/* Unified Menu Trigger (Visible on all screens below md) */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-brand-700 hover:text-brand-950 hover:bg-brand-50 rounded-full transition-all border border-transparent active:scale-95 cursor-pointer"
-            aria-label="Toggle navigation menu"
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
       </div>
 
-      {/* Floating Mobile/Tablet Drawer Menu (Detached, rounded container right below the header) */}
+      {/* Mobile Menu */}
       <AnimatePresence>
-        {isOpen && (
+        {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: -10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute left-4 right-4 mt-2 p-5 z-40 bg-white/95 backdrop-blur-lg border border-slate-200/50 shadow-xl rounded-2xl flex flex-col gap-4"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25 }}
+            className="lg:hidden bg-white border-b border-slate-100 overflow-hidden"
           >
-            <div className="flex flex-col gap-1.5">
-              {navLinks.map((link, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => {
-                    setActivePage(link.id);
-                    setIsOpen(false);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className={`w-full text-left text-sm font-bold py-2.5 px-4 rounded-xl transition-all flex items-center justify-between cursor-pointer ${
-                    activePage === link.id
-                      ? 'bg-brand-900 text-white shadow-sm'
-                      : 'text-brand-700 hover:text-brand-950 hover:bg-brand-50'
-                  }`}
-                >
-                  <span>{lang === 'en' ? link.name.en : link.name.fr}</span>
-                  {link.badge && (
-                    <span className={`inline-block w-1.5 h-1.5 rounded-full ${activePage === link.id ? 'bg-accent-400' : 'bg-accent-500'} animate-pulse`}></span>
-                  )}
-                </button>
-              ))}
-            </div>
-            
-            <div className="h-[1px] bg-slate-100 my-1"></div>
-            
-            {/* Quick Mobile / Tablet Tappable Contact Cards */}
-            <div className="grid grid-cols-2 gap-2.5">
-              <a
-                href="tel:+22891883867"
-                className="flex items-center justify-center gap-2 py-2.5 rounded-xl border border-brand-100 bg-brand-50 text-brand-950 hover:bg-brand-100 text-xs font-bold transition-all"
-              >
-                <Phone className="w-3.5 h-3.5 text-accent-500" />
-                <span>{lang === 'en' ? 'Call Us' : 'Appeler'}</span>
-              </a>
-              <a
-                href="mailto:contact@tenkeycenter.com"
-                className="flex items-center justify-center gap-2 py-2.5 rounded-xl border border-brand-100 bg-brand-50 text-brand-950 hover:bg-brand-100 text-xs font-bold transition-all"
-              >
-                <Mail className="w-3.5 h-3.5 text-accent-500" />
-                <span>Email</span>
-              </a>
-            </div>
+            <nav className="flex flex-col p-4 gap-1">
+              {NAV_ITEMS.map((item) => {
+                const hasChildren = item.children && item.children.length > 0;
+                const isOpen = openDropdown === item.page;
 
-            <div className="h-[1px] bg-slate-100 my-1"></div>
+                if (hasChildren) {
+                  return (
+                    <div key={item.page} className="overflow-hidden rounded-xl">
+                      <button
+                        onClick={() => setOpenDropdown(isOpen ? null : item.page)}
+                        className={`w-full flex items-center justify-between px-4 py-3 text-sm font-bold transition-colors cursor-pointer ${
+                          activePage === item.page
+                            ? 'bg-brand-50 text-brand-900'
+                            : 'text-slate-600 hover:bg-slate-50'
+                        }`}
+                        aria-expanded={isOpen}
+                      >
+                        <span>{navLabel(item)}</span>
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+                      <AnimatePresence>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden bg-slate-50/50"
+                          >
+                            {item.children!.map((child) => {
+                              const Icon = child.icon;
+                              return (
+                                <button
+                                  key={child.page}
+                                  onClick={() => {
+                                    setActivePage(child.page);
+                                    setOpenDropdown(null);
+                                    setIsMobileMenuOpen(false);
+                                  }}
+                                  className={`w-full flex items-center gap-3 text-left px-4 py-3 transition-colors cursor-pointer ${
+                                    activePage === child.page
+                                      ? 'bg-slate-100/50'
+                                      : 'hover:bg-slate-100/50'
+                                  }`}
+                                >
+                                  <div
+                                    className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${child.iconBg}`}
+                                  >
+                                    <Icon className={`w-4 h-4 ${child.iconColor}`} />
+                                  </div>
+                                  <div className="min-w-0">
+                                    <p
+                                      className={`text-sm font-bold ${
+                                        activePage === child.page ? 'text-brand-900' : 'text-slate-900'
+                                      }`}
+                                    >
+                                      {child.label[lang]}
+                                    </p>
+                                    <p className="text-xs text-slate-500 font-medium leading-snug mt-0.5">
+                                      {child.description[lang]}
+                                    </p>
+                                  </div>
+                                </button>
+                              );
+                            })}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
 
-            {/* Language Switcher in Drawer */}
-            <div className="flex justify-between items-center px-1">
-              <span className="text-xs font-extrabold text-gray-500">
-                {lang === 'en' ? 'Select Language:' : 'Choisir la langue :'}
-              </span>
-              <div className="flex gap-1 bg-brand-50 p-0.5 rounded-lg border border-brand-100">
+                return (
+                  <button
+                    key={item.page}
+                    onClick={() => {
+                      setActivePage(item.page);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`text-left px-4 py-3 rounded-xl text-sm font-bold transition-colors cursor-pointer ${
+                      activePage === item.page
+                        ? 'bg-brand-50 text-brand-900'
+                        : 'text-slate-600 hover:bg-slate-50'
+                    }`}
+                  >
+                    {navLabel(item)}
+                  </button>
+                );
+              })}
+              <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
+                <a
+                  href={`tel:${phone.replace(/\s/g, '')}`}
+                  className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-slate-600"
+                >
+                  <Phone className="w-4 h-4 text-brand-600" />
+                  {phone}
+                </a>
+                <a
+                  href={`https://wa.me/${whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-emerald-600"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  WhatsApp
+                </a>
                 <button
                   onClick={() => {
-                    setLang('en');
-                    setIsOpen(false);
+                    onRegisterClick();
+                    setIsMobileMenuOpen(false);
                   }}
-                  className={`px-3 py-1.5 rounded-md text-[10px] font-black transition-all cursor-pointer ${
-                    lang === 'en' ? 'bg-brand-900 text-white shadow-xs' : 'text-brand-600 hover:text-brand-950'
-                  }`}
+                  className="w-full mt-1 bg-brand-900 text-white text-sm font-black uppercase tracking-wider px-4 py-3 rounded-xl cursor-pointer"
                 >
-                  EN
-                </button>
-                <button
-                  onClick={() => {
-                    setLang('fr');
-                    setIsOpen(false);
-                  }}
-                  className={`px-3 py-1.5 rounded-md text-[10px] font-black transition-all cursor-pointer ${
-                    lang === 'fr' ? 'bg-brand-900 text-white shadow-xs' : 'text-brand-600 hover:text-brand-950'
-                  }`}
-                >
-                  FR
+                  {ctaLabel}
                 </button>
               </div>
-            </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
