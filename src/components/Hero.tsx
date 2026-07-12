@@ -260,12 +260,12 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
       {/* 
         FLOATING ACCREDITED DIAGNOSTIC & TICKET TRACKER CONSOLE
         A horizontal panel right under the main Hero card. Highly interactive and extremely clean!
-      
-       <div id="diagnostic-console" className="max-w-7xl mx-auto px-4 pb-12 sm:px-6 pt-16">
+      */}
+      <div id="diagnostic-console" className="max-w-7xl mx-auto px-4 pb-12 sm:px-6 pt-16">
         <div className="bg-slate-900 text-white rounded-3xl border border-slate-800 p-6 sm:p-8 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            
+            {/* Left side info */}
             <div className="lg:col-span-4 text-left">
               <span className="bg-accent-500/10 border border-accent-500/30 text-accent-400 text-[10px] font-black tracking-wider px-3 py-1 rounded-full uppercase">
                 {lang === 'en' ? 'STUDENT TOOLS' : 'CONSOLE APPRENANT'}
@@ -278,7 +278,8 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
                   ? 'Calculate your optimal training path or track your tuition receipt and admission files instantly.' 
                   : 'Générez votre parcours d’apprentissage sur-mesure ou vérifiez le statut de votre dossier en direct.'}
               </p>
-               
+              
+              {/* Tab selectors */}
               <div className="bg-slate-950 p-1 rounded-xl flex gap-1.5 mt-5 border border-slate-850">
                 <button
                   onClick={() => {
@@ -308,7 +309,8 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
                 </button>
               </div>
             </div>
- 
+
+            {/* Right side form container */}
             <div className="lg:col-span-8 bg-slate-950/70 border border-slate-800 rounded-2xl p-5 sm:p-6 text-left">
               <AnimatePresence mode="wait">
                 {activeTab === 'test' ? (
@@ -491,7 +493,7 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
 
           </div>
         </div>
-      </div> */}
+      </div>
 
       {/* 
         TRUST LOGO BANNER (Matches "Partners of world leading companies" in Uthao/NDC)

@@ -15,10 +15,10 @@ export default function TestimonialsFaq({ lang }: TestimonialsFaqProps) {
   };
 
   return (
-    <section className="py-10 bg-gray-50/50">
+    <section className="py-20 bg-gray-50/50">
       <div className="max-w-7xl mx-auto px-4">
         {/* Testimonials Block */}
-        <div className="mb-5">
+        <div className="mb-24">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-accent-500 font-extrabold text-xs uppercase tracking-widest bg-accent-50 px-3 py-1.5 rounded-full border border-accent-100">
               {lang === 'en' ? 'STUDENT SUCCESS STORIES' : 'TEMOIGNAGES DE NOS LAUREATS'}
@@ -74,7 +74,7 @@ export default function TestimonialsFaq({ lang }: TestimonialsFaqProps) {
         </div>
 
         {/* FAQs Block */}
-        {/* <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-accent-500 font-extrabold text-xs uppercase tracking-widest bg-accent-50 px-3 py-1.5 rounded-full border border-accent-100">
               {lang === 'en' ? 'COMMON INQUIRIES' : 'QUESTIONS FREQUENTES'}
@@ -128,7 +128,7 @@ export default function TestimonialsFaq({ lang }: TestimonialsFaqProps) {
               );
             })}
           </div>
-        </div> */}
+        </div>
       </div>
     </section>
   );

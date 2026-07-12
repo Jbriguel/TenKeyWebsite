@@ -53,24 +53,21 @@ export default function Header({ lang, setLang, onRegisterClick, activePage, set
           }}
           className="flex items-center gap-2.5 group cursor-pointer text-left focus:outline-none"
         >
-          <img
-            src="/logo.jpeg"
-            alt="TEN KEY Centre de Formations"
-            className="w-10 h-10 rounded-xl object-cover  group-hover:scale-105 transition-transform duration-300"
-          />
-          {/* <div className="flex flex-col">
+          <div className="bg-accent-500 text-white font-extrabold text-lg w-9 h-9 rounded-xl flex items-center justify-center shadow-md shadow-accent-900/10 group-hover:scale-105 transition-transform duration-300">
+            TK
+          </div>
+          <div className="flex flex-col">
             <span className="font-black tracking-wider text-brand-950 text-sm sm:text-base leading-none font-display flex items-center gap-1">
               TEN KEY <span className="text-accent-500 text-xs">★</span>
             </span>
             <span className="text-[8px] text-gray-500 font-bold tracking-widest uppercase mt-0.5">
               CENTRE DE FORMATIONS
             </span>
-          </div> */}
+          </div>
         </button>
 
         {/* Desktop Nav Links (High-end track pill styling) */}
-        {/* <div className="hidden md:flex items-center gap-1 bg-brand-50/50 p-1 rounded-full border border-brand-100/50"> */}
-        <div className="hidden md:flex items-center gap-1 p-1 ">
+        <div className="hidden md:flex items-center gap-1 bg-brand-50/50 p-1 rounded-full border border-brand-100/50">
           {navLinks.map((link, idx) => (
             <button
               key={idx}
@@ -78,10 +75,10 @@ export default function Header({ lang, setLang, onRegisterClick, activePage, set
                 setActivePage(link.id);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className={`relative text-xs font-medium py-1.5 px-4 rounded-full transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
+              className={`relative text-xs font-extrabold py-1.5 px-4 rounded-full transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
                 activePage === link.id
                   ? 'bg-brand-900 text-white shadow-xs'
-                  : 'text-brand-700 hover:text-brand-950 hover:bg-white/50'
+                  : 'text-brand-600 hover:text-brand-950 hover:bg-white/50'
               }`}
             >
               <span>{lang === 'en' ? link.name.en : link.name.fr}</span>
@@ -95,13 +92,13 @@ export default function Header({ lang, setLang, onRegisterClick, activePage, set
         {/* Right side CTAs & Controls */}
         <div className="flex items-center gap-2 sm:gap-3">
           {/* Quick Contact Phone (Hidden on tablet/mobile, sleek hover style) */}
-          {/* <a 
+          <a 
             href="tel:+22891883867" 
             className="hidden lg:flex items-center gap-1.5 text-brand-700 hover:text-brand-950 text-xs font-extrabold transition-colors bg-brand-50 hover:bg-brand-100/80 px-3.5 py-1.5 rounded-full border border-brand-100/60"
           >
             <Phone className="w-3.5 h-3.5 text-accent-500 animate-pulse" />
             <span>+228 91 88 38 67</span>
-          </a> */}
+          </a>
 
           {/* Compact Premium Language Switcher */}
           <div className="hidden sm:flex items-center gap-0.5 bg-brand-50/80 rounded-full p-0.5 border border-brand-100/80">

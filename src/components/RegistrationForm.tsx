@@ -551,13 +551,14 @@ export default function RegistrationForm({ lang, selectedModuleName, setSelected
         </div>
 
         {/* Premium Travel-Style Newsletter Subscription Banner (matches mockup 1 perfectly) */}
-        {/* <motion.div
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="mt-24 bg-zinc-400 rounded-[3rem] p-8 md:p-14 text-center max-w-5xl mx-auto relative overflow-hidden"
-        > 
+        >
+          {/* Subtle dots pattern background */}
           <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
           
           <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
@@ -571,7 +572,8 @@ export default function RegistrationForm({ lang, selectedModuleName, setSelected
                 ? 'Subscribe to get exclusive study tips, level-test updates, and special discounts from TEN KEY.'
                 : 'Abonnez-vous pour recevoir des astuces de langues exclusives, des offres et des actualités de formation.'}
             </p>
- 
+
+            {/* Subscription Form */}
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -603,7 +605,7 @@ export default function RegistrationForm({ lang, selectedModuleName, setSelected
                 : 'Abonnez-vous à notre newsletter et promotions exclusives. Lire notre Politique de Confidentialité.'}
             </p>
           </div>
-        </motion.div> */}
+        </motion.div>
       </div>
     </section>
   );
