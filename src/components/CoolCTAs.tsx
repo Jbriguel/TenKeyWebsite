@@ -28,7 +28,7 @@ export function NeonGlowCTA({ lang, onAction }: CTAProps) {
   };
 
   return (
-    <div className="relative overflow-hidden bg-slate-950 rounded-[2.5rem] border border-accent-500/30 p-8 sm:p-12 lg:p-16 my-16 shadow-2xl">
+    <div className="relative overflow-hidden bg-brand-600 rounded-[2.5rem] border border-accent-500/30 p-8 sm:p-12 lg:p-16 my-16 shadow-2xl">
       {/* Dynamic background particles and glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-600/10 rounded-full blur-[100px] pointer-events-none"></div>
       <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-500/10 rounded-full blur-[100px] pointer-events-none"></div>
@@ -100,7 +100,7 @@ export function NeonGlowCTA({ lang, onAction }: CTAProps) {
 
         {/* Right HUD column */}
         <div className="lg:col-span-5 w-full">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+          <div className="bg-brand-700/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
             {/* Visual tech grid overlay */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-20 pointer-events-none"></div>
             
@@ -125,7 +125,7 @@ export function NeonGlowCTA({ lang, onAction }: CTAProps) {
               </div>
 
               {/* Real-time countdown timer */}
-              <div className="bg-slate-950/80 border border-slate-800/80 rounded-2xl p-4 mb-6 text-center">
+              <div className="bg-brand-600/80 border border-slate-800/80 rounded-2xl p-4 mb-6 text-center">
                 <span className="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest block mb-2">
                   {lang === 'en' ? 'SPECIAL INTRO OFFER CLOSES IN' : 'L’OFFRE DE BIENVENUE EXPIRE DANS'}
                 </span>
@@ -148,7 +148,7 @@ export function NeonGlowCTA({ lang, onAction }: CTAProps) {
                     type="tel"
                     required
                     placeholder={lang === 'en' ? 'Enter Phone (WhatsApp preferred)' : 'N° Téléphone (WhatsApp de préf.)'}
-                    className="w-full bg-slate-950/80 border border-slate-800 focus:border-accent-500 rounded-xl px-4 py-3.5 text-xs text-white placeholder-slate-500 focus:outline-none transition-all font-bold"
+                    className="w-full bg-brand-600/80 border border-slate-800 focus:border-accent-500 rounded-xl px-4 py-3.5 text-xs text-white placeholder-slate-500 focus:outline-none transition-all font-bold"
                   />
                 </div>
                 <button
@@ -228,7 +228,7 @@ export function ExecutiveLuxuryCTA({ lang, onAction }: CTAProps) {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center max-w-3xl mx-auto"
         > 
-          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-tight font-display mb-5">
+          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-950 tracking-tight leading-tight font-display mb-5">
             {lang === 'en'
               ? 'Ready to Transform Your Team’s Language Skills?'
               : 'Prêt à Transformer les Compétences Linguistiques de Votre Équipe ?'}
@@ -254,7 +254,7 @@ export function ExecutiveLuxuryCTA({ lang, onAction }: CTAProps) {
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => onAction?.('Custom Corporate Plan')}
-              className="bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 font-black text-xs uppercase tracking-widest px-8 py-4 rounded-xl transition-colors duration-300 cursor-pointer"
+              className="bg-white hover:bg-slate-50 text-brand-900 border border-slate-200 font-black text-xs uppercase tracking-widest px-8 py-4 rounded-xl transition-colors duration-300 cursor-pointer"
             >
               {lang === 'en' ? 'Request a Proposal' : 'Demander un Devis'}
             </motion.button>
@@ -271,7 +271,7 @@ export function ExecutiveLuxuryCTA({ lang, onAction }: CTAProps) {
                 transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="bg-white p-6 sm:p-8 text-center"
               >
-                <p className="text-2xl sm:text-3xl font-black text-slate-950 font-display mb-1">{stat.value}</p>
+                <p className="text-2xl sm:text-3xl font-black text-brand-950 font-display mb-1">{stat.value}</p>
                 <p className="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider">{lang === 'en' ? stat.label.en : stat.label.fr}</p>
               </motion.div>
             ))}
@@ -309,7 +309,7 @@ export function BentoLevelTesterCTA({ lang, onAction }: CTAProps) {
   };
 
   return (
-    <div className="relative overflow-hidden bg-white border border-slate-200 p-8 sm:p-12 text-left text-slate-900">
+    <div className="relative overflow-hidden bg-white border border-slate-200 p-8 sm:p-12 text-left text-brand-900">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
 
         {/* Left narrative column - 2/3 */}
@@ -321,7 +321,7 @@ export function BentoLevelTesterCTA({ lang, onAction }: CTAProps) {
             <span className="w-16 h-0.5 bg-brand-600" />
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-950 font-display tracking-tight leading-tight mb-5">
+          <h2 className="text-3xl sm:text-4xl font-black text-brand-950 font-display tracking-tight leading-tight mb-5">
             {lang === 'en'
               ? 'Find the Schedule and Formula that Fits Your Obligations'
               : 'Trouvez le Créneau et la Formule Adaptés à Vos Obligations'}
@@ -336,7 +336,7 @@ export function BentoLevelTesterCTA({ lang, onAction }: CTAProps) {
           <div className="flex flex-wrap gap-4">
             <button
               onClick={() => onAction?.(`Tuition consultation - Format: ${selectedFormat}`)}
-              className="bg-slate-950 hover:bg-slate-900 text-white text-[11px] font-semibold tracking-wide px-6 py-3.5 rounded-lg transition-all duration-300 cursor-pointer flex items-center gap-2"
+              className="bg-brand-600 hover:bg-brand-700 text-white text-[11px] font-semibold tracking-wide px-6 py-3.5 rounded-lg transition-all duration-300 cursor-pointer flex items-center gap-2"
             >
               <span>{lang === 'en' ? 'Lock This Schedule Choice' : 'Sélectionner ce créneau'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -350,7 +350,7 @@ export function BentoLevelTesterCTA({ lang, onAction }: CTAProps) {
                   window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 }
               }}
-              className="bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-[11px] font-semibold tracking-wide px-6 py-3.5 rounded-lg transition-all cursor-pointer"
+              className="bg-white border border-slate-200 hover:bg-slate-50 text-brand-700 text-[11px] font-semibold tracking-wide px-6 py-3.5 rounded-lg transition-all cursor-pointer"
             >
               {lang === 'en' ? 'Ask a Question' : 'Poser une question'}
             </button>
@@ -370,8 +370,8 @@ export function BentoLevelTesterCTA({ lang, onAction }: CTAProps) {
                 onClick={() => setSelectedFormat(key)}
                 className={`w-full text-left px-4 py-3 rounded-lg border transition-all cursor-pointer flex items-center justify-between text-xs font-medium ${
                   selectedFormat === key
-                    ? 'bg-slate-900 border-slate-900 text-white'
-                    : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
+                    ? 'bg-brand-700 border-slate-900 text-white'
+                    : 'bg-white border-slate-200 text-brand-700 hover:border-slate-300'
                 }`}
               >
                 <span>{formats[key].title[lang]}</span>
@@ -385,7 +385,7 @@ export function BentoLevelTesterCTA({ lang, onAction }: CTAProps) {
               <span className="text-[9px] font-semibold text-slate-400 uppercase tracking-widest block mb-1">
                 {lang === 'en' ? 'Hours' : 'Horaires'}
               </span>
-              <p className="text-xs font-medium text-slate-900">
+              <p className="text-xs font-medium text-brand-900">
                 {formats[selectedFormat].hours[lang]}
               </p>
             </div>
@@ -413,14 +413,14 @@ export function GedFlashCTA({ lang, onAction }: CTAProps) {
   return (
     <div className="relative overflow-hidden bg-gradient-to-r from-accent-300 to-accent-500 text-brand-950 rounded-[2.5rem] p-8 sm:p-12 lg:p-14 my-16 shadow-2xl text-left">
       {/* Dark dynamic shapes in back */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-brand-900/5 rounded-full blur-2xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-10 w-96 h-96 bg-brand-900/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-64 h-64 bg-brand-700/5 rounded-full blur-2xl pointer-events-none"></div>
+      <div className="absolute bottom-0 left-10 w-96 h-96 bg-brand-700/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
         
         {/* Main Content text */}
         <div className="lg:col-span-8">
-          <div className="inline-flex items-center gap-2 bg-brand-950 text-white text-[10px] font-black tracking-widest px-3.5 py-1.5 rounded-full uppercase mb-5">
+          <div className="inline-flex items-center gap-2 bg-brand-600 text-white text-[10px] font-black tracking-widest px-3.5 py-1.5 rounded-full uppercase mb-5">
             <ShieldCheck className="w-4 h-4 text-accent-400 shrink-0" />
             <span>{lang === 'en' ? '98% PASS RATE GUARANTEE' : 'GARANTIE DE RÉUSSITE DE 98%'}</span>
           </div>
@@ -440,7 +440,7 @@ export function GedFlashCTA({ lang, onAction }: CTAProps) {
           <div className="flex flex-wrap gap-4">
             <button
               onClick={() => onAction?.('GED Bootcamp Enrollment')}
-              className="bg-brand-950 hover:bg-brand-900 text-white font-black text-xs uppercase tracking-widest px-8 py-4.5 rounded-2xl transition-all duration-300 shadow-xl hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+              className="bg-brand-600 hover:bg-brand-700 text-white font-black text-xs uppercase tracking-widest px-8 py-4.5 rounded-2xl transition-all duration-300 shadow-xl hover:-translate-y-0.5 active:scale-95 cursor-pointer"
             >
               {lang === 'en' ? 'Join the Next Cohort' : 'Rejoindre la Prochaine Cohorte'}
             </button>
@@ -449,7 +449,7 @@ export function GedFlashCTA({ lang, onAction }: CTAProps) {
                 const form = document.getElementById('contact-form-section');
                 if (form) form.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="bg-brand-950/10 hover:bg-brand-950/20 text-brand-950 border border-brand-950/20 font-black text-xs uppercase tracking-widest px-6 py-4.5 rounded-2xl transition-all active:scale-95 cursor-pointer"
+              className="bg-brand-600/10 hover:bg-brand-600/20 text-brand-950 border border-brand-950/20 font-black text-xs uppercase tracking-widest px-6 py-4.5 rounded-2xl transition-all active:scale-95 cursor-pointer"
             >
               {lang === 'en' ? 'Get Syllabus PDF' : 'Télécharger le Syllabus PDF'}
             </button>
@@ -457,8 +457,8 @@ export function GedFlashCTA({ lang, onAction }: CTAProps) {
         </div>
 
         {/* Side Mini HUD */}
-        <div className="lg:col-span-4 bg-brand-950 text-white rounded-3xl p-6 shadow-xl border border-brand-900/40 text-center relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-brand-900/20 rounded-full blur-xl pointer-events-none"></div>
+        <div className="lg:col-span-4 bg-brand-600 text-white rounded-3xl p-6 shadow-xl border border-brand-900/40 text-center relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-brand-700/20 rounded-full blur-xl pointer-events-none"></div>
           
           <span className="text-3xl sm:text-4xl font-black text-accent-400 font-display block mb-1">90 DAYS</span>
           <h4 className="text-[11px] font-black text-slate-200 uppercase tracking-widest mb-3">

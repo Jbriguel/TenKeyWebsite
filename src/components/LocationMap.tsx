@@ -26,7 +26,7 @@ export default function LocationMap({ lang }: LocationMapProps) {
             </span>
             <span className="w-16 h-0.5 bg-brand-600" />
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-950 font-display tracking-tight leading-tight mb-5">
+          <h2 className="text-3xl sm:text-4xl font-black text-brand-950 font-display tracking-tight leading-tight mb-5">
             {isEn ? 'Find Us in Lomé' : 'Où Nous Trouver à Lomé'}
           </h2>
           <p className="text-sm sm:text-base text-slate-500 leading-relaxed font-medium">
@@ -44,7 +44,7 @@ export default function LocationMap({ lang }: LocationMapProps) {
                 <MapPin className="w-5 h-5" strokeWidth={1.5} />
               </div>
               <div>
-                <h4 className="text-xs font-black text-slate-950 uppercase tracking-wider mb-1">
+                <h4 className="text-xs font-black text-brand-950 uppercase tracking-wider mb-1">
                   {isEn ? 'Address' : 'Adresse'}
                 </h4>
                 <p className="text-sm text-slate-600 leading-relaxed">
@@ -62,7 +62,7 @@ export default function LocationMap({ lang }: LocationMapProps) {
                 <Clock className="w-5 h-5" strokeWidth={1.5} />
               </div>
               <div>
-                <h4 className="text-xs font-black text-slate-950 uppercase tracking-wider mb-1">
+                <h4 className="text-xs font-black text-brand-950 uppercase tracking-wider mb-1">
                   {isEn ? 'Opening Hours' : 'Horaires'}
                 </h4>
                 <p className="text-sm text-slate-600 leading-relaxed">
@@ -78,7 +78,7 @@ export default function LocationMap({ lang }: LocationMapProps) {
                 <Phone className="w-5 h-5" strokeWidth={1.5} />
               </div>
               <div>
-                <h4 className="text-xs font-black text-slate-950 uppercase tracking-wider mb-1">
+                <h4 className="text-xs font-black text-brand-950 uppercase tracking-wider mb-1">
                   {isEn ? 'Phone' : 'Téléphone'}
                 </h4>
                 <a
@@ -94,7 +94,7 @@ export default function LocationMap({ lang }: LocationMapProps) {
               href="https://www.google.com/maps/search/?api=1&query=Avedji+Adidoadin+Carrefour+Adroukpape+Lome+Togo"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-slate-950 hover:bg-slate-900 text-white text-[11px] font-semibold tracking-wide py-3.5 rounded-xl transition-all cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white text-[11px] font-semibold tracking-wide py-3.5 rounded-xl transition-all cursor-pointer"
             >
               <Navigation className="w-3.5 h-3.5" />
               {isEn ? 'Get Directions' : 'Obtenir l\'Itinéraire'}

@@ -139,10 +139,10 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
   };
 
   return (
-    <div className="bg-brand-950 text-white">
+    <div className="bg-brand-600 text-white">
       
-      {/* 1. IMMERSIVE HERO SECTION (Navy Blue bg-brand-950) */}
-      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden bg-brand-950">
+      {/* 1. IMMERSIVE HERO SECTION (Navy Blue bg-brand-600) */}
+      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden bg-brand-600">
         {/* Soft elegant gold glowing light behind the hero */}
         <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent-500/10 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-10 left-10 w-[300px] h-[300px] bg-brand-500/10 rounded-full blur-[100px] pointer-events-none"></div>
@@ -154,7 +154,7 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
             <div className="lg:col-span-6 text-left">
               {/* Gold Accent Badge */}
               <div className="inline-block mb-6">
-                <span className="bg-brand-900/80 border border-brand-800 text-accent-400 text-xs font-black tracking-widest px-4 py-2 rounded-full uppercase">
+                <span className="bg-brand-700/80 border border-brand-800 text-accent-400 text-xs font-black tracking-widest px-4 py-2 rounded-full uppercase">
                   {lang === 'en' ? content.badgeHero.en : content.badgeHero.fr}
                 </span>
               </div>
@@ -214,7 +214,7 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
 
             {/* Right Column: Hero Visual Photo & Expert Badge Card */}
             <div className="lg:col-span-6 relative flex justify-center">
-              <div className="relative w-full max-w-md md:max-w-lg aspect-[10/9] sm:aspect-square bg-brand-900 rounded-[2.5rem] overflow-hidden shadow-2xl border border-brand-800/40">
+              <div className="relative w-full max-w-md md:max-w-lg aspect-[10/9] sm:aspect-square bg-brand-700 rounded-[2.5rem] overflow-hidden shadow-2xl border border-brand-800/40">
                 {/* High quality student image matching mockup */}
                 <img
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop"
@@ -227,8 +227,8 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-950/80 via-transparent to-brand-950/20"></div>
 
                 {/* Floating Rating Card Badge in bottom right corner */}
-                <div className="absolute bottom-6 right-6 bg-white text-slate-900 rounded-3xl p-5 shadow-2xl flex flex-col items-center max-w-[210px] text-center border border-slate-100/80">
-                  <span className="text-3xl font-black text-slate-900 leading-none mb-1 font-display">
+                <div className="absolute bottom-6 right-6 bg-white text-brand-900 rounded-3xl p-5 shadow-2xl flex flex-col items-center max-w-[210px] text-center border border-slate-100/80">
+                  <span className="text-3xl font-black text-brand-900 leading-none mb-1 font-display">
                     200<span className="text-accent-500 font-black">+</span>
                   </span>
                   <p className="text-[10px] font-black text-slate-500 uppercase tracking-wider mb-2 leading-tight">
@@ -236,7 +236,7 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
                   </p>
                   
                   {/* Rating Stars */}
-                  <div className="flex gap-0.5 text-amber-400">
+                  <div className="flex gap-0.5 text-accent-400">
                     <Star className="w-3.5 h-3.5 fill-current" />
                     <Star className="w-3.5 h-3.5 fill-current" />
                     <Star className="w-3.5 h-3.5 fill-current" />
@@ -252,13 +252,13 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
       </section>
 
       {/* 2. NUMERICAL STATS ROW (Clean White Background as shown in the mockup) */}
-      <section className="py-16 sm:py-20 bg-white text-slate-900 border-b border-slate-100">
+      <section className="py-16 sm:py-20 bg-white text-brand-900 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Column title */}
             <div className="lg:col-span-4 text-left">
-              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 whitespace-pre-line leading-tight font-display">
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-900 whitespace-pre-line leading-tight font-display">
                 {lang === 'en' ? content.statsTitle.en : content.statsTitle.fr}
               </h2>
             </div>
@@ -270,7 +270,7 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
                   <div className="text-4xl sm:text-5xl font-black text-brand-600 mb-2 font-display">
                     {stat.num}
                   </div>
-                  <h3 className="text-sm font-extrabold text-slate-900 mb-2 leading-snug">
+                  <h3 className="text-sm font-extrabold text-brand-900 mb-2 leading-snug">
                     {lang === 'en' ? stat.title.en : stat.title.fr}
                   </h3>
                   <p className="text-xs text-slate-500 leading-relaxed font-semibold">
@@ -285,7 +285,7 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
       </section>
 
       {/* 3. "WHY CHOOSE US" / FEATURES SECTION (Light gray clean backdrop) */}
-      <section className="py-24 bg-brand-50 text-slate-900">
+      <section className="py-24 bg-brand-50 text-brand-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           
           {/* Header Row */}
@@ -313,7 +313,7 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
                     {i === 2 && <Users className="w-6 h-6 stroke-[2]" />}
                   </div>
 
-                  <h3 className="text-lg font-black tracking-tight text-slate-900 mb-4 font-display">
+                  <h3 className="text-lg font-black tracking-tight text-brand-900 mb-4 font-display">
                     {lang === 'en' ? card.title.en : card.title.fr}
                   </h3>
                   
@@ -328,14 +328,14 @@ export default function GedPrepPage({ lang, onGetStarted }: GedPrepPageProps) {
         </div>
       </section>
 
-      {/* 4. PROCESS SECTION (Immersive Navy Blue bg-brand-950) */}
-      <section className="py-24 bg-brand-950 text-white border-t border-brand-800/20">
+      {/* 4. PROCESS SECTION (Immersive Navy Blue bg-brand-600) */}
+      <section className="py-24 bg-brand-600 text-white border-t border-brand-800/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Left Column: Title, description & picture */}
             <div className="lg:col-span-5 text-left">
-              <span className="text-accent-400 bg-brand-900/80 border border-brand-800 text-[10px] font-black tracking-widest px-4 py-2 rounded-full uppercase inline-block mb-4">
+              <span className="text-accent-400 bg-brand-700/80 border border-brand-800 text-[10px] font-black tracking-widest px-4 py-2 rounded-full uppercase inline-block mb-4">
                 {lang === 'en' ? content.processBadge.en : content.processBadge.fr}
               </span>
               

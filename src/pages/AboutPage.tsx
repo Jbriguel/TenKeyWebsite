@@ -1,19 +1,17 @@
+import { useOutletContext } from 'react-router-dom';
 import { HeartHandshake, BookOpen, Award, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import type { AppContextValue } from '../App';
 import About from '../components/About';
 import TestimonialsFaq from '../components/TestimonialsFaq';
 import LocationMap from '../components/LocationMap';
 
-interface AboutPageProps {
-  lang: 'en' | 'fr';
-  onRegisterRedirect: (moduleName?: string) => void;
-}
-
-export default function AboutPage({ lang, onRegisterRedirect }: AboutPageProps) {
+export default function AboutPage() {
+  const { lang, onRegisterRedirect } = useOutletContext<AppContextValue>();
   return (
     <>
       {/* ─── HERO — Institutional Dark Cinematic ─── */}
-      <section className="relative w-full min-h-[75vh] flex items-center bg-slate-950 text-white overflow-hidden">
+      <section className="relative w-full min-h-[75vh] flex items-center bg-brand-600 text-white overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -27,7 +25,7 @@ export default function AboutPage({ lang, onRegisterRedirect }: AboutPageProps) 
         </div>
 
         {/* Glow accents */}
-        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-accent-500/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-brand-600/10 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full pt-36 pb-28">
@@ -38,20 +36,20 @@ export default function AboutPage({ lang, onRegisterRedirect }: AboutPageProps) 
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="flex items-center gap-3 mb-5">
-                <span className="text-amber-500 text-[10px] font-black tracking-widest uppercase">
+                <span className="text-accent-500 text-[10px] font-black tracking-widest uppercase">
                   {lang === 'en' ? 'Who We Are' : 'Qui Sommes-Nous'}
                 </span>
-                <span className="w-16 h-0.5 bg-amber-500" />
+                <span className="w-16 h-0.5 bg-accent-500" />
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight leading-[1.08] mb-6">
                 {lang === 'en' ? (
                   <>
-                    Pedagogy & <span className="text-amber-500">Native Excellence</span>
+                    Pedagogy & <span className="text-accent-500">Native Excellence</span>
                   </>
                 ) : (
                   <>
-                    Pédagogie & <span className="text-amber-500">Excellence Native</span>
+                    Pédagogie & <span className="text-accent-500">Excellence Native</span>
                   </>
                 )}
               </h1>
@@ -68,7 +66,7 @@ export default function AboutPage({ lang, onRegisterRedirect }: AboutPageProps) 
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => onRegisterRedirect()}
-                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 text-[11px] font-black uppercase tracking-widest px-7 py-4 rounded-xl transition-all cursor-pointer shadow-lg shadow-amber-500/20"
+                  className="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-400 text-brand-950 text-[11px] font-black uppercase tracking-widest px-7 py-4 rounded-xl transition-all cursor-pointer shadow-lg shadow-accent-500/20"
                 >
                   {lang === 'en' ? 'Start Your Journey' : 'Démarrer Votre Parcours'}
                   <ArrowRight className="w-4 h-4" />
@@ -91,10 +89,10 @@ export default function AboutPage({ lang, onRegisterRedirect }: AboutPageProps) 
       <About lang={lang} />
 
       {/* ─── MISSION & VALUES — Deep Blue Foundation ─── */}
-      <section className="w-full py-24 bg-slate-900 text-white relative overflow-hidden">
+      <section className="w-full py-24 bg-brand-700 text-white relative overflow-hidden">
         {/* Background glows */}
         <div className="absolute top-0 right-1/3 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent-500/5 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -106,19 +104,19 @@ export default function AboutPage({ lang, onRegisterRedirect }: AboutPageProps) 
               className="lg:col-span-5"
             >
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-amber-500 text-[10px] font-black tracking-widest uppercase">
+                <span className="text-accent-500 text-[10px] font-black tracking-widest uppercase">
                   {lang === 'en' ? 'Mission & Values' : 'Mission & Valeurs'}
                 </span>
-                <span className="w-16 h-0.5 bg-amber-500" />
+                <span className="w-16 h-0.5 bg-accent-500" />
               </div>
               <h2 className="text-3xl sm:text-4xl font-black font-display tracking-tight leading-tight mb-5">
                 {lang === 'en' ? (
                   <>
-                    Shaping <span className="text-amber-500">Bilingual Leaders</span> for West Africa
+                    Shaping <span className="text-accent-500">Bilingual Leaders</span> for West Africa
                   </>
                 ) : (
                   <>
-                    Former des <span className="text-amber-500">Leaders Bilingues</span> pour l’Afrique de l’Ouest
+                    Former des <span className="text-accent-500">Leaders Bilingues</span> pour l’Afrique de l’Ouest
                   </>
                 )}
               </h2>
@@ -129,7 +127,7 @@ export default function AboutPage({ lang, onRegisterRedirect }: AboutPageProps) 
               </p>
               <button
                 onClick={() => onRegisterRedirect()}
-                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 text-[11px] font-black uppercase tracking-widest px-7 py-4 rounded-xl transition-all cursor-pointer shadow-lg shadow-amber-500/20"
+                className="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-400 text-brand-950 text-[11px] font-black uppercase tracking-widest px-7 py-4 rounded-xl transition-all cursor-pointer shadow-lg shadow-accent-500/20"
               >
                 {lang === 'en' ? 'Join the Mission' : 'Rejoindre la Mission'}
                 <ArrowRight className="w-4 h-4" />
@@ -171,7 +169,7 @@ export default function AboutPage({ lang, onRegisterRedirect }: AboutPageProps) 
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 hover:bg-white/[0.05] hover:border-white/20 transition-all"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-accent-500/10 text-accent-500 flex items-center justify-center mb-4">
                     <span className="text-xs font-black">0{idx + 1}</span>
                   </div>
                   <h3 className="text-sm font-medium text-white mb-2">{item.title}</h3>

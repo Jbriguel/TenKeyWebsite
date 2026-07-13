@@ -79,7 +79,7 @@ export default function SuccessManagement({ lang }: SuccessManagementProps) {
   };
 
   return (
-    <section className="py-24 bg-white text-slate-900 relative overflow-hidden">
+    <section className="py-24 bg-white text-brand-900 relative overflow-hidden">
       {/* Decorative Light Glows */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-brand-50 rounded-full blur-3xl pointer-events-none opacity-40"></div>
 
@@ -97,7 +97,7 @@ export default function SuccessManagement({ lang }: SuccessManagementProps) {
             </div>
             
             {/* Elegant Heading with customized Navy/Gold highlighting */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight font-display leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-900 tracking-tight font-display leading-tight">
               {lang === 'en' ? content.titlePre.en : content.titlePre.fr}
               <span className="text-brand-600">
                 {lang === 'en' ? content.titleHighlight.en : content.titleHighlight.fr}
@@ -119,9 +119,9 @@ export default function SuccessManagement({ lang }: SuccessManagementProps) {
           {/* CARD 1: White Card with underline heading and image below */}
           <div className="lg:col-span-4 bg-white border border-slate-100 rounded-[2rem] p-8 shadow-xl flex flex-col justify-between text-left transition-transform duration-300 hover:-translate-y-1">
             <div>
-              <h3 className="text-lg font-black tracking-tight text-slate-900 mb-6 relative pb-2 inline-block">
+              <h3 className="text-lg font-black tracking-tight text-brand-900 mb-6 relative pb-2 inline-block">
                 {lang === 'en' ? content.cards[0].title.en : content.cards[0].title.fr}
-                <span className="absolute bottom-0 left-0 w-1/2 h-[2px] bg-slate-900"></span>
+                <span className="absolute bottom-0 left-0 w-1/2 h-[2px] bg-brand-700"></span>
               </h3>
             </div>
             
@@ -132,7 +132,7 @@ export default function SuccessManagement({ lang }: SuccessManagementProps) {
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-slate-900/5 mix-blend-multiply"></div>
+              <div className="absolute inset-0 bg-brand-700/5 mix-blend-multiply"></div>
             </div>
           </div>
 
@@ -200,7 +200,7 @@ export default function SuccessManagement({ lang }: SuccessManagementProps) {
 
             {/* Bottom-left minimal title overlay */}
             <div className="absolute bottom-6 left-6 text-left max-w-[70%]">
-              <h4 className="text-white text-sm font-black tracking-tight leading-tight uppercase bg-slate-900/40 backdrop-blur-md px-3 py-1.5 rounded-xl">
+              <h4 className="text-white text-sm font-black tracking-tight leading-tight uppercase bg-brand-700/40 backdrop-blur-md px-3 py-1.5 rounded-xl">
                 {lang === 'en' ? content.cards[2].title.en : content.cards[2].title.fr}
               </h4>
             </div>

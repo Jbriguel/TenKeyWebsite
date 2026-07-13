@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { useOutletContext } from 'react-router-dom';
 import { Clock, TrendingUp, Users, Award, ArrowRight } from 'lucide-react';
+import type { AppContextValue } from '../App';
 import Hero from '../components/Hero';
 import Selections from '../components/Selections';
 import TrustedExpertise from '../components/TrustedExpertise';
@@ -10,21 +12,14 @@ import CtaSection from '../components/CtaSection';
 import RegistrationForm from '../components/RegistrationForm';
 import TrustedExpertise2 from '../components/TrustedExpertise2';
 
-interface HomePageProps {
-  lang: 'en' | 'fr';
-  onRegisterRedirect: (moduleName?: string) => void;
-  onLearnMore: () => void;
-  selectedModuleName: string;
-  setSelectedModuleName: (name: string) => void;
-}
-
-export default function HomePage({
-  lang,
-  onRegisterRedirect,
-  onLearnMore,
-  selectedModuleName,
-  setSelectedModuleName,
-}: HomePageProps) {
+export default function HomePage() {
+  const {
+    lang,
+    onRegisterRedirect,
+    onLearnMore,
+    selectedModuleName,
+    setSelectedModuleName,
+  } = useOutletContext<AppContextValue>();
   const stats = [
     { value: '10+', label: lang === 'en' ? 'Years of Experience' : "Années d'Expérience", icon: Clock },
     { value: '98%', label: lang === 'en' ? 'Success Rate' : 'Taux de Réussite', icon: TrendingUp },
@@ -89,7 +84,7 @@ export default function HomePage({
                 </span>
                 <span className="w-16 h-0.5 bg-brand-600" />
               </div>
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 font-display tracking-tight leading-tight mb-6">
+              <h2 className="text-3xl sm:text-4xl font-black text-brand-900 font-display tracking-tight leading-tight mb-6">
                 {lang === 'en'
                   ? 'A Practical Space for Professionals'
                   : 'Un Espace Pratique pour Professionnels'}
@@ -107,7 +102,7 @@ export default function HomePage({
 
               <button
                 onClick={() => onRegisterRedirect()}
-                className="bg-slate-950 hover:bg-slate-900 text-white font-black text-xs px-6 py-3.5 rounded-xl transition-all flex items-center gap-2 group cursor-pointer shadow-md"
+                className="bg-brand-600 hover:bg-brand-700 text-white font-black text-xs px-6 py-3.5 rounded-xl transition-all flex items-center gap-2 group cursor-pointer shadow-md"
               >
                 <span>{lang === 'en' ? 'See our programs' : 'Voir nos programmes'}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -171,8 +166,8 @@ export default function HomePage({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
                   <div className="absolute bottom-3 left-3 text-left">
-                    <p className="text-[9px] font-black uppercase text-slate-900 tracking-wider">Structured</p>
-                    <p className="text-[11px] font-extrabold text-slate-900">CEFRL Pathways</p>
+                    <p className="text-[9px] font-black uppercase text-brand-900 tracking-wider">Structured</p>
+                    <p className="text-[11px] font-extrabold text-brand-900">CEFRL Pathways</p>
                   </div>
                 </motion.div>
               </div>

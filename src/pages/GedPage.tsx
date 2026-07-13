@@ -1,20 +1,11 @@
+import { useOutletContext } from 'react-router-dom';
+import type { AppContextValue } from '../App';
 import GedPrepPage from '../components/GedPrepPage';
 import RegistrationForm from '../components/RegistrationForm';
 import { GedFlashCTA } from '../components/CoolCTAs';
 
-interface GedPageProps {
-  lang: 'en' | 'fr';
-  onRegisterRedirect: (moduleName?: string) => void;
-  selectedModuleName: string;
-  setSelectedModuleName: (name: string) => void;
-}
-
-export default function GedPage({
-  lang,
-  onRegisterRedirect,
-  selectedModuleName,
-  setSelectedModuleName,
-}: GedPageProps) {
+export default function GedPage() {
+  const { lang, onRegisterRedirect } = useOutletContext<AppContextValue>();
   return (
     <>
       <GedPrepPage

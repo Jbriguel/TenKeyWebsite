@@ -100,7 +100,7 @@ export default function TrustedExpertise2({ lang, onSelectService }: TrustedExpe
   };
 
   return (
-    <section className="py-24 bg-slate-950 text-white relative overflow-hidden">
+    <section className="py-24 bg-brand-600 text-white relative overflow-hidden">
       {/* Subtle Background Geometric Light */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -109,7 +109,7 @@ export default function TrustedExpertise2({ lang, onSelectService }: TrustedExpe
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 border-b border-white/5 pb-10">
           <div className="max-w-xl">
-            <span className="text-xs font-semibold tracking-[0.2em] text-amber-500/90 uppercase block mb-3">
+            <span className="text-xs font-semibold tracking-[0.2em] text-accent-500/90 uppercase block mb-3">
               {lang === 'en' ? 'Expertise Domains' : 'Domaines d’Excellence'}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-white leading-tight">
@@ -189,7 +189,7 @@ export default function TrustedExpertise2({ lang, onSelectService }: TrustedExpe
                   <span className="inline-block text-[10px] font-medium tracking-widest uppercase bg-white/5 border border-white/10 text-slate-300 px-3 py-1 rounded-md mb-6">
                     {lang === 'en' ? svc.badge.en : svc.badge.fr}
                   </span>
-                  <h3 className="text-xl font-medium tracking-tight text-white leading-snug group-hover:text-amber-400 transition-colors duration-300">
+                  <h3 className="text-xl font-medium tracking-tight text-white leading-snug group-hover:text-accent-400 transition-colors duration-300">
                     {lang === 'en' ? svc.title.en : svc.title.fr}
                   </h3>
                 </div>
@@ -206,7 +206,7 @@ export default function TrustedExpertise2({ lang, onSelectService }: TrustedExpe
                     </span>
                     <button
                       onClick={() => handleAction(lang === 'en' ? svc.title.en : svc.title.fr)}
-                      className="w-10 h-10 rounded-full border border-white/10 bg-white/5 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-amber-500 group-hover:text-slate-950 group-hover:border-transparent cursor-pointer"
+                      className="w-10 h-10 rounded-full border border-white/10 bg-white/5 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-accent-500 group-hover:text-brand-950 group-hover:border-transparent cursor-pointer"
                       aria-label="Action"
                     >
                       <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -322,7 +322,7 @@ export default function TrustedExpertise2({ lang, onSelectService }: TrustedExpe
 //   };
 
 //   return (
-//     <section className="py-28 bg-slate-950 relative overflow-hidden border-t border-slate-900">
+//     <section className="py-28 bg-brand-600 relative overflow-hidden border-t border-slate-900">
 //       {/* Subtiles lignes de fond géométriques pour le côté corporate architectural */}
 //       <div className="absolute inset-0 opacity-[0.02] pointer-events-none mix-blend-overlay">
 //         <div className="absolute left-1/4 top-0 bottom-0 w-px bg-white" />
@@ -340,7 +340,7 @@ export default function TrustedExpertise2({ lang, onSelectService }: TrustedExpe
 //             transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
 //             className="max-w-xl"
 //           >
-//             <p className="text-xs font-semibold tracking-widest text-amber-500 uppercase mb-3">
+//             <p className="text-xs font-semibold tracking-widest text-accent-500 uppercase mb-3">
 //               {currentLang === 'en' ? 'Expertise Matrix' : 'Domaines d’Intervention'}
 //             </p>
 //             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight leading-[1.15]">
@@ -372,8 +372,8 @@ export default function TrustedExpertise2({ lang, onSelectService }: TrustedExpe
 //                 disabled={!canScrollLeft}
 //                 className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all ${
 //                   canScrollLeft
-//                     ? 'border-slate-800 bg-slate-900 text-white hover:bg-slate-800 hover:border-slate-700'
-//                     : 'border-slate-900/50 bg-slate-950 text-slate-700 cursor-not-allowed'
+//                     ? 'border-slate-800 bg-brand-700 text-white hover:bg-slate-800 hover:border-slate-700'
+//                     : 'border-slate-900/50 bg-brand-600 text-brand-700 cursor-not-allowed'
 //                 }`}
 //                 aria-label="Previous service"
 //               >
@@ -384,8 +384,8 @@ export default function TrustedExpertise2({ lang, onSelectService }: TrustedExpe
 //                 disabled={!canScrollRight}
 //                 className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all ${
 //                   canScrollRight
-//                     ? 'border-slate-800 bg-slate-900 text-white hover:bg-slate-800 hover:border-slate-700'
-//                     : 'border-slate-900/50 bg-slate-950 text-slate-700 cursor-not-allowed'
+//                     ? 'border-slate-800 bg-brand-700 text-white hover:bg-slate-800 hover:border-slate-700'
+//                     : 'border-slate-900/50 bg-brand-600 text-brand-700 cursor-not-allowed'
 //                 }`}
 //                 aria-label="Next service"
 //               >
@@ -414,17 +414,17 @@ export default function TrustedExpertise2({ lang, onSelectService }: TrustedExpe
 //                   whileInView={{ opacity: 1, y: 0 }}
 //                   viewport={{ once: true, margin: '-40px' }}
 //                   transition={{ duration: 0.5, delay: idx * 0.08 }}
-//                   className="group snap-start shrink-0 w-[310px] sm:w-[380px] bg-slate-900/40 border border-slate-900 rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 hover:border-slate-800 hover:bg-slate-900/60"
+//                   className="group snap-start shrink-0 w-[310px] sm:w-[380px] bg-brand-700/40 border border-slate-900 rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 hover:border-slate-800 hover:bg-brand-700/60"
 //                 >
 //                   <div>
 //                     {/* Badge institutionnel discret */}
 //                     <div className="flex items-center justify-between mb-8">
-//                       <span className="text-[10px] font-medium tracking-widest uppercase text-amber-500/90 bg-amber-500/5 px-3 py-1 rounded-md border border-amber-500/10">
+//                       <span className="text-[10px] font-medium tracking-widest uppercase text-accent-500/90 bg-accent-500/5 px-3 py-1 rounded-md border border-accent-500/10">
 //                         {badgeText}
 //                       </span>
 //                     </div>
 
-//                     <h3 className="text-xl font-medium text-white tracking-tight leading-snug mb-4 min-h-[3rem] group-hover:text-amber-500 transition-colors duration-300">
+//                     <h3 className="text-xl font-medium text-white tracking-tight leading-snug mb-4 min-h-[3rem] group-hover:text-accent-500 transition-colors duration-300">
 //                       {titleText}
 //                     </h3>
 
@@ -451,7 +451,7 @@ export default function TrustedExpertise2({ lang, onSelectService }: TrustedExpe
 //                     </span>
 //                     <button
 //                       onClick={() => handleAction(svc.title)}
-//                       className="w-10 h-10 rounded-full bg-slate-950 border border-slate-800 text-slate-400 flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:text-slate-950 group-hover:border-white"
+//                       className="w-10 h-10 rounded-full bg-brand-600 border border-slate-800 text-slate-400 flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:text-brand-950 group-hover:border-white"
 //                       aria-label={`${currentLang === 'en' ? 'Learn more about' : 'En savoir plus sur'} ${titleText}`}
 //                     >
 //                       <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

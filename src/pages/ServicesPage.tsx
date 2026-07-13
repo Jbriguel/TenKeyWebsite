@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { useOutletContext } from 'react-router-dom';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -10,18 +11,12 @@ import {
   Phone,
   Calendar,
 } from 'lucide-react';
+import type { AppContextValue } from '../App';
 import TrustedExpertise2 from '../components/TrustedExpertise2';
 import TrainingCatalog from '../components/TrainingCatalog';
 
-interface ServicesPageProps {
-  currentLang: string;
-  onRegisterRedirect: (moduleName?: string) => void;
-}
-
-export default function ServicesPage({
-  currentLang,
-  onRegisterRedirect,
-}: ServicesPageProps) {
+export default function ServicesPage() {
+  const { lang: currentLang, onRegisterRedirect } = useOutletContext<AppContextValue>();
   const lang = currentLang === 'en' ? 'en' : 'fr';
 
   const handleSelect = (name: string) => onRegisterRedirect(name);
@@ -93,7 +88,7 @@ export default function ServicesPage({
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] text-slate-900 font-display mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] text-brand-900 font-display mb-6">
               {lang === 'en' ? (
                 <>Specialized Language <br /> <span className="text-brand-700">Training & Services</span></>
               ) : (
@@ -124,7 +119,7 @@ export default function ServicesPage({
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => onRegisterRedirect()}
-                className="bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 font-black text-xs uppercase tracking-widest px-8 py-4 rounded-xl transition-colors duration-300 cursor-pointer inline-flex items-center gap-2"
+                className="bg-white hover:bg-slate-50 text-brand-900 border border-slate-300 font-black text-xs uppercase tracking-widest px-8 py-4 rounded-xl transition-colors duration-300 cursor-pointer inline-flex items-center gap-2"
               >
                 <span>{lang === 'en' ? 'Request a Quote' : 'Demander un devis'}</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -145,7 +140,7 @@ export default function ServicesPage({
                   transition={{ duration: 0.5, delay: 0.3 + idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
                   className="bg-white p-6 sm:p-8 text-center"
                 >
-                  <p className="text-2xl sm:text-3xl font-black text-slate-950 font-display mb-1">{stat.value}</p>
+                  <p className="text-2xl sm:text-3xl font-black text-brand-950 font-display mb-1">{stat.value}</p>
                   <p className="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider">{lang === 'en' ? stat.label.en : stat.label.fr}</p>
                 </motion.div>
               ))}
@@ -166,7 +161,7 @@ export default function ServicesPage({
       </motion.div>
 
       {/* 2. FLAGSHIP SECTIONS CAROUSEL */}
-      {/* <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+      {/* <section className="py-24 bg-brand-700 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center opacity-5 mix-blend-luminosity pointer-events-none"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/95 to-slate-900/80 pointer-events-none"></div>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-600/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -251,7 +246,7 @@ export default function ServicesPage({
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-slate-900/5 mix-blend-multiply"></div>
+                <div className="absolute inset-0 bg-brand-700/5 mix-blend-multiply"></div>
               </div>
 
 
@@ -264,7 +259,7 @@ export default function ServicesPage({
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight font-display mb-5 leading-tight">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-950 tracking-tight font-display mb-5 leading-tight">
                   {lang === 'en'
                     ? 'Customer-Driven Solutions with TEN KEY'
                     : 'Des Solutions Axées Client avec TEN KEY'}
@@ -284,7 +279,7 @@ export default function ServicesPage({
                           <IconComponent className="w-4 h-4" />
                         </div>
                         <div>
-                          <h3 className="text-sm font-extrabold font-display text-slate-900 mb-1">
+                          <h3 className="text-sm font-extrabold font-display text-brand-900 mb-1">
                             {lang === 'en' ? feat.en : feat.fr}
                           </h3>
                           <p className="text-xs text-slate-500 font-medium leading-relaxed">
@@ -305,7 +300,7 @@ export default function ServicesPage({
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: idx * 0.1 }}
                     >
-                      <div className="text-3xl sm:text-4xl font-black text-slate-950 font-display mb-1">{stat.value}</div>
+                      <div className="text-3xl sm:text-4xl font-black text-brand-950 font-display mb-1">{stat.value}</div>
                       <div className="text-xs font-bold text-slate-500">{lang === 'en' ? stat.en : stat.fr}</div>
                     </motion.div>
                   ))}
@@ -317,7 +312,7 @@ export default function ServicesPage({
       </section>
 
       {/* 5. B2B CONVERSION SECTION */}
-      <section className="py-24 bg-slate-900 relative overflow-hidden">
+      <section className="py-24 bg-brand-700 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-brand-700/10 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-slate-800/40 rounded-full blur-3xl pointer-events-none"></div>
 

@@ -209,80 +209,85 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
 
   return (
     <div className="bg-slate-50 min-h-screen text-left">
-      {/* IMMERSIVE PREMIUM STUDENT PORTAL HERO */}
-      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-brand-950 text-white overflow-hidden border-b border-brand-900/40">
-        {/* Glowing gold and brand blue backdrop light leaks */}
-        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent-500/10 rounded-full blur-[110px] pointer-events-none"></div>
-        <div className="absolute bottom-5 left-10 w-[300px] h-[300px] bg-brand-500/10 rounded-full blur-[90px] pointer-events-none"></div>
+      {/* ─── STUDENT PORTAL HERO — Institutional Dark Cinematic ─── */}
+      <section className="relative w-full min-h-[65vh] flex items-center bg-brand-600 text-white overflow-hidden border-b border-white/5">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2000&auto=format&fit=crop"
+            alt=""
+            className="w-full h-full object-cover opacity-15 grayscale"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
+        </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
-            
-            {/* Left Column: Text & Workspace info */}
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-1.5 bg-brand-900/80 border border-brand-800 text-accent-400 text-xs font-black tracking-widest px-4 py-2 rounded-full uppercase mb-6 shadow-sm">
-                <GraduationCap className="w-4.5 h-4.5 text-accent-500" />
-                <span>{lang === 'en' ? 'ONLINE STUDENT PORTAL' : 'PORTAIL ÉTUDIANT & CANDIDATS'}</span>
+        {/* Glow accents */}
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-accent-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-brand-600/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full pt-32 pb-24">
+          <div className="max-w-3xl text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <span className="text-accent-500 text-[10px] font-black tracking-widest uppercase">
+                  {lang === 'en' ? 'Student Portal' : 'Portail Étudiant'}
+                </span>
+                <span className="w-16 h-0.5 bg-accent-500" />
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight leading-[1.1] text-white font-display mb-6">
-                {lang === 'en' ? 'Candidate' : 'Espace Numérique'}{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-amber-300">
-                  {lang === 'en' ? 'Workspace' : 'Candidat'}
-                </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight leading-[1.08] mb-6">
+                {lang === 'en' ? (
+                  <>
+                    Your <span className="text-accent-500">Candidate Workspace</span>
+                  </>
+                ) : (
+                  <>
+                    Votre <span className="text-accent-500">Espace Candidat</span>
+                  </>
+                )}
               </h1>
 
-              <p className="text-sm sm:text-base text-brand-100/70 leading-relaxed font-semibold mb-8 max-w-xl">
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mb-10 font-medium">
                 {lang === 'en'
-                  ? 'Self-assess your English level, search & download your official physical onboarding registration pass, or custom-plan your future weekly schedules.'
-                  : 'Évaluez instantanément votre niveau d\'anglais, recherchez & téléchargez votre ticket d\'inscription officiel, ou planifiez votre futur calendrier d\'études.'}
+                  ? 'Self-assess your English level, retrieve your official onboarding pass, or plan your upcoming study schedule in one place.'
+                  : 'Évaluez votre niveau d’anglais, récupérez votre ticket d’admission officiel ou planifiez votre emploi du temps, le tout en un seul endroit.'}
               </p>
 
-              {/* Workspace quick highlights */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Quick highlights */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
                 {[
-                  lang === 'en' ? 'Interactive placement test' : 'Test de placement interactif',
-                  lang === 'en' ? 'Onboarding pass lookups' : 'Recherche de ticket d’inscription',
-                  lang === 'en' ? 'Interactive study planners' : 'Simulateur d’emploi du temps',
-                  lang === 'en' ? 'Instant result certifications' : 'Attestation de niveau immédiate'
-                ].map((hl, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-accent-400 shrink-0" />
-                    <span className="text-xs font-bold text-brand-100">{hl}</span>
-                  </div>
-                ))}
+                  { icon: Award, label: lang === 'en' ? 'Placement Test' : 'Test de Niveau' },
+                  { icon: Ticket, label: lang === 'en' ? 'Admission Pass' : 'Ticket Admission' },
+                  { icon: Calendar, label: lang === 'en' ? 'Study Planner' : 'Planning' },
+                  { icon: ShieldCheck, label: lang === 'en' ? 'CEFR Result' : 'Résultat CECRL' },
+                ].map((hl, idx) => {
+                  const IconComponent = hl.icon;
+                  return (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-xl px-3 py-2.5"
+                    >
+                      <IconComponent className="w-3.5 h-3.5 text-accent-500 shrink-0" strokeWidth={1.5} />
+                      <span className="text-[10px] font-bold text-slate-200 uppercase tracking-wide leading-tight">{hl.label}</span>
+                    </div>
+                  );
+                })}
               </div>
-            </div>
 
-            {/* Right Column: Visual illustration element */}
-            <div className="lg:col-span-5 relative flex justify-center">
-              <div className="relative w-full max-w-[380px] aspect-square">
-                {/* Visual Collage Card */}
-                <div className="w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-brand-800/40 relative z-10">
-                  <img
-                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop"
-                    alt="Digital learning dashboard workspace"
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-transparent to-brand-950/10"></div>
-                </div>
-
-                {/* Floating Glassmorphism Metric Badge */}
-                <div className="absolute -bottom-6 -right-6 bg-brand-900/90 backdrop-blur-md border border-brand-800 text-white rounded-2xl p-4 shadow-2xl z-20 flex items-center gap-3.5 max-w-[200px] text-left">
-                  <div className="w-10 h-10 rounded-xl bg-accent-500/10 text-accent-400 flex items-center justify-center shrink-0">
-                    <Sparkles className="w-5.5 h-5.5" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-black font-display text-accent-400">A1 - C2</p>
-                    <p className="text-[9px] font-bold text-brand-100 leading-normal">
-                      {lang === 'en' ? 'CEFR Level Assessment Standards' : 'Normes d’Évaluation Cadre Européen'}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+              <button
+                onClick={() => setActiveTab('test')}
+                className="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-400 text-brand-950 text-[11px] font-black uppercase tracking-widest px-7 py-4 rounded-xl transition-all cursor-pointer shadow-lg shadow-accent-500/20"
+              >
+                {lang === 'en' ? 'Start Placement Test' : 'Démarrer le Test'}
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -290,43 +295,30 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
       {/* Main Workspace Workspace Tabs Content Area */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
-        {/* Dynamic Multi-Tab Switcher (PREMIUM FEEL) */}
-        <div className="grid grid-cols-3 gap-2 p-1.5 bg-slate-200/60 rounded-2xl mb-8 border border-slate-200">
-          <button
-            onClick={() => setActiveTab('test')}
-            className={`py-3.5 px-2 rounded-xl text-xs sm:text-sm font-bold flex flex-col sm:flex-row items-center justify-center gap-2 transition-all ${
-              activeTab === 'test'
-                ? 'bg-white text-brand-950 shadow-md shadow-slate-300'
-                : 'text-slate-600 hover:text-slate-950 hover:bg-white/40'
-            }`}
-          >
-            <Award className={`w-4.5 h-4.5 ${activeTab === 'test' ? 'text-accent-500' : 'text-slate-400'}`} />
-            <span>{lang === 'en' ? 'Placement Level Test' : 'Test d\'Anglais'}</span>
-          </button>
-          
-          <button
-            onClick={() => setActiveTab('ticket')}
-            className={`py-3.5 px-2 rounded-xl text-xs sm:text-sm font-bold flex flex-col sm:flex-row items-center justify-center gap-2 transition-all ${
-              activeTab === 'ticket'
-                ? 'bg-white text-brand-950 shadow-md shadow-slate-300'
-                : 'text-slate-600 hover:text-slate-950 hover:bg-white/40'
-            }`}
-          >
-            <Ticket className={`w-4.5 h-4.5 ${activeTab === 'ticket' ? 'text-accent-500' : 'text-slate-400'}`} />
-            <span>{lang === 'en' ? 'My Admission Ticket' : 'Mon Ticket d\'Entrée'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('schedule')}
-            className={`py-3.5 px-2 rounded-xl text-xs sm:text-sm font-bold flex flex-col sm:flex-row items-center justify-center gap-2 transition-all ${
-              activeTab === 'schedule'
-                ? 'bg-white text-brand-950 shadow-md shadow-slate-300'
-                : 'text-slate-600 hover:text-slate-950 hover:bg-white/40'
-            }`}
-          >
-            <Calendar className={`w-4.5 h-4.5 ${activeTab === 'schedule' ? 'text-accent-500' : 'text-slate-400'}`} />
-            <span>{lang === 'en' ? 'Study Schedule Planner' : 'Mon Planning d’Études'}</span>
-          </button>
+        {/* Tab Switcher */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          {[
+            { key: 'test', icon: Award, label: lang === 'en' ? 'Placement Test' : 'Test de Niveau' },
+            { key: 'ticket', icon: Ticket, label: lang === 'en' ? 'Admission Pass' : 'Ticket Admission' },
+            { key: 'schedule', icon: Calendar, label: lang === 'en' ? 'Study Planner' : 'Planning' },
+          ].map((tab) => {
+            const IconComponent = tab.icon;
+            const isActive = activeTab === tab.key;
+            return (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key as 'test' | 'ticket' | 'schedule')}
+                className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl text-[11px] font-semibold tracking-wide transition-all cursor-pointer ${
+                  isActive
+                    ? 'bg-brand-600 text-white shadow-md'
+                    : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:text-brand-900'
+                }`}
+              >
+                <IconComponent className={`w-4 h-4 ${isActive ? 'text-accent-500' : 'text-slate-400'}`} strokeWidth={1.5} />
+                {tab.label}
+              </button>
+            );
+          })}
         </div>
 
         {/* Tab Contents */}
@@ -363,7 +355,7 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
                   </div>
 
                   {/* Question Prompt */}
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-6 font-display leading-snug">
+                  <h3 className="text-lg sm:text-xl font-bold text-brand-900 mb-6 font-display leading-snug">
                     {lang === 'en' ? QUESTIONS[currentQuestionIdx].text.en : QUESTIONS[currentQuestionIdx].text.fr}
                   </h3>
 
@@ -376,7 +368,7 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
                         className={`w-full text-left p-4 rounded-xl border text-xs sm:text-sm font-semibold transition-all flex items-start gap-3 ${
                           selectedOption === option.score
                             ? 'bg-brand-50/70 border-brand-500 text-brand-950 ring-2 ring-brand-500/10'
-                            : 'bg-white border-slate-200 hover:border-slate-300 text-slate-700 hover:text-slate-900'
+                            : 'bg-white border-slate-200 hover:border-slate-300 text-brand-700 hover:text-brand-900'
                         }`}
                       >
                         <div className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 mt-0.5 ${
@@ -418,7 +410,7 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
                     {lang === 'en' ? 'ASSESSMENT ACCOMPLISHED' : 'EVALUATION REUSSIE'}
                   </span>
                   
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-4 mb-2 font-display">
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-900 mt-4 mb-2 font-display">
                     {lang === 'en' ? 'Your Recommended Level' : 'Votre Niveau Recommandé'}
                   </h2>
 
@@ -441,7 +433,7 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
                       ></div>
                     </div>
 
-                    <h4 className="font-extrabold text-slate-900 text-sm mb-1">{computedCEFR.name}</h4>
+                    <h4 className="font-extrabold text-brand-900 text-sm mb-1">{computedCEFR.name}</h4>
                     <p className="text-slate-500 text-xs leading-relaxed">{computedCEFR.desc}</p>
                   </div>
 
@@ -463,7 +455,7 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
                     
                     <button
                       onClick={handleResetTest}
-                      className="bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs py-3 px-6 rounded-xl border border-slate-200 transition-all flex items-center justify-center gap-1.5"
+                      className="bg-white hover:bg-slate-50 text-brand-700 font-bold text-xs py-3 px-6 rounded-xl border border-slate-200 transition-all flex items-center justify-center gap-1.5"
                     >
                       <RefreshCw className="w-3.5 h-3.5 text-slate-400" />
                       <span>{lang === 'en' ? 'Retake Test' : 'Refaire le Test'}</span>
@@ -489,7 +481,7 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
                   <div className="w-12 h-12 bg-accent-50 text-accent-600 rounded-xl flex items-center justify-center mx-auto mb-3">
                     <Ticket className="w-6 h-6" />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 font-display">
+                  <h3 className="text-lg font-bold text-brand-900 font-display">
                     {lang === 'en' ? 'Find Your Admission Pass' : 'Récupérer votre Reçu d\'Admission'}
                   </h3>
                   <p className="text-slate-500 text-xs sm:text-sm mt-1">
@@ -534,7 +526,7 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
                       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-dashed border-slate-200 pb-4 mb-4 gap-3">
                         <div>
                           <p className="text-[10px] text-slate-400 uppercase tracking-widest font-extrabold">TEN KEY CENTER PASSPORT</p>
-                          <h4 className="text-base font-extrabold text-slate-900 font-display mt-0.5">{retrievedTicket.name}</h4>
+                          <h4 className="text-base font-extrabold text-brand-900 font-display mt-0.5">{retrievedTicket.name}</h4>
                         </div>
                         <span className="bg-brand-100 text-brand-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">
                           {lang === 'en' ? retrievedTicket.status.en : retrievedTicket.status.fr}
@@ -545,15 +537,15 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs mb-6">
                         <div>
                           <p className="text-slate-400 font-bold uppercase tracking-wider text-[10px]">{lang === 'en' ? 'TICKET SERIAL CODE' : 'N° DE SÉRIE ADMISSION'}</p>
-                          <p className="font-extrabold text-slate-900 mt-1 font-mono">{retrievedTicket.ticketId}</p>
+                          <p className="font-extrabold text-brand-900 mt-1 font-mono">{retrievedTicket.ticketId}</p>
                         </div>
                         <div>
                           <p className="text-slate-400 font-bold uppercase tracking-wider text-[10px]">{lang === 'en' ? 'SELECTED CURRICULUM' : 'MODULE SÉLECTIONNÉ'}</p>
-                          <p className="font-extrabold text-slate-900 mt-1">{retrievedTicket.module}</p>
+                          <p className="font-extrabold text-brand-900 mt-1">{retrievedTicket.module}</p>
                         </div>
                         <div>
                           <p className="text-slate-400 font-bold uppercase tracking-wider text-[10px]">{lang === 'en' ? 'REGISTERED LEVEL' : 'NIVEAU ENREGISTRÉ'}</p>
-                          <p className="font-extrabold text-slate-900 mt-1">{retrievedTicket.level} (Test: {retrievedTicket.testScore})</p>
+                          <p className="font-extrabold text-brand-900 mt-1">{retrievedTicket.level} (Test: {retrievedTicket.testScore})</p>
                         </div>
                         <div>
                           <p className="text-slate-400 font-bold uppercase tracking-wider text-[10px]">{lang === 'en' ? 'PAYMENT STATUS' : 'STATUT FINANCIER'}</p>
@@ -565,22 +557,22 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
                       <div className="border-t border-dashed border-slate-200 pt-5 flex flex-col sm:flex-row justify-between items-center gap-4">
                         <div className="text-center sm:text-left">
                           <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">{lang === 'en' ? 'Onboarding Date' : 'Date de convocation'}</p>
-                          <p className="font-extrabold text-slate-800 text-xs mt-0.5">{retrievedTicket.date} (Lomé HQ)</p>
+                          <p className="font-extrabold text-brand-800 text-xs mt-0.5">{retrievedTicket.date} (Lomé HQ)</p>
                         </div>
                         {/* Fake Barcode Graphic */}
                         <div className="flex flex-col items-center shrink-0">
                           <div className="h-8 flex gap-0.5 bg-white p-1 rounded-sm border border-slate-200">
-                            <div className="w-[1px] bg-slate-900 h-full"></div>
-                            <div className="w-[2px] bg-slate-900 h-full"></div>
-                            <div className="w-[1px] bg-slate-900 h-full"></div>
-                            <div className="w-[4px] bg-slate-900 h-full"></div>
-                            <div className="w-[1px] bg-slate-900 h-full"></div>
-                            <div className="w-[2px] bg-slate-900 h-full"></div>
-                            <div className="w-[3px] bg-slate-900 h-full"></div>
-                            <div className="w-[1px] bg-slate-900 h-full"></div>
-                            <div className="w-[2px] bg-slate-900 h-full"></div>
-                            <div className="w-[4px] bg-slate-900 h-full"></div>
-                            <div className="w-[1px] bg-slate-900 h-full"></div>
+                            <div className="w-[1px] bg-brand-700 h-full"></div>
+                            <div className="w-[2px] bg-brand-700 h-full"></div>
+                            <div className="w-[1px] bg-brand-700 h-full"></div>
+                            <div className="w-[4px] bg-brand-700 h-full"></div>
+                            <div className="w-[1px] bg-brand-700 h-full"></div>
+                            <div className="w-[2px] bg-brand-700 h-full"></div>
+                            <div className="w-[3px] bg-brand-700 h-full"></div>
+                            <div className="w-[1px] bg-brand-700 h-full"></div>
+                            <div className="w-[2px] bg-brand-700 h-full"></div>
+                            <div className="w-[4px] bg-brand-700 h-full"></div>
+                            <div className="w-[1px] bg-brand-700 h-full"></div>
                           </div>
                           <span className="text-[8px] text-slate-400 font-mono tracking-widest mt-1">*{retrievedTicket.ticketId}*</span>
                         </div>
@@ -590,7 +582,7 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
                       <div className="mt-6 flex justify-end gap-2 border-t border-slate-100 pt-4">
                         <button
                           onClick={() => window.print()}
-                          className="bg-white hover:bg-slate-100 text-slate-700 font-bold text-[11px] px-3.5 py-2 rounded-lg border border-slate-200 flex items-center gap-1.5 transition-all"
+                          className="bg-white hover:bg-slate-100 text-brand-700 font-bold text-[11px] px-3.5 py-2 rounded-lg border border-slate-200 flex items-center gap-1.5 transition-all"
                         >
                           <Printer className="w-3.5 h-3.5 text-slate-400" />
                           <span>{lang === 'en' ? 'Print Pass' : 'Imprimer'}</span>
@@ -647,7 +639,7 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
                 
                 {/* Left Controls */}
                 <div className="lg:col-span-1 border-r border-slate-100 lg:pr-8">
-                  <h3 className="text-base font-bold text-slate-900 font-display mb-4">
+                  <h3 className="text-base font-bold text-brand-900 font-display mb-4">
                     {lang === 'en' ? 'Custom Study Roadmap' : 'Calculateur de Planning d’Études'}
                   </h3>
 
@@ -704,7 +696,7 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
 
                   {/* Info helper block */}
                   <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 text-xs text-slate-500 leading-relaxed">
-                    <p className="font-bold text-slate-700 mb-1">📅 {lang === 'en' ? 'Our Pedagogy Rule' : 'Règle Pédagogique'}</p>
+                    <p className="font-bold text-brand-700 mb-1">📅 {lang === 'en' ? 'Our Pedagogy Rule' : 'Règle Pédagogique'}</p>
                     {lang === 'en'
                       ? 'Our cohorts run on alternating evenings in Lomé, with specialized translation clubs on Saturday mornings.'
                       : 'Les promotions se réunissent les soirs en alternance de 18h30 à 20h30. Les samedis matins sont dédiés aux clubs d\'anglais.'}
@@ -714,7 +706,7 @@ export default function StudentPortal({ lang, onRegisterRedirect }: StudentPorta
                 {/* Right Interactive Table Schedule Output */}
                 <div className="lg:col-span-2">
                   <div className="flex justify-between items-center mb-4">
-                    <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">
+                    <h4 className="text-sm font-bold text-brand-900 uppercase tracking-wider">
                       {lang === 'en' ? 'Calculated Weekly Agenda' : 'Emploi du Temps Hebdomadaire'}
                     </h4>
                     <span className="text-[10px] font-bold text-accent-600 bg-accent-50 border border-accent-100 px-2 py-0.5 rounded-full uppercase">

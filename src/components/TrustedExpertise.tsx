@@ -68,7 +68,7 @@ export default function TrustedExpertise({ lang, onSelectService }: TrustedExper
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center max-w-2xl mx-auto mb-14"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-tight font-display mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-950 tracking-tight leading-tight font-display mb-4">
             {lang === 'en' ? (
               <>What We Train <span className="text-brand-600">& Translate</span></>
             ) : (
@@ -98,7 +98,7 @@ export default function TrustedExpertise({ lang, onSelectService }: TrustedExper
                   <IconComponent className="w-5 h-5" />
                 </div>
 
-                <h3 className="text-lg font-extrabold font-display text-slate-900 mb-3 leading-tight">
+                <h3 className="text-lg font-extrabold font-display text-brand-900 mb-3 leading-tight">
                   {lang === 'en' ? svc.title.en : svc.title.fr}
                 </h3>
 
@@ -108,7 +108,7 @@ export default function TrustedExpertise({ lang, onSelectService }: TrustedExper
 
                 <button
                   onClick={() => handleAction(lang === 'en' ? svc.title.en : svc.title.fr)}
-                  className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-slate-700 hover:text-brand-600 transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-brand-700 hover:text-brand-600 transition-colors cursor-pointer"
                 >
                   {lang === 'en' ? 'Learn more' : 'En savoir plus'}
                   <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />

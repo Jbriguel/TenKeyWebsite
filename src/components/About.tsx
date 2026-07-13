@@ -31,7 +31,7 @@ export default function About({ lang }: AboutProps) {
       <Selections lang={lang} />
 
       {/* SECTION 2: MORE ABOUT US - Highly polished premium layout matching the screenshot */}
-      <section className="py-24 bg-white text-slate-900 relative">
+      <section className="py-24 bg-white text-brand-900 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
@@ -69,7 +69,7 @@ export default function About({ lang }: AboutProps) {
                       <div className="w-5 h-5 rounded-full bg-accent-500/10 text-accent-500 flex items-center justify-center shrink-0">
                         <span className="text-xs font-black">✓</span>
                       </div>
-                      <span className="text-xs font-extrabold text-slate-800 tracking-wide uppercase">
+                      <span className="text-xs font-extrabold text-brand-800 tracking-wide uppercase">
                         {bullet}
                       </span>
                     </div>
@@ -87,7 +87,7 @@ export default function About({ lang }: AboutProps) {
                       <div className="w-5 h-5 rounded-full bg-accent-500/10 text-accent-500 flex items-center justify-center shrink-0">
                         <span className="text-xs font-black">✓</span>
                       </div>
-                      <span className="text-xs font-extrabold text-slate-800 tracking-wide uppercase">
+                      <span className="text-xs font-extrabold text-brand-800 tracking-wide uppercase">
                         {bullet}
                       </span>
                     </div>
@@ -106,7 +106,7 @@ export default function About({ lang }: AboutProps) {
                     referrerPolicy="no-referrer"
                   />
                   <div>
-                    <h4 className="text-sm font-black text-slate-900 font-display">Adrew David</h4>
+                    <h4 className="text-sm font-black text-brand-900 font-display">Adrew David</h4>
                     <p className="text-[10px] text-accent-500 font-extrabold uppercase tracking-wider">
                       {lang === 'en' ? 'CEO & Founder' : 'CEO & Fondateur'}
                     </p>
@@ -125,7 +125,7 @@ export default function About({ lang }: AboutProps) {
                     <p className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider leading-none mb-1">
                       {lang === 'en' ? 'Call us anytime' : 'Appelez-nous à tout moment'}
                     </p>
-                    <p className="text-xs sm:text-sm font-black text-slate-900 group-hover:text-accent-500 transition-colors">
+                    <p className="text-xs sm:text-sm font-black text-brand-900 group-hover:text-accent-500 transition-colors">
                       +228 91 88 38 67
                     </p>
                   </div>

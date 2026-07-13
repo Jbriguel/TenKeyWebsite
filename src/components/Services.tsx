@@ -96,7 +96,7 @@ export default function Services({ lang, onSelectService }: ServicesProps) {
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-500 animate-pulse"></span>
                 {lang === 'en' ? 'OUR INTERACTIVE CATALOGUE' : 'NOTRE CATALOGUE INTERACTIF'}
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-black text-slate-950 tracking-tight font-display leading-[1.15]">
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-black text-brand-950 tracking-tight font-display leading-[1.15]">
                 {lang === 'en' ? (
                   <>
                     Explore Our Specialities <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-600">in Detail</span>
@@ -121,7 +121,7 @@ export default function Services({ lang, onSelectService }: ServicesProps) {
                 disabled={!canScrollLeft}
                 className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 cursor-pointer ${
                   canScrollLeft
-                    ? 'border-slate-200 bg-white text-slate-800 hover:bg-slate-50 shadow-sm active:scale-95'
+                    ? 'border-slate-200 bg-white text-brand-800 hover:bg-slate-50 shadow-sm active:scale-95'
                     : 'border-slate-100 bg-slate-50 text-slate-300 cursor-not-allowed'
                 }`}
                 aria-label="Previous Slide"
@@ -133,7 +133,7 @@ export default function Services({ lang, onSelectService }: ServicesProps) {
                 disabled={!canScrollRight}
                 className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 cursor-pointer ${
                   canScrollRight
-                    ? 'border-slate-200 bg-white text-slate-800 hover:bg-slate-50 shadow-sm active:scale-95'
+                    ? 'border-slate-200 bg-white text-brand-800 hover:bg-slate-50 shadow-sm active:scale-95'
                     : 'border-slate-100 bg-slate-50 text-slate-300 cursor-not-allowed'
                 }`}
                 aria-label="Next Slide"
@@ -154,7 +154,7 @@ export default function Services({ lang, onSelectService }: ServicesProps) {
                   className={`relative px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 cursor-pointer ${
                     isSelected 
                       ? 'text-white' 
-                      : 'text-slate-600 hover:text-slate-900 bg-white hover:bg-slate-50 border border-slate-200/60'
+                      : 'text-slate-600 hover:text-brand-900 bg-white hover:bg-slate-50 border border-slate-200/60'
                   }`}
                 >
                   {isSelected && (
@@ -195,8 +195,8 @@ export default function Services({ lang, onSelectService }: ServicesProps) {
                     transition={{ duration: 0.5, delay: idx * 0.05 }}
                     className={`snap-start shrink-0 w-[295px] sm:w-[355px] rounded-[2.5rem] p-6 sm:p-8 flex flex-col justify-between text-left relative overflow-hidden transition-all duration-500 group min-h-[460px] border ${
                       isProminent
-                        ? 'bg-slate-900 text-white border-slate-800 shadow-xl shadow-slate-900/10 hover:border-slate-700'
-                        : 'bg-white text-slate-950 border-slate-200/80 shadow-md shadow-slate-200/20 hover:border-accent-500/30'
+                        ? 'bg-brand-700 text-white border-slate-800 shadow-xl shadow-slate-900/10 hover:border-slate-700'
+                        : 'bg-white text-brand-950 border-slate-200/80 shadow-md shadow-slate-200/20 hover:border-accent-500/30'
                     }`}
                   >
                     {/* Hover bottom border glow indicator */}
@@ -215,7 +215,7 @@ export default function Services({ lang, onSelectService }: ServicesProps) {
                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${
                           isProminent
                             ? 'bg-accent-500/10 border border-accent-500/20 text-accent-400'
-                            : 'bg-slate-50 border border-slate-100 text-slate-700 group-hover:bg-accent-500 group-hover:text-white group-hover:border-accent-500'
+                            : 'bg-slate-50 border border-slate-100 text-brand-700 group-hover:bg-accent-500 group-hover:text-white group-hover:border-accent-500'
                         }`}>
                           <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
                         </div>
@@ -237,7 +237,7 @@ export default function Services({ lang, onSelectService }: ServicesProps) {
 
                       {/* Title & Description */}
                       <h3 className={`text-lg sm:text-xl font-black font-display tracking-tight leading-snug mb-3 transition-colors ${
-                        isProminent ? 'text-white' : 'text-slate-900 group-hover:text-brand-950'
+                        isProminent ? 'text-white' : 'text-brand-900 group-hover:text-brand-950'
                       }`}>
                         {lang === 'en' ? module.title : (module.frenchTitle || module.title)}
                       </h3>
@@ -276,7 +276,7 @@ export default function Services({ lang, onSelectService }: ServicesProps) {
                         className={`w-full py-3.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 cursor-pointer flex items-center justify-center gap-1.5 group/btn active:scale-95 border ${
                           isProminent
                             ? 'bg-accent-500 text-white border-accent-500 hover:bg-accent-600 shadow-md shadow-accent-500/10 hover:shadow-accent-500/20'
-                            : 'bg-slate-50 text-slate-700 border-slate-100/80 hover:bg-accent-500 hover:text-white hover:border-accent-500 hover:shadow-md hover:shadow-accent-500/15'
+                            : 'bg-slate-50 text-brand-700 border-slate-100/80 hover:bg-accent-500 hover:text-white hover:border-accent-500 hover:shadow-md hover:shadow-accent-500/15'
                         }`}
                       >
                         <span>{lang === 'en' ? 'Select Module' : 'Choisir Module'}</span>

@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
+import { useOutletContext } from 'react-router-dom';
 import { ArrowRight, MessageCircle } from 'lucide-react';
+import type { AppContextValue } from '../App';
 import PricingTable from '../components/PricingTable';
 import EnrollmentForm from '../components/EnrollmentForm';
 import { BentoLevelTesterCTA } from '../components/CoolCTAs';
 
-interface PricingPageProps {
-  currentLang: string;
-  onRegisterRedirect: (moduleName?: string) => void;
-  selectedModuleName: string;
-  setSelectedModuleName: (name: string) => void;
-}
-
-export default function PricingPage({
-  currentLang,
-  onRegisterRedirect,
-  selectedModuleName,
-  setSelectedModuleName,
-}: PricingPageProps) {
+export default function PricingPage() {
+  const {
+    lang: currentLang,
+    onRegisterRedirect,
+    selectedModuleName,
+    setSelectedModuleName,
+  } = useOutletContext<AppContextValue>();
   const lang = currentLang === 'en' ? 'en' : 'fr';
   const [showStickyCta, setShowStickyCta] = useState(false);
 
@@ -38,7 +34,7 @@ export default function PricingPage({
   return (
     <main className="w-full overflow-x-hidden">
       {/* ─── 1. HERO — Deep Immersive Dark ─── */}
-      <section className="relative w-full min-h-[70vh] flex items-center justify-center bg-slate-950 text-white">
+      <section className="relative w-full min-h-[70vh] flex items-center justify-center bg-brand-600 text-white">
         {/* Metropolitan background image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -51,7 +47,7 @@ export default function PricingPage({
         </div>
 
         {/* Decorative glow */}
-        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-accent-500/10 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center pt-32 pb-24">
           <motion.div
@@ -60,20 +56,20 @@ export default function PricingPage({
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="flex items-center justify-center gap-3 mb-5">
-              <span className="text-amber-500 text-[10px] font-black tracking-widest uppercase">
+              <span className="text-accent-500 text-[10px] font-black tracking-widest uppercase">
                 {lang === 'en' ? 'Tuition & Schedules' : 'Tarifs & Horaires'}
               </span>
-              <span className="w-16 h-0.5 bg-amber-500" />
+              <span className="w-16 h-0.5 bg-accent-500" />
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight leading-tight mb-6">
               {lang === 'en' ? (
                 <>
-                  Clear Plans, <span className="text-amber-500">Built for Excellence</span>
+                  Clear Plans, <span className="text-accent-500">Built for Excellence</span>
                 </>
               ) : (
                 <>
-                  Formules Claires, <span className="text-amber-500">Conçues pour l’Excellence</span>
+                  Formules Claires, <span className="text-accent-500">Conçues pour l’Excellence</span>
                 </>
               )}
             </h1>
@@ -90,7 +86,7 @@ export default function PricingPage({
                   const section = document.getElementById('pricing-core');
                   section?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="bg-amber-500 hover:bg-amber-400 text-slate-950 text-[11px] font-black uppercase tracking-widest px-6 py-3.5 rounded-xl transition-all cursor-pointer flex items-center gap-2"
+                className="bg-accent-500 hover:bg-accent-400 text-brand-950 text-[11px] font-black uppercase tracking-widest px-6 py-3.5 rounded-xl transition-all cursor-pointer flex items-center gap-2"
               >
                 {lang === 'en' ? 'Explore Programs' : 'Explorer les Programmes'}
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -126,10 +122,10 @@ export default function PricingPage({
       </section>
 
       {/* ─── 3. ADVANCED SPECIALTIES — Ultra-Dark Contrast Injection ─── */}
-      <section id="pricing-specialties" className="w-full py-24 bg-slate-950 text-white relative overflow-hidden">
+      <section id="pricing-specialties" className="w-full py-24 bg-brand-600 text-white relative overflow-hidden">
         {/* Subtle geometric glow */}
         <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent-500/5 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <PricingTable
@@ -149,10 +145,10 @@ export default function PricingPage({
       </section>
 
       {/* ─── 4. INSTITUTIONAL STANDARDS — Deep Blue Foundation ─── */}
-      <section className="w-full py-24 bg-slate-900 text-white relative overflow-hidden">
+      <section className="w-full py-24 bg-brand-700 text-white relative overflow-hidden">
         {/* Background glows */}
         <div className="absolute top-0 right-1/3 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-accent-500/5 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
@@ -163,19 +159,19 @@ export default function PricingPage({
             className="text-center max-w-2xl mx-auto mb-14"
           >
             <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="text-amber-500 text-[10px] font-black tracking-widest uppercase">
+              <span className="text-accent-500 text-[10px] font-black tracking-widest uppercase">
                 {lang === 'en' ? 'Institutional Guarantees' : 'Garanties Institutionnelles'}
               </span>
-              <span className="w-16 h-0.5 bg-amber-500" />
+              <span className="w-16 h-0.5 bg-accent-500" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-black font-display tracking-tight leading-tight mb-5">
               {lang === 'en' ? (
                 <>
-                  Built for <span className="text-amber-500">Enterprise & Embassy</span> Standards
+                  Built for <span className="text-accent-500">Enterprise & Embassy</span> Standards
                 </>
               ) : (
                 <>
-                  Conçu pour les Standards <span className="text-amber-500">Entreprises & Ambassades</span>
+                  Conçu pour les Standards <span className="text-accent-500">Entreprises & Ambassades</span>
                 </>
               )}
             </h2>
@@ -215,7 +211,7 @@ export default function PricingPage({
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="bg-white/[0.03] border border-white/10 rounded-2xl p-8 hover:bg-white/[0.05] hover:border-white/20 transition-all"
               >
-                <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center mb-6">
+                <div className="w-10 h-10 rounded-lg bg-accent-500/10 text-accent-500 flex items-center justify-center mb-6">
                   <span className="text-sm font-black">0{idx + 1}</span>
                 </div>
                 <h3 className="text-base font-medium text-white mb-3">{item.title}</h3>
@@ -242,7 +238,7 @@ export default function PricingPage({
               </span>
               <span className="w-16 h-0.5 bg-brand-600" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-950 font-display tracking-tight leading-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl font-black text-brand-950 font-display tracking-tight leading-tight mb-4">
               {lang === 'en' ? 'Reserve Your Diagnostic Session' : 'Réservez Votre Session Diagnostique'}
             </h2>
             <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-xl mx-auto font-medium">
@@ -261,7 +257,7 @@ export default function PricingPage({
       </section>
 
       {/* ─── SLIM CTA BAND ─── */}
-      <section className="w-full bg-slate-950 border-t border-white/5 py-8">
+      <section className="w-full bg-brand-600 border-t border-white/5 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-400 font-medium leading-relaxed">
             {lang === 'en'
@@ -270,7 +266,7 @@ export default function PricingPage({
           </p>
           <button
             onClick={() => onRegisterRedirect()}
-            className="inline-flex items-center gap-2 text-[11px] font-semibold text-amber-500 hover:text-amber-400 transition-colors cursor-pointer shrink-0"
+            className="inline-flex items-center gap-2 text-[11px] font-semibold text-accent-500 hover:text-accent-400 transition-colors cursor-pointer shrink-0"
           >
             {lang === 'en' ? 'Request a custom quote' : 'Demander un devis personnalisé'}
             <ArrowRight className="w-3.5 h-3.5" />
@@ -283,7 +279,7 @@ export default function PricingPage({
         initial={false}
         animate={{ y: showStickyCta ? 0 : 100, opacity: showStickyCta ? 1 : 0 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed bottom-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-md border-t border-white/10 shadow-[0_-8px_30px_-12px_rgba(0,0,0,0.3)]"
+        className="fixed bottom-0 left-0 right-0 z-50 bg-brand-600/95 backdrop-blur-md border-t border-white/10 shadow-[0_-8px_30px_-12px_rgba(0,0,0,0.3)]"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
@@ -298,7 +294,7 @@ export default function PricingPage({
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <button
                 onClick={() => onRegisterRedirect()}
-                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 text-[11px] font-semibold tracking-wide px-5 py-3 rounded-lg transition-all cursor-pointer"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-400 text-brand-950 text-[11px] font-semibold tracking-wide px-5 py-3 rounded-lg transition-all cursor-pointer"
               >
                 {lang === 'en' ? 'Start Enrollment' : "S'inscrire"}
                 <ArrowRight className="w-3.5 h-3.5" />

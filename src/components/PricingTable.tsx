@@ -80,19 +80,19 @@ export default function PricingTable(props: PricingTierProps) {
     const cardBase = isDark
       ? 'bg-white/[0.02] border-white/10 hover:border-white/20 hover:bg-white/[0.04]'
       : isHero
-      ? 'bg-white border-amber-500/30 shadow-[0_8px_30px_-12px_rgba(245,158,11,0.15)] hover:border-amber-500/50'
+      ? 'bg-white border-accent-500/30 shadow-[0_8px_30px_-12px_rgba(245,158,11,0.15)] hover:border-accent-500/50'
       : 'bg-white border-slate-100 hover:border-slate-200 hover:shadow-sm';
 
-    const titleClass = isDark ? 'text-white' : 'text-slate-950';
-    const priceClass = isDark ? 'text-white' : 'text-slate-900';
+    const titleClass = isDark ? 'text-white' : 'text-brand-950';
+    const priceClass = isDark ? 'text-white' : 'text-brand-900';
     const scheduleClass = isDark ? 'text-slate-400' : 'text-slate-500';
     const dividerClass = isDark ? 'bg-white/10' : 'bg-slate-100';
     const featureText = isDark ? 'text-slate-300' : 'text-slate-600';
-    const checkColor = isDark ? 'text-amber-500' : 'text-slate-400';
+    const checkColor = isDark ? 'text-accent-500' : 'text-slate-400';
     const badgeClass = isDark
-      ? 'text-amber-500'
+      ? 'text-accent-500'
       : isHero
-      ? 'text-amber-600'
+      ? 'text-accent-600'
       : 'text-slate-400';
 
     return (
@@ -115,7 +115,7 @@ export default function PricingTable(props: PricingTierProps) {
                   ? lang === 'en' ? 'Community Access' : 'Accès Communautaire'
                   : lang === 'en' ? 'Module' : 'Module'}
               </span>
-              {isHero && <Sparkles className="w-3.5 h-3.5 text-amber-500" strokeWidth={1.5} />}
+              {isHero && <Sparkles className="w-3.5 h-3.5 text-accent-500" strokeWidth={1.5} />}
             </div>
 
             <h3 className={`text-base font-medium leading-snug mb-3 min-h-[2.75rem] ${titleClass}`}>
@@ -155,8 +155,8 @@ export default function PricingTable(props: PricingTierProps) {
                 isDark
                   ? 'bg-white/5 text-white border border-white/10 hover:bg-white/10'
                   : isHero
-                  ? 'bg-slate-950 text-white hover:bg-slate-900'
-                  : 'bg-white text-slate-900 border border-slate-200 hover:bg-slate-50'
+                  ? 'bg-brand-600 text-white hover:bg-brand-700'
+                  : 'bg-white text-brand-900 border border-slate-200 hover:bg-slate-50'
               }`}
             >
               {lang === 'en' ? 'Select this module' : 'Choisir ce module'}
@@ -178,12 +178,12 @@ export default function PricingTable(props: PricingTierProps) {
         className="mb-16 max-w-2xl"
       >
         <div className="flex items-center gap-3 mb-4">
-          <span className={`text-[10px] font-black tracking-widest uppercase ${isDark ? 'text-amber-500' : 'text-brand-600'}`}>
+          <span className={`text-[10px] font-black tracking-widest uppercase ${isDark ? 'text-accent-500' : 'text-brand-600'}`}>
             {lang === 'en' ? label : labelFr}
           </span>
-          <span className={`w-16 h-0.5 ${isDark ? 'bg-amber-500' : 'bg-brand-600'}`} />
+          <span className={`w-16 h-0.5 ${isDark ? 'bg-accent-500' : 'bg-brand-600'}`} />
         </div>
-        <h2 className={`text-3xl sm:text-4xl font-black font-display tracking-tight leading-tight mb-5 ${isDark ? 'text-white' : 'text-slate-950'}`}>
+        <h2 className={`text-3xl sm:text-4xl font-black font-display tracking-tight leading-tight mb-5 ${isDark ? 'text-white' : 'text-brand-950'}`}>
           {lang === 'en' ? title : titleFr}
         </h2>
         <p className={`text-sm sm:text-base leading-relaxed font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>

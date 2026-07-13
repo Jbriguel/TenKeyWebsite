@@ -46,7 +46,7 @@ export default function ValueProposition({ lang }: ValuePropositionProps) {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-tight font-display mb-5">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-950 tracking-tight leading-tight font-display mb-5">
             {lang === 'en' 
               ? 'Why Organizations Trust TEN KEY' 
               : 'Pourquoi les Entreprises Font Confiance à TEN KEY'}
@@ -75,7 +75,7 @@ export default function ValueProposition({ lang }: ValuePropositionProps) {
                   <IconComponent className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-extrabold font-display text-slate-900 mb-1">
+                  <h3 className="text-sm font-extrabold font-display text-brand-900 mb-1">
                     {lang === 'en' ? feat.en : feat.fr}
                   </h3>
                   <p className="text-xs text-slate-500 font-medium leading-relaxed">
@@ -99,7 +99,7 @@ export default function ValueProposition({ lang }: ValuePropositionProps) {
               transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="text-center"
             >
-              <div className="text-4xl sm:text-5xl font-black text-slate-950 font-display mb-2">
+              <div className="text-4xl sm:text-5xl font-black text-brand-950 font-display mb-2">
                 {stat.value}
               </div>
               <div className="text-sm font-bold text-slate-500">

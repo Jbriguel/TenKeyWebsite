@@ -46,7 +46,7 @@ export default function Selections({ lang }: SelectionsProps) {
   };
 
   return (
-    <section className="py-24 bg-brand-50 text-slate-900 relative overflow-hidden">
+    <section className="py-24 bg-brand-50 text-brand-900 relative overflow-hidden">
       {/* Subtle decorative curves to emulate the mockup wave context */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-500/5 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-10 left-10 w-[400px] h-[400px] bg-brand-500/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -97,8 +97,8 @@ export default function Selections({ lang }: SelectionsProps) {
               whileHover={{ y: -8, transition: { duration: 0.25, ease: 'easeOut' } }}
               className={`group flex flex-col justify-between rounded-[2rem] p-6 sm:p-8 shadow-md transition-shadow duration-300 hover:shadow-xl ${
                 card.isDark
-                  ? 'bg-brand-950 text-white border border-brand-800'
-                  : 'bg-white text-slate-900 border border-brand-100'
+                  ? 'bg-brand-600 text-white border border-brand-800'
+                  : 'bg-white text-brand-900 border border-brand-100'
               }`}
             >
               <div>

@@ -64,7 +64,7 @@ export default function EnrollmentForm({
   };
 
   const inputClass =
-    'w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-200 transition-all';
+    'w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-xs text-brand-900 placeholder-slate-400 focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-200 transition-all';
 
   const labelClass =
     'block text-[10px] font-semibold text-slate-500 uppercase tracking-widest mb-1.5';
@@ -187,7 +187,7 @@ export default function EnrollmentForm({
 
           <button
             type="submit"
-            className="w-full bg-slate-950 hover:bg-slate-900 text-white text-xs font-semibold tracking-wide py-4 rounded-lg transition-all cursor-pointer flex items-center justify-center gap-2"
+            className="w-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold tracking-wide py-4 rounded-lg transition-all cursor-pointer flex items-center justify-center gap-2"
           >
             <span>{t('Submit Enrollment Request', 'Envoyer la demande d\'inscription')}</span>
             <Send className="w-3.5 h-3.5" />
@@ -210,9 +210,9 @@ export default function EnrollmentForm({
           className="bg-white border border-slate-200 rounded-2xl p-10 text-center"
         >
           <div className="w-14 h-14 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center mx-auto mb-5">
-            <Check className="w-6 h-6 text-slate-900" strokeWidth={1.5} />
+            <Check className="w-6 h-6 text-brand-900" strokeWidth={1.5} />
           </div>
-          <h3 className="text-xl font-medium text-slate-950 mb-2">
+          <h3 className="text-xl font-medium text-brand-950 mb-2">
             {t('Enrollment Request Received', 'Demande d\'inscription reçue')}
           </h3>
           <p className="text-sm text-slate-500 mb-6 max-w-md mx-auto leading-relaxed">
@@ -230,7 +230,7 @@ export default function EnrollmentForm({
               setMessage('');
               setSubmitted(false);
             }}
-            className="text-xs font-semibold text-slate-600 hover:text-slate-900 underline underline-offset-2 cursor-pointer"
+            className="text-xs font-semibold text-slate-600 hover:text-brand-900 underline underline-offset-2 cursor-pointer"
           >
             {t('Submit another request', 'Envoyer une autre demande')}
           </button>

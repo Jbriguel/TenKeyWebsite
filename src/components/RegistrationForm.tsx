@@ -457,7 +457,7 @@ export default function RegistrationForm({ lang, selectedModuleName, setSelected
                   {/* Interactive Ticket Layout */}
                   <div className="border border-brand-100 rounded-2xl overflow-hidden shadow-md">
                     {/* Ticket Header */}
-                    <div className="bg-brand-950 text-white p-4 flex justify-between items-center border-b border-dashed border-brand-800">
+                    <div className="bg-brand-600 text-white p-4 flex justify-between items-center border-b border-dashed border-brand-800">
                       <div>
                         <p className="text-[9px] uppercase tracking-wider text-brand-300 font-bold leading-none mb-1">
                           TEN KEY CENTER
@@ -533,7 +533,7 @@ export default function RegistrationForm({ lang, selectedModuleName, setSelected
                   <div className="flex flex-col sm:flex-row gap-4 mt-6">
                     <button
                       onClick={() => window.print()}
-                      className="flex-1 bg-brand-900 hover:bg-brand-950 text-white font-bold text-xs py-3 rounded-xl transition-colors text-center cursor-pointer"
+                      className="flex-1 bg-brand-700 hover:bg-brand-600 text-white font-bold text-xs py-3 rounded-xl transition-colors text-center cursor-pointer"
                     >
                       {lang === 'en' ? 'Print Ticket' : 'Imprimer le Ticket'}
                     </button>

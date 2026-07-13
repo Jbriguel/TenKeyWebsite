@@ -1,19 +1,18 @@
 import React from 'react';
+import { useOutletContext } from 'react-router-dom';
+import type { AppContextValue } from '../App';
 
-interface TermsPageProps {
-  lang: 'en' | 'fr';
-}
-
-export default function TermsPage({ lang }: TermsPageProps) {
+export default function TermsPage() {
+  const { lang } = useOutletContext<AppContextValue>();
   const isEn = lang === 'en';
 
   return (
-    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-white text-slate-900">
+    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-white text-brand-900">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <span className="text-brand-600 text-[10px] font-black tracking-widest uppercase">
           {isEn ? 'TERMS & CONDITIONS' : 'CONDITIONS GÉNÉRALES DE VENTE'}
         </span>
-        <h1 className="text-3xl sm:text-4xl font-black text-slate-900 mt-3 mb-8 font-display tracking-tight">
+        <h1 className="text-3xl sm:text-4xl font-black text-brand-900 mt-3 mb-8 font-display tracking-tight">
           {isEn ? 'Terms & Conditions' : 'Conditions Générales de Vente'}
         </h1>
 
@@ -24,7 +23,7 @@ export default function TermsPage({ lang }: TermsPageProps) {
               : 'Les présentes conditions régissent l’inscription et la participation aux formations linguistiques, traductions et interprétations proposées par TEN KEY Centre de Formations à Lomé, Togo.'}
           </p>
 
-          <h2 className="text-lg font-black text-slate-900">
+          <h2 className="text-lg font-black text-brand-900">
             {isEn ? '1. Registration & Payment' : '1. Inscription et Paiement'}
           </h2>
           <p>
@@ -33,7 +32,7 @@ export default function TermsPage({ lang }: TermsPageProps) {
               : 'L’inscription est confirmée après paiement des frais d’inscription de 10 000 FCFA, incluant le test de niveau, les supports pédagogiques et le T-shirt officiel du centre. Les frais de module sont dus avant la première session ou selon l’échéancier choisi.'}
           </p>
 
-          <h2 className="text-lg font-black text-slate-900">
+          <h2 className="text-lg font-black text-brand-900">
             {isEn ? '2. Cancellation & Refunds' : '2. Annulation et Remboursement'}
           </h2>
           <p>
@@ -42,7 +41,7 @@ export default function TermsPage({ lang }: TermsPageProps) {
               : 'Les annulations effectuées au moins 7 jours avant la date de début donnent droit au remboursement intégral des frais de module, hors frais d’inscription. Aucun remboursement n’est accordé une fois les sessions commencées, sauf cas de force majeure.'}
           </p>
 
-          <h2 className="text-lg font-black text-slate-900">
+          <h2 className="text-lg font-black text-brand-900">
             {isEn ? '3. Attendance & Punctuality' : '3. Assiduité et Ponctualité'}
           </h2>
           <p>
@@ -51,7 +50,7 @@ export default function TermsPage({ lang }: TermsPageProps) {
               : 'Les stagiaires doivent assister à l’ensemble des sessions prévues. Les absences ne donnent pas lieu à des cours de rattrapage individuels, sauf accord préalable avec l’administration.'}
           </p>
 
-          <h2 className="text-lg font-black text-slate-900">
+          <h2 className="text-lg font-black text-brand-900">
             {isEn ? '4. Liability' : '4. Responsabilité'}
           </h2>
           <p>

@@ -49,7 +49,7 @@ export default function FaqSection({ lang }: FaqSectionProps) {
               <span className="w-16 h-0.5 bg-brand-600" />
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-[2.5rem] font-black text-slate-950 leading-tight mb-5 font-display">
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.5rem] font-black text-brand-950 leading-tight mb-5 font-display">
               {title}
             </h2>
 
@@ -87,7 +87,7 @@ export default function FaqSection({ lang }: FaqSectionProps) {
                   transition={{ duration: 0.3, delay: idx * 0.08 }}
                   className={`rounded-xl overflow-hidden border transition-colors ${
                     isOpen
-                      ? 'bg-brand-900 border-brand-900'
+                      ? 'bg-brand-700 border-brand-900'
                       : 'bg-white border-slate-100 hover:border-slate-200'
                   }`}
                 >
@@ -97,7 +97,7 @@ export default function FaqSection({ lang }: FaqSectionProps) {
                   >
                     <span
                       className={`text-sm font-bold leading-snug ${
-                        isOpen ? 'text-white' : 'text-slate-900'
+                        isOpen ? 'text-white' : 'text-brand-900'
                       }`}
                     >
                       {question}

@@ -87,10 +87,10 @@ export default function TrainingCatalog({ currentLang, onSelect }: TrainingCatal
             transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
             className="max-w-2xl"
           >
-            <p className="text-xs font-semibold tracking-widest text-amber-500 uppercase mb-3">
+            <p className="text-xs font-semibold tracking-widest text-accent-500 uppercase mb-3">
               {currentLang === 'en' ? 'Academic Curricula' : 'Catalogue des Formations'}
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-950 leading-[1.15]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-brand-950 leading-[1.15]">
               {currentLang === 'en' ? (
                 <>Explore Our <span className="text-slate-400 font-light">Programs</span></>
               ) : (
@@ -106,7 +106,7 @@ export default function TrainingCatalog({ currentLang, onSelect }: TrainingCatal
               disabled={!canScrollLeft}
               className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all ${
                 canScrollLeft
-                  ? 'border-slate-200 bg-white text-slate-800 hover:bg-slate-50'
+                  ? 'border-slate-200 bg-white text-brand-800 hover:bg-slate-50'
                   : 'border-slate-100 bg-slate-50 text-slate-300 cursor-not-allowed'
               }`}
               aria-label="Previous programs"
@@ -118,7 +118,7 @@ export default function TrainingCatalog({ currentLang, onSelect }: TrainingCatal
               disabled={!canScrollRight}
               className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all ${
                 canScrollRight
-                  ? 'border-slate-200 bg-white text-slate-800 hover:bg-slate-50'
+                  ? 'border-slate-200 bg-white text-brand-800 hover:bg-slate-50'
                   : 'border-slate-100 bg-slate-50 text-slate-300 cursor-not-allowed'
               }`}
               aria-label="Next programs"
@@ -138,14 +138,14 @@ export default function TrainingCatalog({ currentLang, onSelect }: TrainingCatal
                 key={catKey}
                 onClick={() => setSelectedCategory(catKey)}
                 className={`relative pb-4 text-sm font-medium tracking-wide transition-colors cursor-pointer ${
-                  isSelected ? 'text-slate-950 font-semibold' : 'text-slate-400 hover:text-slate-600'
+                  isSelected ? 'text-brand-950 font-semibold' : 'text-slate-400 hover:text-slate-600'
                 }`}
               >
                 <span>{label}</span>
                 {isSelected && (
                   <motion.div
                     layoutId="activeCatalogTab"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-slate-950"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-600"
                     transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                   />
                 )}
@@ -178,22 +178,22 @@ export default function TrainingCatalog({ currentLang, onSelect }: TrainingCatal
                     exit={{ opacity: 0, scale: 0.98 }}
                     transition={{ duration: 0.4, delay: idx * 0.04 }}
                     className={`group snap-start shrink-0 w-[310px] sm:w-[370px] rounded-2xl p-8 flex flex-col justify-between border bg-white transition-all duration-300 hover:border-slate-300 hover:bg-slate-50/30 ${
-                      isProminent ? 'border-amber-500/40 shadow-sm shadow-amber-500/5' : 'border-slate-100'
+                      isProminent ? 'border-accent-500/40 shadow-sm shadow-accent-500/5' : 'border-slate-100'
                     }`}
                   >
                     <div>
                       <div className="flex justify-between items-center mb-8">
-                        <div className="w-10 h-10 rounded-lg bg-slate-50 border border-slate-100 text-slate-700 flex items-center justify-center group-hover:bg-slate-950 group-hover:text-white group-hover:border-slate-950 transition-colors duration-300">
+                        <div className="w-10 h-10 rounded-lg bg-slate-50 border border-slate-100 text-brand-700 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white group-hover:border-slate-950 transition-colors duration-300">
                           <IconComponent className="w-4 h-4" />
                         </div>
                         {isProminent && (
-                          <span className="text-[9px] font-semibold tracking-wider px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-700 border border-amber-500/10">
+                          <span className="text-[9px] font-semibold tracking-wider px-2.5 py-1 rounded-md bg-accent-500/10 text-accent-700 border border-accent-500/10">
                             {currentLang === 'en' ? 'RECOMMENDED' : 'RECOMMANDÉ'}
                           </span>
                         )}
                       </div>
 
-                      <h3 className="text-lg font-medium tracking-tight text-slate-900 leading-snug mb-3">
+                      <h3 className="text-lg font-medium tracking-tight text-brand-900 leading-snug mb-3">
                         {title as string}
                       </h3>
 
@@ -217,7 +217,7 @@ export default function TrainingCatalog({ currentLang, onSelect }: TrainingCatal
                     {/* Bouton corporate d'action */}
                     <button
                       onClick={() => onSelect(title as string)}
-                      className="w-full py-3 rounded-lg text-xs font-medium tracking-wide transition-all duration-300 cursor-pointer flex items-center justify-center gap-1.5 active:scale-[0.99] border border-slate-900 bg-slate-950 text-white hover:bg-slate-900"
+                      className="w-full py-3 rounded-lg text-xs font-medium tracking-wide transition-all duration-300 cursor-pointer flex items-center justify-center gap-1.5 active:scale-[0.99] border border-slate-900 bg-brand-600 text-white hover:bg-brand-700"
                     >
                       <span>{currentLang === 'en' ? 'Review Program Details' : 'Consulter le programme'}</span>
                     </button>

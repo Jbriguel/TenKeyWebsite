@@ -14,7 +14,7 @@ export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
   const bgY = useTransform(scrollY, [0, 1000], [0, 180]);
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 w-full min-h-screen flex flex-col justify-center">
+    <section className="relative overflow-hidden bg-brand-600 w-full min-h-screen flex flex-col justify-center">
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
         style={{

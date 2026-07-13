@@ -52,7 +52,7 @@ export default function ValueAssurance({ currentLang }: ValueAssuranceProps) {
           </span>
           <span className="w-16 h-0.5 bg-brand-600" />
         </div>
-        <h2 className="text-3xl sm:text-4xl font-black text-slate-950 font-display tracking-tight leading-tight mb-5">
+        <h2 className="text-3xl sm:text-4xl font-black text-brand-950 font-display tracking-tight leading-tight mb-5">
           {t('Built for Enterprise & Embassy Expectations', 'Conçu pour les Exigences Entreprises & Ambassades')}
         </h2>
         <p className="text-sm sm:text-base text-slate-500 leading-relaxed font-medium">
@@ -75,10 +75,10 @@ export default function ValueAssurance({ currentLang }: ValueAssuranceProps) {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="bg-white border border-slate-200 p-8 rounded-2xl hover:border-slate-300 transition-colors"
             >
-              <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center mb-6 text-slate-700">
+              <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center mb-6 text-brand-700">
                 <IconComponent className="w-4 h-4" strokeWidth={1.5} />
               </div>
-              <h3 className="text-base font-medium text-slate-950 mb-3">{item.title}</h3>
+              <h3 className="text-base font-medium text-brand-950 mb-3">{item.title}</h3>
               <p className="text-xs leading-relaxed text-slate-500">{item.desc}</p>
             </motion.div>
           );

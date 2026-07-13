@@ -36,7 +36,7 @@ export default function CtaSection({ lang, onRegisterClick }: CtaSectionProps) {
   return (
     <section className="relative overflow-hidden">
       {/* Top CTA - Dark with background overlay */}
-      <div className="relative bg-slate-950 py-20 sm:py-24">
+      <div className="relative bg-brand-600 py-20 sm:py-24">
         {/* Subtle background texture / gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-black pointer-events-none" />
         <div className="absolute inset-0 opacity-25 pointer-events-none">
@@ -92,7 +92,7 @@ export default function CtaSection({ lang, onRegisterClick }: CtaSectionProps) {
       </div>
 
       {/* Bottom Navy Banner */}
-      <div className="bg-brand-900">
+      <div className="bg-brand-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">

@@ -1,38 +1,30 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Phone, MapPin, Clock, Twitter, Instagram, Youtube, ArrowUp } from 'lucide-react';
 
 interface FooterProps {
   lang: string;
-  setActivePage?: (page: string) => void;
 }
 
-export default function Footer({ lang, setActivePage }: FooterProps) {
+export default function Footer({ lang }: FooterProps) {
+  const navigate = useNavigate();
+
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleNav = (page: string) => {
-    if (page === 'contact') {
-      if (setActivePage) {
-        setActivePage('home');
+  const handleContactNav = () => {
+    navigate('/');
+    setTimeout(() => {
+      const element = document.getElementById('contact-form-section');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
       }
-      setTimeout(() => {
-        const element = document.getElementById('contact-form-section');
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    } else {
-      if (setActivePage) {
-        setActivePage(page);
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }
+    }, 150);
   };
 
   return (
-    <footer className="bg-white text-slate-700 border-t border-slate-100 pt-16 pb-8 text-left">
+    <footer className="bg-white text-brand-700 border-t border-slate-100 pt-16 pb-8 text-left">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-100">
           {/* Logo & Description */}
@@ -44,7 +36,7 @@ export default function Footer({ lang, setActivePage }: FooterProps) {
                 className="h-10 w-auto object-contain rounded-md bg-slate-100 p-1"
               />
               <div className="flex flex-col">
-                <span className="font-extrabold tracking-wider text-slate-900 text-sm leading-tight font-display">
+                <span className="font-extrabold tracking-wider text-brand-900 text-sm leading-tight font-display">
                   TEN KEY
                 </span>
                 <span className="text-[9px] text-slate-500 font-semibold tracking-widest uppercase">
@@ -74,45 +66,33 @@ export default function Footer({ lang, setActivePage }: FooterProps) {
 
           {/* Quick Links */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900 font-display">
+            <h4 className="font-bold text-xs uppercase tracking-wider text-brand-900 font-display">
               {lang === 'en' ? 'Quick Navigation' : 'Navigation Rapide'}
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-500">
               <li>
-                <button 
-                  onClick={() => handleNav('home')} 
-                  className="hover:text-brand-600 transition-colors cursor-pointer text-left focus:outline-none"
-                >
+                <Link to="/" className="hover:text-brand-600 transition-colors cursor-pointer focus:outline-none">
                   {lang === 'en' ? 'Home' : 'Accueil'}
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  onClick={() => handleNav('services')} 
-                  className="hover:text-brand-600 transition-colors cursor-pointer text-left focus:outline-none"
-                >
+                <Link to="/services" className="hover:text-brand-600 transition-colors cursor-pointer focus:outline-none">
                   {lang === 'en' ? 'Services & Modules' : 'Nos Services'}
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  onClick={() => handleNav('pricing')} 
-                  className="hover:text-brand-600 transition-colors cursor-pointer text-left focus:outline-none"
-                >
+                <Link to="/pricing" className="hover:text-brand-600 transition-colors cursor-pointer focus:outline-none">
                   {lang === 'en' ? 'Pricing & Schedules' : 'Tarifs & Horaires'}
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  onClick={() => handleNav('about')} 
-                  className="hover:text-brand-600 transition-colors cursor-pointer text-left focus:outline-none"
-                >
+                <Link to="/about" className="hover:text-brand-600 transition-colors cursor-pointer focus:outline-none">
                   {lang === 'en' ? 'About Our Center' : 'À Propos'}
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  onClick={() => handleNav('contact')} 
+                <button
+                  onClick={handleContactNav}
                   className="hover:text-brand-600 transition-colors cursor-pointer text-left focus:outline-none"
                 >
                   {lang === 'en' ? 'Register Online' : "S'inscrire en ligne"}
@@ -123,7 +103,7 @@ export default function Footer({ lang, setActivePage }: FooterProps) {
 
           {/* Contact Details */}
           <div className="lg:col-span-5 space-y-4">
-            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900 font-display">
+            <h4 className="font-bold text-xs uppercase tracking-wider text-brand-900 font-display">
               {lang === 'en' ? 'Contact Details' : 'Informations de Contact'}
             </h4>
             <ul className="space-y-3.5 text-xs text-slate-500">
@@ -158,27 +138,21 @@ export default function Footer({ lang, setActivePage }: FooterProps) {
         {/* Lower Row */}
         <div className="mt-8 flex flex-col lg:flex-row justify-between items-center gap-4 text-xs text-slate-500">
           <div className="text-center lg:text-left">
-            &copy; 2026 • Where ideas become products. — <span className="font-bold text-slate-900">JDY Studio</span>
+            &copy; 2026 • Where ideas become products. — <span className="font-bold text-brand-900">JDY Studio</span>
           </div>
 
           <div className="flex items-center gap-6">
-            <button
-              onClick={() => handleNav('terms')}
-              className="hover:text-brand-600 transition-colors cursor-pointer"
-            >
+            <Link to="/terms" className="hover:text-brand-600 transition-colors cursor-pointer">
               {lang === 'en' ? 'Terms & Conditions' : 'CGV'}
-            </button>
-            <button
-              onClick={() => handleNav('privacy')}
-              className="hover:text-brand-600 transition-colors cursor-pointer"
-            >
+            </Link>
+            <Link to="/privacy" className="hover:text-brand-600 transition-colors cursor-pointer">
               {lang === 'en' ? 'Privacy Policy' : 'Confidentialité'}
-            </button>
+            </Link>
           </div>
 
           <button
             onClick={handleScrollToTop}
-            className="bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 p-2.5 rounded-xl border border-slate-200 transition-colors flex items-center gap-1.5 cursor-pointer"
+            className="bg-slate-100 hover:bg-brand-600 hover:text-white text-brand-700 p-2.5 rounded-xl border border-slate-200 transition-colors flex items-center gap-1.5 cursor-pointer"
           >
             <span className="font-semibold">{lang === 'en' ? 'Back to Top' : 'Retour en haut'}</span>
             <ArrowUp className="w-3.5 h-3.5" />

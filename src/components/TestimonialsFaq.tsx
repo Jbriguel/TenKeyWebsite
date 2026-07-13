@@ -44,9 +44,9 @@ export default function TestimonialsFaq({ lang }: TestimonialsFaqProps) {
               >
                 <div>
                   {/* Rating Stars */}
-                  <div className="flex gap-1 mb-4 text-amber-500">
+                  <div className="flex gap-1 mb-4 text-accent-500">
                     {[...Array(test.rating)].map((_, rIdx) => (
-                      <Star key={rIdx} className="w-4.5 h-4.5 fill-amber-500 text-amber-500" />
+                      <Star key={rIdx} className="w-4.5 h-4.5 fill-accent-500 text-accent-500" />
                     ))}
                   </div>
 
