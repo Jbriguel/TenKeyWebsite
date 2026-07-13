@@ -129,7 +129,7 @@ export default function App() {
               transition={{ duration: 0.3 }}
             >
               <PricingPage
-                lang={lang}
+                currentLang={lang}
                 onRegisterRedirect={handleRegisterRedirect}
                 selectedModuleName={selectedModuleName}
                 setSelectedModuleName={setSelectedModuleName}

@@ -282,121 +282,121 @@ export function ExecutiveLuxuryCTA({ lang, onAction }: CTAProps) {
   );
 }
 
+ 
 /**
- * STYLE C: "THE BENTO LEVEL TESTER" (Playful interactive light bento style)
- * Ideal for Pricing/Horaires Page - Dynamic interaction to select class preference.
+ * STYLE C: "THE BENTO LEVEL TESTER" (Institutional schedule selector)
+ * Ideal for Pricing/Horaires Page - Clean 2/3 narrative + 1/3 interactive panel.
  */
 export function BentoLevelTesterCTA({ lang, onAction }: CTAProps) {
   const [selectedFormat, setSelectedFormat] = useState<'night' | 'weekend' | 'vip'>('night');
 
   const formats = {
     night: {
-      title: { en: '🌙 Night Executive Shift', fr: '🌙 Shift Exécutif du Soir' },
+      title: { en: 'Night Executive Shift', fr: 'Shift Exécutif du Soir' },
       hours: { en: '18:30 - 20:30 (Tue/Thu/Fri)', fr: '18h30 - 20h30 (Mar/Jeu/Ven)' },
       recommendFor: { en: 'Working professionals in corporate Lomé', fr: 'Cadres et salariés en poste à Lomé' }
     },
     weekend: {
-      title: { en: '📅 Saturday Masterclass', fr: '📅 Masterclass du Samedi' },
+      title: { en: 'Saturday Masterclass', fr: 'Masterclass du Samedi' },
       hours: { en: '08:00 - 13:00 / 14:00 - 17:00', fr: '08h00 - 13h00 / 14h00 - 17h00' },
       recommendFor: { en: 'Those with packed weekday executive schedules', fr: 'Ceux ayant un agenda professionnel chargé' }
     },
     vip: {
-      title: { en: '👑 Private 1-on-1 Cabinet', fr: '👑 Cabinet Privé Individuel 1-à-1' },
+      title: { en: 'Private 1-on-1 Cabinet', fr: 'Cabinet Privé Individuel 1-à-1' },
       hours: { en: 'Flexible (7:00 - 21:00 Daily)', fr: 'Flexible (7h00 - 21h00 Tous les jours)' },
       recommendFor: { en: 'Diplomats, Directors & high-speed career growth', fr: 'Diplomates, directeurs et progression ultra-rapide' }
     }
   };
 
   return (
-    <div className="relative overflow-hidden bg-white rounded-[2rem] border border-slate-200/80 p-8 sm:p-12 my-16 shadow-xl text-left text-slate-900">
-      {/* Abstract structural aesthetics */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-40 pointer-events-none"></div>
+    <div className="relative overflow-hidden bg-white border border-slate-200 p-8 sm:p-12 text-left text-slate-900">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
-        
-        {/* Left Interactive Panel */}
-        <div className="lg:col-span-5 bg-slate-50 border border-slate-100 rounded-2xl p-6">
-          <span className="text-[10px] font-black tracking-widest text-brand-600 uppercase block mb-4">
-            {lang === 'en' ? 'INTERACTIVE TIME SELECTOR' : 'PLANIFICATEUR INTERACTIF'}
-          </span>
-          <h4 className="text-sm font-black text-slate-900 mb-4 uppercase">
-            {lang === 'en' ? 'Compare Class Formats' : 'Comparez les Créneaux'}
-          </h4>
-
-          {/* Interactive Toggle Pill row */}
-          <div className="space-y-3">
-            {(Object.keys(formats) as Array<'night' | 'weekend' | 'vip'>).map((key) => (
-              <button
-                key={key}
-                onClick={() => setSelectedFormat(key)}
-                className={`w-full text-left p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${
-                  selectedFormat === key
-                    ? 'bg-brand-600 border-brand-600 text-white shadow-md'
-                    : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
-                }`}
-              >
-                <span className="text-xs font-bold">{formats[key].title[lang]}</span>
-                {selectedFormat === key && <Check className="w-4 h-4 text-white" />}
-              </button>
-            ))}
+        {/* Left narrative column - 2/3 */}
+        <div className="lg:col-span-8">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-brand-600 text-[10px] font-black tracking-widest uppercase">
+              {lang === 'en' ? 'Smart Tuition Match' : 'Orientation et Tarification'}
+            </span>
+            <span className="w-16 h-0.5 bg-brand-600" />
           </div>
 
-          {/* Live response box */}
-          <div className="mt-6 pt-5 border-t border-slate-200/60 text-left">
-            <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-widest block mb-1">
-              {lang === 'en' ? 'HOURS' : 'HORAIRES'}
-            </span>
-            <p className="text-xs font-black text-slate-900 mb-2">
-              {formats[selectedFormat].hours[lang]}
-            </p>
-            <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-widest block mb-1">
-              {lang === 'en' ? 'RECOMMENDED FOR' : 'RECOMMANDÉ POUR'}
-            </span>
-            <p className="text-xs text-slate-500 font-semibold leading-relaxed">
-              {formats[selectedFormat].recommendFor[lang]}
-            </p>
-          </div>
-        </div>
-
-        {/* Right pitch column */}
-        <div className="lg:col-span-7">
-          <span className="bg-brand-100 border border-brand-200 text-brand-700 text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full uppercase inline-block mb-4">
-            {lang === 'en' ? 'SMART TUITION MATCH' : 'ORIENTATION ET TARIFICATION'}
-          </span>
-
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug font-display mb-4">
-            {lang === 'en' 
-              ? 'Find Your Optimal Schedule and Tuition Package' 
-              : 'Trouvez le Créneau Horaire et la Formule Idéale'}
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-950 font-display tracking-tight leading-tight mb-5">
+            {lang === 'en'
+              ? 'Find the Schedule and Formula that Fits Your Obligations'
+              : 'Trouvez le Créneau et la Formule Adaptés à Vos Obligations'}
           </h2>
 
-          <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-semibold mb-6">
+          <p className="text-slate-500 text-sm sm:text-base leading-relaxed mb-8 max-w-2xl font-medium">
             {lang === 'en'
-              ? 'Different schedules adapt perfectly to your corporate workflow. We structure fees with transparent budgets and zero hidden charges.'
-              : 'Nos différents créneaux s’insèrent à la perfection dans votre semaine professionnelle. Tarification transparente et sans frais cachés.'}
+              ? 'Our academic calendar is built around executive schedules. Select a format to see recommended hours, then confirm your diagnostic session with our admissions team.'
+              : 'Notre calendrier académique est construit autour des agendas de cadres. Sélectionnez un format pour voir les horaires recommandés, puis confirmez votre session diagnostique avec notre équipe admissions.'}
           </p>
 
           <div className="flex flex-wrap gap-4">
             <button
               onClick={() => onAction?.(`Tuition consultation - Format: ${selectedFormat}`)}
-              className="bg-brand-600 hover:bg-brand-700 text-white font-black text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-all duration-300 shadow-md hover:-translate-y-0.5 active:scale-95 cursor-pointer flex items-center gap-2"
+              className="bg-slate-950 hover:bg-slate-900 text-white text-[11px] font-semibold tracking-wide px-6 py-3.5 rounded-lg transition-all duration-300 cursor-pointer flex items-center gap-2"
             >
-              <span>{lang === 'en' ? 'Lock This Schedule Choice' : 'Sélectionner ce Créneau'}</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>{lang === 'en' ? 'Lock This Schedule Choice' : 'Sélectionner ce créneau'}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={() => {
-                const faq = document.getElementById('testimonials-faq-section');
-                if (faq) {
-                  faq.scrollIntoView({ behavior: 'smooth' });
+                const contact = document.getElementById('contact-form-section');
+                if (contact) {
+                  contact.scrollIntoView({ behavior: 'smooth' });
                 } else {
                   window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 }
               }}
-              className="bg-slate-100 hover:bg-slate-200 text-slate-700 font-black text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-all cursor-pointer"
+              className="bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-[11px] font-semibold tracking-wide px-6 py-3.5 rounded-lg transition-all cursor-pointer"
             >
-              {lang === 'en' ? 'Ask a Question' : 'Poser une Question'}
+              {lang === 'en' ? 'Ask a Question' : 'Poser une question'}
             </button>
+          </div>
+        </div>
+
+        {/* Right interactive panel - 1/3 */}
+        <div className="lg:col-span-4 bg-slate-50 border border-slate-200 rounded-2xl p-6">
+          <span className="text-[10px] font-semibold tracking-[0.15em] text-slate-500 uppercase block mb-5">
+            {lang === 'en' ? 'Interactive Time Selector' : 'Planificateur interactif'}
+          </span>
+
+          <div className="space-y-2.5 mb-6">
+            {(Object.keys(formats) as Array<'night' | 'weekend' | 'vip'>).map((key) => (
+              <button
+                key={key}
+                onClick={() => setSelectedFormat(key)}
+                className={`w-full text-left px-4 py-3 rounded-lg border transition-all cursor-pointer flex items-center justify-between text-xs font-medium ${
+                  selectedFormat === key
+                    ? 'bg-slate-900 border-slate-900 text-white'
+                    : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
+                }`}
+              >
+                <span>{formats[key].title[lang]}</span>
+                {selectedFormat === key && <Check className="w-3.5 h-3.5 text-white" strokeWidth={2} />}
+              </button>
+            ))}
+          </div>
+
+          <div className="pt-5 border-t border-slate-200 space-y-4">
+            <div>
+              <span className="text-[9px] font-semibold text-slate-400 uppercase tracking-widest block mb-1">
+                {lang === 'en' ? 'Hours' : 'Horaires'}
+              </span>
+              <p className="text-xs font-medium text-slate-900">
+                {formats[selectedFormat].hours[lang]}
+              </p>
+            </div>
+            <div>
+              <span className="text-[9px] font-semibold text-slate-400 uppercase tracking-widest block mb-1">
+                {lang === 'en' ? 'Recommended for' : 'Recommandé pour'}
+              </span>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                {formats[selectedFormat].recommendFor[lang]}
+              </p>
+            </div>
           </div>
         </div>
 
@@ -404,7 +404,7 @@ export function BentoLevelTesterCTA({ lang, onAction }: CTAProps) {
     </div>
   );
 }
- 
+
 /**
  * STYLE E: "THE GED BOOTCAMP FLASH CARD" (Extreme highlight accent block)
  * Ideal for GED Prep Page - Vibrant green emphasis, high confidence guarantee.

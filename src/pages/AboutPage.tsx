@@ -1,7 +1,8 @@
-import { HeartHandshake, BookOpen, Award } from 'lucide-react';
+import { HeartHandshake, BookOpen, Award, ArrowRight } from 'lucide-react';
+import { motion } from 'motion/react';
 import About from '../components/About';
 import TestimonialsFaq from '../components/TestimonialsFaq';
-import LocationMap from '../components/LocationMap'; 
+import LocationMap from '../components/LocationMap';
 
 interface AboutPageProps {
   lang: 'en' | 'fr';
@@ -11,93 +12,178 @@ interface AboutPageProps {
 export default function AboutPage({ lang, onRegisterRedirect }: AboutPageProps) {
   return (
     <>
-      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-brand-950 text-white overflow-hidden border-b border-brand-900/40">
-        <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-brand-500/10 rounded-full blur-[110px] pointer-events-none"></div>
-        <div className="absolute bottom-5 right-10 w-[300px] h-[300px] bg-accent-500/10 rounded-full blur-[90px] pointer-events-none"></div>
+      {/* ─── HERO — Institutional Dark Cinematic ─── */}
+      <section className="relative w-full min-h-[75vh] flex items-center bg-slate-950 text-white overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop"
+            alt=""
+            className="w-full h-full object-cover opacity-20 grayscale"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
+        </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
-            <div className="lg:col-span-7">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-accent-400 text-[10px] font-black tracking-widest uppercase">
-                  {lang === 'en' ? 'WHO WE ARE' : 'QUI SOMMES-NOUS'}
+        {/* Glow accents */}
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-brand-600/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full pt-36 pb-28">
+          <div className="max-w-3xl text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <span className="text-amber-500 text-[10px] font-black tracking-widest uppercase">
+                  {lang === 'en' ? 'Who We Are' : 'Qui Sommes-Nous'}
                 </span>
-                <span className="w-16 h-0.5 bg-accent-400" />
+                <span className="w-16 h-0.5 bg-amber-500" />
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight leading-[1.1] text-white font-display mb-6">
-                {lang === 'en' ? 'Pedagogy &' : 'Pédagogie &'}{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-amber-300">
-                  {lang === 'en' ? 'Native Excellence' : 'Excellence Native'}
-                </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight leading-[1.08] mb-6">
+                {lang === 'en' ? (
+                  <>
+                    Pedagogy & <span className="text-amber-500">Native Excellence</span>
+                  </>
+                ) : (
+                  <>
+                    Pédagogie & <span className="text-amber-500">Excellence Native</span>
+                  </>
+                )}
               </h1>
 
-              <p className="text-sm sm:text-base text-brand-100/70 leading-relaxed font-semibold mb-8 max-w-xl">
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mb-10 font-medium">
                 {lang === 'en'
-                  ? 'TEN KEY is Lomé\u2019s leading bilingual training ecosystem and certified translation hub. We train Togo\u2019s elite diplomats, corporate leaders, and professional translators.'
-                  : 'TEN KEY est le premier écosystème bilingue et cabinet de traduction certifié de Lomé. Nous formons les cadres, diplomates et traducteurs d\u2019élite de la sous-région.'}
+                  ? 'TEN KEY is Lomé’s leading bilingual training ecosystem and certified translation hub. We train Togo’s elite diplomats, corporate leaders, and professional translators.'
+                  : 'TEN KEY est le premier écosystème bilingue et cabinet de traduction certifié de Lomé. Nous formons les cadres, diplomates et traducteurs d’élite de la sous-région.'}
               </p>
 
-              <div className="flex flex-wrap gap-4 mb-8">
-                <div className="flex items-center gap-2 bg-brand-900/50 border border-brand-800 rounded-xl px-4 py-2.5">
-                  <Award className="w-4.5 h-4.5 text-accent-400 shrink-0" />
-                  <div className="text-left">
-                    <p className="text-[10px] font-extrabold text-brand-400 leading-none mb-0.5 uppercase tracking-wider">{lang === 'en' ? 'FOUNDED IN' : 'FONDÉ EN'}</p>
-                    <p className="text-xs font-black text-white">2012</p>
-                  </div>
-                </div>
+              
 
-                <div className="flex items-center gap-2 bg-brand-900/50 border border-brand-800 rounded-xl px-4 py-2.5">
-                  <HeartHandshake className="w-4.5 h-4.5 text-accent-400 shrink-0" />
-                  <div className="text-left">
-                    <p className="text-[10px] font-extrabold text-brand-400 leading-none mb-0.5 uppercase tracking-wider">{lang === 'en' ? 'ACCREDITATION' : 'AGRÉMENT'}</p>
-                    <p className="text-xs font-black text-white">{lang === 'en' ? 'Official / Legal Togo' : 'Officiel / État Togolais'}</p>
-                  </div>
-                </div>
-              </div>
-
+              {/* CTAs */}
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => onRegisterRedirect()}
-                  className="bg-accent-500 hover:bg-accent-600 text-brand-950 font-black text-xs uppercase tracking-widest px-8 py-4 rounded-full transition-all duration-300 shadow-xl hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 text-[11px] font-black uppercase tracking-widest px-7 py-4 rounded-xl transition-all cursor-pointer shadow-lg shadow-amber-500/20"
                 >
-                  {lang === 'en' ? 'Read Achievements' : 'Découvrir nos Réussites'}
+                  {lang === 'en' ? 'Start Your Journey' : 'Démarrer Votre Parcours'}
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => {
+                    const section = document.getElementById('about-story');
+                    section?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 text-[11px] font-black uppercase tracking-widest px-7 py-4 rounded-xl transition-all cursor-pointer"
+                >
+                  {lang === 'en' ? 'Read Our Story' : 'Lire Notre Histoire'}
                 </button>
               </div>
-            </div>
-
-            <div className="lg:col-span-5 relative flex justify-center">
-              <div className="relative w-full max-w-[400px] aspect-square">
-                <div className="w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-brand-800/40 relative z-10">
-                  <img
-                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=800&auto=format&fit=crop"
-                    alt="Bilingual workshop discussion"
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-transparent to-brand-950/10"></div>
-                </div>
-
-                <div className="absolute -bottom-6 -left-6 bg-brand-900/90 backdrop-blur-md border border-brand-800 text-white rounded-2xl p-4 shadow-2xl z-20 flex items-center gap-3.5 max-w-[200px] text-left">
-                  <div className="w-10 h-10 rounded-xl bg-accent-500/10 text-accent-400 flex items-center justify-center shrink-0">
-                    <BookOpen className="w-5.5 h-5.5" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-black font-display text-accent-400">3,000+</p>
-                    <p className="text-[9px] font-bold text-brand-100 leading-normal">
-                      {lang === 'en' ? 'Bilingual Leaders Trained' : 'Diplômés et Cadres Formés'}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       <About lang={lang} />
 
-      <TestimonialsFaq lang={lang} />
+      {/* ─── MISSION & VALUES — Deep Blue Foundation ─── */}
+      <section className="w-full py-24 bg-slate-900 text-white relative overflow-hidden">
+        {/* Background glows */}
+        <div className="absolute top-0 right-1/3 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-5"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-amber-500 text-[10px] font-black tracking-widest uppercase">
+                  {lang === 'en' ? 'Mission & Values' : 'Mission & Valeurs'}
+                </span>
+                <span className="w-16 h-0.5 bg-amber-500" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-black font-display tracking-tight leading-tight mb-5">
+                {lang === 'en' ? (
+                  <>
+                    Shaping <span className="text-amber-500">Bilingual Leaders</span> for West Africa
+                  </>
+                ) : (
+                  <>
+                    Former des <span className="text-amber-500">Leaders Bilingues</span> pour l’Afrique de l’Ouest
+                  </>
+                )}
+              </h2>
+              <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-medium mb-8">
+                {lang === 'en'
+                  ? 'We believe language mastery is a strategic asset. Our mission is to equip professionals, diplomats, and students with the clarity, confidence, and credentials to operate across borders.'
+                  : 'Nous croyons que la maîtrise des langues est un atout stratégique. Notre mission est de doter professionnels, diplomates et étudiants de clarté, confiance et références pour opérer au-delà des frontières.'}
+              </p>
+              <button
+                onClick={() => onRegisterRedirect()}
+                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 text-[11px] font-black uppercase tracking-widest px-7 py-4 rounded-xl transition-all cursor-pointer shadow-lg shadow-amber-500/20"
+              >
+                {lang === 'en' ? 'Join the Mission' : 'Rejoindre la Mission'}
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </motion.div>
+
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {[
+                {
+                  title: lang === 'en' ? 'Excellence' : 'Excellence',
+                  desc: lang === 'en'
+                    ? 'Native and certified trainers, official exam preparation, and sworn translation standards.'
+                    : 'Formateurs natifs et certifiés, préparation aux examens officiels et standards de traduction assermentée.',
+                },
+                {
+                  title: lang === 'en' ? 'Accessibility' : 'Accessibilité',
+                  desc: lang === 'en'
+                    ? 'Lunch, evening, and weekend schedules designed around working professionals and executives.'
+                    : 'Horaires midi, soir et weekend conçus pour les professionnels et cadres en activité.',
+                },
+                {
+                  title: lang === 'en' ? 'Impact' : 'Impact',
+                  desc: lang === 'en'
+                    ? 'Over 3,000 graduates applying bilingual skills in government, business, and international organizations.'
+                    : 'Plus de 3 000 diplômés appliquant leurs compétences bilingues dans le gouvernement, les entreprises et les organisations internationales.',
+                },
+                {
+                  title: lang === 'en' ? 'Integrity' : 'Intégrité',
+                  desc: lang === 'en'
+                    ? 'Accredited programs, transparent pricing, and official documentation you can trust.'
+                    : 'Programmes agréés, tarification transparente et documentation officielle digne de confiance.',
+                },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 hover:bg-white/[0.05] hover:border-white/20 transition-all"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center mb-4">
+                    <span className="text-xs font-black">0{idx + 1}</span>
+                  </div>
+                  <h3 className="text-sm font-medium text-white mb-2">{item.title}</h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* <TestimonialsFaq lang={lang} /> */}
  
       <LocationMap lang={lang} />
     </>

@@ -1,87 +1,28 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import React from 'react';
+import { motion } from 'motion/react';
 import {
   ArrowRight,
   ArrowUpRight,
-  Briefcase,
-  GraduationCap,
-  Award,
-  Crown,
-  Sun,
-  FileText,
   Users,
-  Globe,
-  CheckCircle2,
-  ChevronLeft,
-  ChevronRight,
   Target,
   Clock,
+  Award,
   Phone,
   Calendar,
 } from 'lucide-react';
-import { TRAINING_MODULES } from '../data';
+import TrustedExpertise2 from '../components/TrustedExpertise2';
+import TrainingCatalog from '../components/TrainingCatalog';
 
 interface ServicesPageProps {
   currentLang: string;
   onRegisterRedirect: (moduleName?: string) => void;
 }
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Briefcase,
-  GraduationCap,
-  Award,
-  Crown,
-  Sun,
-  FileText,
-  Users,
-  Globe,
-};
-
-const CATEGORIES = {
-  all: { en: 'All Programs', fr: 'Tous nos programmes' },
-  english: { en: 'English Programs', fr: 'Programmes Anglais' },
-  services: { en: 'Specialties & Options', fr: 'Spécificités & Options' }
-};
-
 export default function ServicesPage({
   currentLang,
   onRegisterRedirect,
 }: ServicesPageProps) {
   const lang = currentLang === 'en' ? 'en' : 'fr';
-
-  const [selectedCategory, setSelectedCategory] = useState<'all' | 'english' | 'services'>('all');
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const checkScroll = () => {
-    if (scrollRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      setCanScrollLeft(scrollLeft > 15);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 15);
-    }
-  };
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const { scrollLeft, clientWidth } = scrollRef.current;
-      const cardWidth = clientWidth < 640 ? clientWidth * 0.85 : 380;
-      const scrollTo = direction === 'left' ? scrollLeft - cardWidth : scrollLeft + cardWidth;
-      scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
-    }
-  };
-
-  useEffect(() => {
-    const timer = setTimeout(() => checkScroll(), 150);
-    return () => clearTimeout(timer);
-  }, [selectedCategory]);
-
-  const filteredModules = TRAINING_MODULES.filter((module) => {
-    if (selectedCategory === 'all') return true;
-    const isEnglish = ['general-professional', 'academic', 'exams', 'vip', 'english-club'].includes(module.id);
-    if (selectedCategory === 'english') return isEnglish;
-    return !isEnglish;
-  });
 
   const handleSelect = (name: string) => onRegisterRedirect(name);
 
@@ -213,8 +154,19 @@ export default function ServicesPage({
         </div>
       </section>
 
+
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {/* <TrustedExpertise2 currentLang={lang}  /> */}
+        <TrustedExpertise2 lang={lang} />
+      </motion.div>
+
       {/* 2. FLAGSHIP SECTIONS CAROUSEL */}
-      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+      {/* <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center opacity-5 mix-blend-luminosity pointer-events-none"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/95 to-slate-900/80 pointer-events-none"></div>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-600/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -282,173 +234,10 @@ export default function ServicesPage({
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* 3. DETAILED OFFERS GRID */}
-      <section id="detailed-offers" className="py-24 bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center max-w-2xl mx-auto mb-10"
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight font-display text-slate-950 mb-4">
-              {lang === 'en' ? (
-                <>Explore Our <span className="text-brand-700">Programs</span></>
-              ) : (
-                <>Explorez Toutes Nos <span className="text-brand-700">Formations</span></>
-              )}
-            </h2>
-            <p className="text-slate-500 text-sm sm:text-base font-medium leading-relaxed">
-              {lang === 'en'
-                ? 'Architected training modules for every career stage, from foundational English to executive translation services.'
-                : 'Des modules de formation architecturés pour chaque étape de carrière, de l’anglais fondamental aux services de traduction exécutive.'}
-            </p>
-          </motion.div>
-
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 border-b border-slate-100 pb-8">
-            {(Object.keys(CATEGORIES) as Array<'all' | 'english' | 'services'>).map((catKey) => {
-              const isSelected = selectedCategory === catKey;
-              return (
-                <button
-                  key={catKey}
-                  onClick={() => setSelectedCategory(catKey)}
-                  className={`relative px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 cursor-pointer ${
-                    isSelected ? 'text-white' : 'text-slate-600 hover:text-slate-900 bg-white hover:bg-slate-50 border border-slate-200/60'
-                  }`}
-                >
-                  {isSelected && (
-                    <motion.div
-                      layoutId="activeCatalogFilter"
-                      className="absolute inset-0 bg-brand-600 rounded-full -z-10 shadow-md shadow-brand-600/20"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  <span>{lang === 'en' ? CATEGORIES[catKey].en : CATEGORIES[catKey].fr}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="flex items-center justify-end gap-3 mb-6">
-            <button
-              onClick={() => scroll('left')}
-              disabled={!canScrollLeft}
-              className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 cursor-pointer ${
-                canScrollLeft
-                  ? 'border-slate-200 bg-white text-slate-800 hover:bg-slate-50 shadow-sm active:scale-95'
-                  : 'border-slate-100 bg-slate-50 text-slate-300 cursor-not-allowed'
-              }`}
-              aria-label="Previous Slide"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => scroll('right')}
-              disabled={!canScrollRight}
-              className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 cursor-pointer ${
-                canScrollRight
-                  ? 'border-slate-200 bg-white text-slate-800 hover:bg-slate-50 shadow-sm active:scale-95'
-                  : 'border-slate-100 bg-slate-50 text-slate-300 cursor-not-allowed'
-              }`}
-              aria-label="Next Slide"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-
-          <div className="relative">
-            <div className={`absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none transition-opacity duration-300 ${canScrollLeft ? 'opacity-100' : 'opacity-0'}`}></div>
-            <div className={`absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none transition-opacity duration-300 ${canScrollRight ? 'opacity-100' : 'opacity-0'}`}></div>
-
-            <div
-              ref={scrollRef}
-              onScroll={checkScroll}
-              className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-2 pb-10 pt-2 -mx-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] select-none"
-            >
-              <AnimatePresence mode="popLayout">
-                {filteredModules.map((module, idx) => {
-                  const IconComponent = iconMap[module.iconName] || Briefcase;
-                  const isProminent = module.isHighlighted;
-                  return (
-                    <motion.div
-                      key={module.id}
-                      layout="position"
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.4, delay: idx * 0.05 }}
-                      className={`group snap-start shrink-0 w-[300px] sm:w-[360px] rounded-3xl p-7 flex flex-col justify-between border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
-                        isProminent
-                          ? 'bg-slate-900 text-white border-slate-800'
-                          : 'bg-white text-slate-950 border-slate-200 hover:border-brand-200'
-                      }`}
-                    >
-                      <div>
-                        <div className="flex justify-between items-start mb-6">
-                          <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                            isProminent
-                              ? 'bg-brand-500/10 border border-brand-500/20 text-brand-400'
-                              : 'bg-slate-50 border border-slate-100 text-slate-700 group-hover:bg-brand-500 group-hover:text-white group-hover:border-brand-500'
-                          }`}>
-                            <IconComponent className="w-5 h-5" />
-                          </div>
-                          {isProminent && (
-                            <span className="bg-brand-600 text-white text-[9px] font-black tracking-widest px-3 py-1.5 rounded-full uppercase">
-                              {lang === 'en' ? 'RECOMMENDED' : 'RECOMMANDÉ'}
-                            </span>
-                          )}
-                        </div>
-
-                        <h3 className={`text-lg font-black font-display tracking-tight leading-snug mb-3 ${isProminent ? 'text-white' : 'text-slate-900'}`}>
-                          {lang === 'en' ? module.title : (module.frenchTitle || module.title)}
-                        </h3>
-
-                        <p className={`text-xs leading-relaxed font-medium mb-6 ${isProminent ? 'text-slate-400' : 'text-slate-500'}`}>
-                          {lang === 'en' ? module.description : (module.frenchDescription || module.description)}
-                        </p>
-
-                        <ul className={`space-y-2.5 border-t pt-5 mb-6 ${isProminent ? 'border-slate-800/80' : 'border-slate-100'}`}>
-                          {((lang === 'en' ? module.features : module.featuresFrench) || module.features).map((feat, fIdx) => (
-                            <li key={fIdx} className="flex items-start gap-2.5">
-                              <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 border ${
-                                isProminent ? 'bg-brand-500/20 text-brand-400 border-brand-500/30' : 'bg-brand-50 text-brand-600 border-brand-100'
-                              }`}>
-                                <CheckCircle2 className="w-2.5 h-2.5" />
-                              </div>
-                              <span className={`text-[11px] font-bold leading-tight ${isProminent ? 'text-slate-200' : 'text-slate-600'}`}>{feat}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <button
-                        onClick={() => handleSelect(lang === 'en' ? module.title : (module.frenchTitle || module.title))}
-                        className={`w-full py-3.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 cursor-pointer flex items-center justify-center gap-1.5 group/btn active:scale-95 border ${
-                          isProminent
-                            ? 'bg-brand-600 text-white border-brand-600 hover:bg-brand-700'
-                            : 'bg-slate-50 text-slate-700 border-slate-100/80 hover:bg-brand-600 hover:text-white hover:border-brand-600'
-                        }`}
-                      >
-                        <span>{lang === 'en' ? 'Learn More' : 'En savoir plus'}</span>
-                        <ChevronRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
-                      </button>
-                    </motion.div>
-                  );
-                })}
-              </AnimatePresence>
-            </div>
-          </div>
-
-          <div className="text-center mt-2 text-[10px] text-slate-400 font-bold tracking-widest uppercase flex items-center justify-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-slate-300 animate-pulse"></span>
-            {lang === 'en' ? 'Swipe to browse all programs' : 'Faites glisser pour tout voir'}
-            <span className="w-1.5 h-1.5 rounded-full bg-slate-300 animate-pulse"></span>
-          </div>
-        </div>
-      </section>
+        {/* 3. DETAILED OFFERS GRID */}
+        <TrainingCatalog currentLang={currentLang} onSelect={handleSelect} />
 
       {/* 4. CUSTOMER-CENTRIC SOLUTIONS */}
       <section className="py-24 bg-slate-50/50 relative overflow-hidden">
@@ -465,7 +254,7 @@ export default function ServicesPage({
                 <div className="absolute inset-0 bg-slate-900/5 mix-blend-multiply"></div>
               </div>
 
-              
+
             </div>
 
             <div className="lg:col-span-7">
