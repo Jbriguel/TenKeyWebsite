@@ -34,18 +34,18 @@ export default function App() {
     if (moduleName) {
       setSelectedModuleName(moduleName);
     }
-    // Scroll to contact form on Home, or navigate to Home first
+    // Scroll to contact form on Pricing, or navigate to Pricing first
     const element = document.getElementById('contact-form-section');
-    if (element) {
+    if (element && location.pathname === '/pricing') {
       element.scrollIntoView({ behavior: 'smooth' });
     } else {
-      navigate('/');
+      navigate('/pricing');
       setTimeout(() => {
-        const homeElement = document.getElementById('contact-form-section');
-        if (homeElement) {
-          homeElement.scrollIntoView({ behavior: 'smooth' });
+        const pricingElement = document.getElementById('contact-form-section');
+        if (pricingElement) {
+          pricingElement.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 150);
+      }, 200);
     }
   };
 

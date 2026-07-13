@@ -8,8 +8,7 @@ import Selections from '../components/Selections';
 import TrustedExpertise from '../components/TrustedExpertise';
 import TestimonialsFaq from '../components/TestimonialsFaq';
 import FaqSection from '../components/FaqSection';
-import CtaSection from '../components/CtaSection';
-import RegistrationForm from '../components/RegistrationForm';
+import CtaSection from '../components/CtaSection'; 
 import TrustedExpertise2 from '../components/TrustedExpertise2';
 
 export default function HomePage() {
@@ -17,8 +16,6 @@ export default function HomePage() {
     lang,
     onRegisterRedirect,
     onLearnMore,
-    selectedModuleName,
-    setSelectedModuleName,
   } = useOutletContext<AppContextValue>();
   const stats = [
     { value: '10+', label: lang === 'en' ? 'Years of Experience' : "Années d'Expérience", icon: Clock },
@@ -237,14 +234,7 @@ export default function HomePage() {
         <CtaSection lang={lang} onRegisterClick={() => onRegisterRedirect()} />
       </motion.div>
 
-      {/* Registration Form */}
-      <div id="contact-form-section">
-        <RegistrationForm
-          lang={lang}
-          selectedModuleName={selectedModuleName}
-          setSelectedModuleName={setSelectedModuleName}
-        />
-      </div>
+      {/* CTA */}
     </div>
   );
 }

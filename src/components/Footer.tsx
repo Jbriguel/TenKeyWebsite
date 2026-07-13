@@ -14,13 +14,13 @@ export default function Footer({ lang }: FooterProps) {
   };
 
   const handleContactNav = () => {
-    navigate('/');
+    navigate('/pricing');
     setTimeout(() => {
       const element = document.getElementById('contact-form-section');
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 150);
+    }, 200);
   };
 
   return (
