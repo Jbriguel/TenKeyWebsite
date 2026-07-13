@@ -118,7 +118,7 @@ export default function HomePage() {
                 className="col-span-7 relative group rounded-3xl overflow-hidden shadow-lg aspect-[3/4]"
               >
                 <img
-                  src="/src/assets/images/lome_bilingual_students_1783685197179.jpg"
+                  src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop"
                   alt="Students collaborating at Lomé language academy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
@@ -139,7 +139,7 @@ export default function HomePage() {
                   className="relative group rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-100"
                 >
                   <img
-                    src="/src/assets/images/lome_interpreter_booth_1783685229916.jpg"
+                    src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=800&auto=format&fit=crop"
                     alt="Translation cabin conference"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
@@ -159,7 +159,7 @@ export default function HomePage() {
                   className="relative group rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-50"
                 >
                   <img
-                    src="/src/assets/images/learning_path_bg_1783685214853.jpg"
+                    src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop"
                     alt="Adaptive CEFR learning path background"
                     className="w-full h-full object-cover opacity-95 transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"

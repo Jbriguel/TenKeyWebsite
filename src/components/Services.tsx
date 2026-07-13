@@ -27,10 +27,10 @@ const CATEGORIES = {
 };
 
 const moduleImages: Record<string, string> = {
-  'general-professional': '/src/assets/images/business_english_session_1783710706860.jpg',
+  'general-professional': 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=600&auto=format&fit=crop',
   'academic': 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop',
-  'exams': '/src/assets/images/exam_bootcamp_success_1783710739078.jpg',
-  'vip': '/src/assets/images/vip_private_cabinet_1783710723457.jpg',
+  'exams': 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600&auto=format&fit=crop',
+  'vip': 'https://images.unsplash.com/photo-1560439514-4e9645039924?q=80&w=600&auto=format&fit=crop',
   'vacances': 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=600&auto=format&fit=crop',
   'translation': 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=600&auto=format&fit=crop',
   'english-club': 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop',

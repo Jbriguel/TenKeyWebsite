@@ -32,6 +32,18 @@
     <meta property="twitter:title" content="TEN KEY Centre de Formations | Cours d'Anglais & Traduction — Lomé, Togo" />
     <meta property="twitter:description" content="Cours d'anglais général, professionnel et académique, traduction assermentée, interprétation et préparation TOEFL/IELTS/GED à Lomé." />
     <meta property="twitter:image" content="https://tenkey.tg/logo.jpeg" />
+
+    <!-- Force redirect to Home on every full page refresh -->
+    <script>
+      (function () {
+        try {
+          var hash = window.location.hash;
+          if (hash && hash !== '#/') {
+            window.location.replace(window.location.origin + window.location.pathname + '#/');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

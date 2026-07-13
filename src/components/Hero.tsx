@@ -9,7 +9,7 @@ interface HeroProps {
 }
 
 export default function Hero({ lang, onGetStarted, onLearnMore }: HeroProps) {
-  const bgImageSrc = '/src/assets/images/corporate_hero_bg_1783686207302.jpg';
+  const bgImageSrc = 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2000&auto=format&fit=crop';
   const { scrollY } = useScroll();
   const bgY = useTransform(scrollY, [0, 1000], [0, 180]);
 
