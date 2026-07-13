@@ -233,9 +233,7 @@ export default function ServicesPage() {
       </section> */}
 
         {/* 3. DETAILED OFFERS GRID */}
-        <div id="detailed-offers">
-          <TrainingCatalog currentLang={currentLang} />
-        </div>
+        <TrainingCatalog currentLang={currentLang} />
 
       {/* 4. CUSTOMER-CENTRIC SOLUTIONS */}
       <section className="py-24 bg-slate-50/50 relative overflow-hidden">

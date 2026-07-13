@@ -101,7 +101,7 @@ export default function HomePage() {
               </p>
 
               <button
-                onClick={() => onRegisterRedirect()}
+                onClick={onLearnMore}
                 className="bg-brand-600 hover:bg-brand-700 text-white font-black text-xs px-6 py-3.5 rounded-xl transition-all flex items-center gap-2 group cursor-pointer shadow-md"
               >
                 <span>{lang === 'en' ? 'See our programs' : 'Voir nos programmes'}</span>

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useOutletContext } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Briefcase,
@@ -15,6 +15,9 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { TRAINING_MODULES } from '../data';
+import ProgramDetailModal from './ProgramDetailModal';
+import type { TrainingModule } from '../types';
+import type { AppContextValue } from '../App';
 
 interface TrainingCatalogProps {
   currentLang: string; // Utilisation de l'infrastructure évolutive
@@ -38,7 +41,10 @@ const CATEGORIES = {
 };
 
 export default function TrainingCatalog({ currentLang }: TrainingCatalogProps) {
+  const { onRegisterRedirect } = useOutletContext<AppContextValue>();
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'english' | 'services'>('all');
+  const [selectedModule, setSelectedModule] = useState<TrainingModule | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -75,7 +81,8 @@ export default function TrainingCatalog({ currentLang }: TrainingCatalogProps) {
   });
 
   return (
-    <section id="detailed-offers" className="py-28 bg-white relative overflow-hidden">
+    <>
+      <section id="detailed-offers" className="py-28 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* En-tête de section minimaliste */}
@@ -215,7 +222,13 @@ export default function TrainingCatalog({ currentLang }: TrainingCatalogProps) {
                     </div>
 
                     {/* Bouton corporate d'action */}
-                    <ReviewButton currentLang={currentLang} />
+                    <ReviewButton
+                      currentLang={currentLang}
+                      onClick={() => {
+                        setSelectedModule(module);
+                        setIsModalOpen(true);
+                      }}
+                    />
                   </motion.div>
                 );
               })}
@@ -224,23 +237,22 @@ export default function TrainingCatalog({ currentLang }: TrainingCatalogProps) {
         </div>
       </div>
     </section>
+
+    <ProgramDetailModal
+      module={selectedModule}
+      isOpen={isModalOpen}
+      onClose={() => setIsModalOpen(false)}
+      currentLang={currentLang}
+      onRegister={() => onRegisterRedirect(selectedModule?.title)}
+    />
+  </>
   );
 }
-function ReviewButton({ currentLang }: { currentLang: string }) {
-  const navigate = useNavigate();
-  const location = useLocation();
 
-  const handleClick = () => {
-    if (location.pathname === '/services') {
-      document.getElementById('detailed-offers')?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/services#detailed-offers');
-    }
-  };
-
+function ReviewButton({ currentLang, onClick }: { currentLang: string; onClick: () => void }) {
   return (
     <button
-      onClick={handleClick}
+      onClick={onClick}
       className="w-full py-3 rounded-lg text-xs font-medium tracking-wide transition-all duration-300 cursor-pointer flex items-center justify-center gap-1.5 active:scale-[0.99] border border-slate-900 bg-brand-600 text-white hover:bg-brand-700"
     >
       <span>{currentLang === 'en' ? 'Explore program' : 'Explorer le programme'}</span>

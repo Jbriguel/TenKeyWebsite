@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { useOutletContext } from 'react-router-dom';
+import { useOutletContext, useNavigate } from 'react-router-dom';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import type { AppContextValue } from '../App';
 import PricingTable from '../components/PricingTable';
@@ -8,6 +8,7 @@ import EnrollmentForm from '../components/EnrollmentForm';
 import { BentoLevelTesterCTA } from '../components/CoolCTAs';
 
 export default function PricingPage() {
+  const navigate = useNavigate();
   const {
     lang: currentLang,
     onRegisterRedirect,
@@ -82,10 +83,7 @@ export default function PricingPage() {
 
             <div className="flex flex-wrap justify-center gap-4">
               <button
-                onClick={() => {
-                  const section = document.getElementById('pricing-core');
-                  section?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                onClick={() => navigate('/services')}
                 className="bg-accent-500 hover:bg-accent-400 text-brand-950 text-[11px] font-black uppercase tracking-widest px-6 py-3.5 rounded-xl transition-all cursor-pointer flex items-center gap-2"
               >
                 {lang === 'en' ? 'Explore Programs' : 'Explorer les Programmes'}
