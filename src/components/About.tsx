@@ -31,7 +31,7 @@ export default function About({ lang }: AboutProps) {
       <Selections lang={lang} />
 
       {/* SECTION 2: MORE ABOUT US - Highly polished premium layout matching the screenshot */}
-      <section className="py-24 bg-white text-brand-900 relative">
+      <section id="about-story" className="py-24 bg-white text-brand-900 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             

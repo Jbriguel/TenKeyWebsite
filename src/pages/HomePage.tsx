@@ -203,7 +203,7 @@ export default function HomePage() {
         transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* <TrustedExpertise2 currentLang={lang}  /> */}
-        <TrustedExpertise2 lang={lang} onSelectService={onRegisterRedirect} />
+        <TrustedExpertise2 lang={lang} />
       </motion.div>
 
 
@@ -238,13 +238,13 @@ export default function HomePage() {
       </motion.div>
 
       {/* Registration Form */}
-      {/* <div id="contact-form-section">
+      <div id="contact-form-section">
         <RegistrationForm
           lang={lang}
           selectedModuleName={selectedModuleName}
           setSelectedModuleName={setSelectedModuleName}
         />
-      </div> */}
+      </div>
     </div>
   );
 }

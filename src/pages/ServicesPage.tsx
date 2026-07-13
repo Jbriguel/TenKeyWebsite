@@ -157,7 +157,7 @@ export default function ServicesPage() {
         transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* <TrustedExpertise2 currentLang={lang}  /> */}
-        <TrustedExpertise2 lang={lang} onSelectService={onRegisterRedirect} />
+        <TrustedExpertise2 lang={lang} />
       </motion.div>
 
       {/* 2. FLAGSHIP SECTIONS CAROUSEL */}
@@ -218,7 +218,10 @@ export default function ServicesPage() {
                     {lang === 'en' ? svc.desc.en : svc.desc.fr}
                   </p>
                   <button
-                    onClick={() => handleSelect(lang === 'en' ? svc.title.en : svc.title.fr)}
+                    onClick={() => {
+                      const el = document.getElementById('detailed-offers');
+                      el?.scrollIntoView({ behavior: 'smooth' });
+                    }}
                     className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-brand-400 hover:text-brand-300 transition-colors cursor-pointer"
                   >
                     {lang === 'en' ? 'Learn more' : 'En savoir plus'}
@@ -232,7 +235,9 @@ export default function ServicesPage() {
       </section> */}
 
         {/* 3. DETAILED OFFERS GRID */}
-        <TrainingCatalog currentLang={currentLang} onSelect={handleSelect} />
+        <div id="detailed-offers">
+          <TrainingCatalog currentLang={currentLang} onSelect={handleSelect} />
+        </div>
 
       {/* 4. CUSTOMER-CENTRIC SOLUTIONS */}
       <section className="py-24 bg-slate-50/50 relative overflow-hidden">

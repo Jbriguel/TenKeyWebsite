@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
 
 interface TrustedExpertise2Props {
   lang: string;
-  onSelectService?: (serviceName: string) => void;
 }
 
 const services = [
@@ -62,7 +62,7 @@ const services = [
   },
 ];
 
-export default function TrustedExpertise2({ lang, onSelectService }: TrustedExpertise2Props) {
+export default function TrustedExpertise2({ lang }: TrustedExpertise2Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -91,12 +91,10 @@ export default function TrustedExpertise2({ lang, onSelectService }: TrustedExpe
     return () => currentRef?.removeEventListener('scroll', checkScroll);
   }, []);
 
-  const handleAction = (serviceName: string) => {
-    if (onSelectService) {
-      onSelectService(serviceName);
-    } else {
-      document.getElementById('contact-form-section')?.scrollIntoView({ behavior: 'smooth' });
-    }
+  const navigate = useNavigate();
+
+  const handleExplore = () => {
+    navigate('/services');
   };
 
   return (
@@ -205,9 +203,9 @@ export default function TrustedExpertise2({ lang, onSelectService }: TrustedExpe
                       {lang === 'en' ? 'Explore details' : 'Voir le programme'}
                     </span>
                     <button
-                      onClick={() => handleAction(lang === 'en' ? svc.title.en : svc.title.fr)}
+                      onClick={handleExplore}
                       className="w-10 h-10 rounded-full border border-white/10 bg-white/5 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-accent-500 group-hover:text-brand-950 group-hover:border-transparent cursor-pointer"
-                      aria-label="Action"
+                      aria-label="Explore services"
                     >
                       <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </button>

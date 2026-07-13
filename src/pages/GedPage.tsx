@@ -5,7 +5,7 @@ import RegistrationForm from '../components/RegistrationForm';
 import { GedFlashCTA } from '../components/CoolCTAs';
 
 export default function GedPage() {
-  const { lang, onRegisterRedirect } = useOutletContext<AppContextValue>();
+  const { lang, onRegisterRedirect, selectedModuleName, setSelectedModuleName } = useOutletContext<AppContextValue>();
   return (
     <>
       <GedPrepPage
@@ -17,13 +17,13 @@ export default function GedPage() {
         <GedFlashCTA lang={lang} onAction={(actName) => onRegisterRedirect(actName || 'GED Prep - Examen Officiel')} />
       </div>
 
-      {/* <div id="contact-form-section">
+      <div id="contact-form-section">
         <RegistrationForm
           lang={lang}
           selectedModuleName={selectedModuleName || 'GED Prep - Examen Officiel'}
           setSelectedModuleName={setSelectedModuleName}
         />
-      </div> */}
+      </div>
     </>
   );
 }
