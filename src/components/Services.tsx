@@ -28,7 +28,7 @@ const CATEGORIES = {
 
 const moduleImages: Record<string, string> = {
   'general-professional': 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=600&auto=format&fit=crop',
-  'academic': 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop',
+  'academic': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop',
   'exams': 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600&auto=format&fit=crop',
   'vip': 'https://images.unsplash.com/photo-1560439514-4e9645039924?q=80&w=600&auto=format&fit=crop',
   'vacances': 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=600&auto=format&fit=crop',

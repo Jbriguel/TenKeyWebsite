@@ -140,7 +140,7 @@ export default function About({ lang }: AboutProps) {
                 {/* Primary Large Image */}
                 <div className="w-full h-full rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100/40 relative z-10">
                   <img
-                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop"
+                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop"
                     alt="Consultants working at laptop"
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"

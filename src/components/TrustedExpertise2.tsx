@@ -19,7 +19,7 @@ const services = [
       en: 'Tailored programs for banking, logistics, ministries, and NGO teams. Executive workflows, reports, and global summits.',
       fr: 'Programmes sur mesure pour banques, logistique, ministères et ONG. Rapports, négociations et sommets internationaux.',
     },
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop',
   },
   {
     id: 'translation',
@@ -244,7 +244,7 @@ export default function TrustedExpertise2({ lang, onSelectService }: TrustedExpe
 //       en: 'High-level training for banking, logistics, and diplomatic teams. Focused on international negotiations and corporate governance.',
 //       fr: 'Formations de haut niveau pour les secteurs bancaires, logistiques et représentations diplomatiques. Négociations et gouvernance.',
 //     },
-//     image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop',
+//     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop',
 //   },
 //   {
 //     id: 'translation',
