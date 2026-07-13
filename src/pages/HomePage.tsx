@@ -118,7 +118,7 @@ export default function HomePage() {
                 className="col-span-7 relative group rounded-3xl overflow-hidden shadow-lg aspect-[3/4]"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop"
                   alt="Students collaborating at Lomé language academy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
