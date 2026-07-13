@@ -43,7 +43,7 @@ export default function About({ lang }: AboutProps) {
               </span>
               
               {/* Heading */}
-              <h2 className="text-3xl sm:text-4.5xl font-black text-brand-600 tracking-tight font-display leading-tight mb-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-600 tracking-tight font-display leading-tight mb-6">
                 {lang === 'en' 
                   ? 'We Provide the Best Bilingual & Prep Solutions in Town' 
                   : 'Nous Proposons les Meilleures Solutions Bilingues en Ville'}

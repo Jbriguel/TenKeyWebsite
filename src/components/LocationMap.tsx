@@ -109,7 +109,7 @@ export default function LocationMap({ lang }: LocationMapProps) {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="lg:col-span-8 bg-white border border-slate-200 rounded-2xl p-3 overflow-hidden"
           >
-            <div className="relative w-full h-[420px] rounded-xl overflow-hidden">
+            <div className="relative w-full h-[300px] sm:h-[420px] rounded-xl overflow-hidden">
               <iframe
                 title={isEn ? 'TEN KEY Location Map' : 'Carte d\'accès TEN KEY'}
                 src="https://www.openstreetmap.org/export/embed.html?bbox=1.211%2C6.169%2C1.222%2C6.176&layer=mapnik&marker=6.1723%2C1.2164"

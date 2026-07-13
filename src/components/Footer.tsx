@@ -33,7 +33,7 @@ export default function Footer({ lang }: FooterProps) {
               <img
                 src="/logo.jpeg"
                 alt="TEN KEY Centre de Formations"
-                className="h-10 w-auto object-contain rounded-md bg-slate-100 p-1"
+                className="h-14 w-auto object-contain rounded-md bg-slate-100 p-1"
               />
               <div className="flex flex-col">
                 <span className="font-extrabold tracking-wider text-brand-900 text-sm leading-tight font-display">

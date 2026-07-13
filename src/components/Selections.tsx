@@ -68,7 +68,7 @@ export default function Selections({ lang }: SelectionsProps) {
               </span>
               <span className="w-16 h-0.5 bg-brand-600" />
             </div>
-            <h2 className="text-3xl sm:text-4.5xl font-black text-brand-600 tracking-tight font-display leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-600 tracking-tight font-display leading-tight">
               {lang === 'en' ? sectionData.title.en : sectionData.title.fr}
             </h2>
           </motion.div>

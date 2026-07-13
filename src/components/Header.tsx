@@ -86,7 +86,7 @@ export default function Header({
             <img
               src="/logo.jpeg"
               alt="TEN KEY Centre de Formations"
-              className="h-9 w-auto object-contain rounded-md"
+              className="h-11 sm:h-12 w-auto object-contain rounded-md"
             />
             <div className="hidden sm:flex flex-col items-start leading-none">
               <span className="font-black text-brand-900 text-sm tracking-wide font-display">TEN KEY</span>

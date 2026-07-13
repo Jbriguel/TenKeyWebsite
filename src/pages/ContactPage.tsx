@@ -348,7 +348,7 @@ export default function ContactPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="bg-white border border-slate-200 rounded-2xl p-3 overflow-hidden"
               >
-                <div className="relative w-full h-[260px] rounded-xl overflow-hidden">
+                <div className="relative w-full h-[220px] sm:h-[300px] rounded-xl overflow-hidden">
                   <iframe
                     title={isEn ? 'TEN KEY Location Map' : "Carte d'accès TEN KEY"}
                     src="https://www.openstreetmap.org/export/embed.html?bbox=1.211%2C6.169%2C1.222%2C6.176&layer=mapnik&marker=6.1723%2C1.2164"

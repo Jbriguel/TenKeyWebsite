@@ -83,7 +83,7 @@ export default function TrainingCatalog({ currentLang }: TrainingCatalogProps) {
   return (
     <>
       <section id="detailed-offers" className="py-28 bg-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
         {/* En-tête de section minimaliste */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
@@ -136,7 +136,7 @@ export default function TrainingCatalog({ currentLang }: TrainingCatalogProps) {
         </div>
 
         {/* Système de navigation par onglets minimaliste et discret */}
-        <div className="flex gap-8 mb-12 border-b border-slate-100">
+        <div className="flex flex-wrap gap-4 sm:gap-8 mb-12 border-b border-slate-100">
           {(Object.keys(CATEGORIES) as Array<'all' | 'english' | 'services'>).map((catKey) => {
             const isSelected = selectedCategory === catKey;
             const label = CATEGORIES[catKey][currentLang as 'fr' | 'en'] || CATEGORIES[catKey].fr;
