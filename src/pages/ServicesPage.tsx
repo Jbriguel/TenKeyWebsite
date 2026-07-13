@@ -19,8 +19,6 @@ export default function ServicesPage() {
   const { lang: currentLang, onRegisterRedirect } = useOutletContext<AppContextValue>();
   const lang = currentLang === 'en' ? 'en' : 'fr';
 
-  const handleSelect = (name: string) => onRegisterRedirect(name);
-
   const flagshipServices = [
     {
       id: 'corporate',
@@ -236,7 +234,7 @@ export default function ServicesPage() {
 
         {/* 3. DETAILED OFFERS GRID */}
         <div id="detailed-offers">
-          <TrainingCatalog currentLang={currentLang} onSelect={handleSelect} />
+          <TrainingCatalog currentLang={currentLang} />
         </div>
 
       {/* 4. CUSTOMER-CENTRIC SOLUTIONS */}

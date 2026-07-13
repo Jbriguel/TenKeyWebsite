@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Briefcase,
@@ -17,7 +18,6 @@ import { TRAINING_MODULES } from '../data';
 
 interface TrainingCatalogProps {
   currentLang: string; // Utilisation de l'infrastructure évolutive
-  onSelect: (moduleName: string) => void;
 }
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -37,7 +37,7 @@ const CATEGORIES = {
   services: { en: 'Specialties & Translations', fr: 'Spécificités & Options' },
 };
 
-export default function TrainingCatalog({ currentLang, onSelect }: TrainingCatalogProps) {
+export default function TrainingCatalog({ currentLang }: TrainingCatalogProps) {
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'english' | 'services'>('all');
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -215,12 +215,7 @@ export default function TrainingCatalog({ currentLang, onSelect }: TrainingCatal
                     </div>
 
                     {/* Bouton corporate d'action */}
-                    <button
-                      onClick={() => onSelect(title as string)}
-                      className="w-full py-3 rounded-lg text-xs font-medium tracking-wide transition-all duration-300 cursor-pointer flex items-center justify-center gap-1.5 active:scale-[0.99] border border-slate-900 bg-brand-600 text-white hover:bg-brand-700"
-                    >
-                      <span>{currentLang === 'en' ? 'Review Program Details' : 'Consulter le programme'}</span>
-                    </button>
+                    <ReviewButton currentLang={currentLang} />
                   </motion.div>
                 );
               })}
@@ -229,5 +224,26 @@ export default function TrainingCatalog({ currentLang, onSelect }: TrainingCatal
         </div>
       </div>
     </section>
+  );
+}
+function ReviewButton({ currentLang }: { currentLang: string }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleClick = () => {
+    if (location.pathname === '/services') {
+      document.getElementById('detailed-offers')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/services#detailed-offers');
+    }
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      className="w-full py-3 rounded-lg text-xs font-medium tracking-wide transition-all duration-300 cursor-pointer flex items-center justify-center gap-1.5 active:scale-[0.99] border border-slate-900 bg-brand-600 text-white hover:bg-brand-700"
+    >
+      <span>{currentLang === 'en' ? 'Explore program' : 'Explorer le programme'}</span>
+    </button>
   );
 }
