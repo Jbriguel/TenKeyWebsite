@@ -166,7 +166,7 @@ export default function TrainingCatalog({ currentLang }: TrainingCatalogProps) {
           <div
             ref={scrollRef}
             onScroll={checkScroll}
-            className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden select-none"
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden select-none touch-pan-x"
           >
             <AnimatePresence mode="popLayout">
               {filteredModules.map((module, idx) => {

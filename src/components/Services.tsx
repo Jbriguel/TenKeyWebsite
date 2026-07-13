@@ -180,7 +180,7 @@ export default function Services({ lang, onSelectService }: ServicesProps) {
             <div
               ref={scrollRef}
               onScroll={checkScroll}
-              className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-2 pb-10 pt-2 -mx-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] select-none"
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-2 pb-10 pt-2 -mx-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] select-none touch-pan-x"
             >
               {filteredModules.map((module, idx) => {
                 const IconComponent = iconMap[module.iconName] || Briefcase;

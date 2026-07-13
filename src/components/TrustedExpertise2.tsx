@@ -176,7 +176,7 @@ export default function TrustedExpertise2({ lang }: TrustedExpertise2Props) {
         <div className="relative">
           <div
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden touch-pan-x"
           >
             {services.map((svc, idx) => (
               <motion.div
@@ -423,7 +423,7 @@ export default function TrustedExpertise2({ lang }: TrustedExpertise2Props) {
 //           <div
 //             ref={scrollRef}
 //             onScroll={checkScroll}
-//             className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+//             className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden touch-pan-x"
 //           >
 //             {services.map((svc, idx) => {
 //               const badgeText = svc.badge[currentLang as 'fr' | 'en'] || svc.badge.fr;
