@@ -1,7 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
+import ProgramDetailModal from './ProgramDetailModal';
+import { TRAINING_MODULES } from '../data';
+import type { TrainingModule } from '../types';
+import { useOutletContext } from 'react-router-dom';
+import type { AppContextValue } from '../App';
 
 interface TrustedExpertise2Props {
   lang: string;
@@ -62,10 +66,20 @@ const services = [
   },
 ];
 
+const SERVICE_TO_MODULE: Record<string, string> = {
+  corporate: 'general-professional',
+  translation: 'translation',
+  exams: 'exams',
+  leadership: 'vip',
+};
+
 export default function TrustedExpertise2({ lang }: TrustedExpertise2Props) {
+  const { onRegisterRedirect } = useOutletContext<AppContextValue>();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [selectedModule, setSelectedModule] = useState<TrainingModule | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const checkScroll = () => {
     if (scrollRef.current) {
@@ -91,14 +105,16 @@ export default function TrustedExpertise2({ lang }: TrustedExpertise2Props) {
     return () => currentRef?.removeEventListener('scroll', checkScroll);
   }, []);
 
-  const navigate = useNavigate();
-
-  const handleExplore = () => {
-    navigate('/services');
+  const handleExplore = (serviceId: string) => {
+    const moduleId = SERVICE_TO_MODULE[serviceId];
+    const module = moduleId ? TRAINING_MODULES.find((m) => m.id === moduleId) || null : null;
+    setSelectedModule(module);
+    setIsModalOpen(true);
   };
 
   return (
-    <section className="py-24 bg-brand-600 text-white relative overflow-hidden">
+    <>
+      <section className="py-24 bg-brand-600 text-white relative overflow-hidden">
       {/* Subtle Background Geometric Light */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -178,7 +194,7 @@ export default function TrustedExpertise2({ lang }: TrustedExpertise2Props) {
                     alt=""
                     className="w-full h-full object-cover opacity-15 grayscale transition-all duration-700 group-hover:scale-105 group-hover:opacity-25 group-hover:grayscale-0"
                     referrerPolicy="no-referrer"
-                  />
+                  /> 
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
                 </div>
 
@@ -203,9 +219,9 @@ export default function TrustedExpertise2({ lang }: TrustedExpertise2Props) {
                       {lang === 'en' ? 'Explore details' : 'Voir le programme'}
                     </span>
                     <button
-                      onClick={handleExplore}
+                      onClick={() => handleExplore(svc.id)}
                       className="w-10 h-10 rounded-full border border-white/10 bg-white/5 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-accent-500 group-hover:text-brand-950 group-hover:border-transparent cursor-pointer"
-                      aria-label="Explore services"
+                      aria-label="Explore program details"
                     >
                       <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </button>
@@ -218,6 +234,15 @@ export default function TrustedExpertise2({ lang }: TrustedExpertise2Props) {
 
       </div>
     </section>
+
+    <ProgramDetailModal
+      module={selectedModule}
+      isOpen={isModalOpen}
+      onClose={() => setIsModalOpen(false)}
+      currentLang={lang}
+      onRegister={() => onRegisterRedirect(selectedModule?.title)}
+    />
+  </>
   );
 }
 
