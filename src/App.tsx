@@ -26,13 +26,6 @@ export default function App() {
   const [lang, setLang] = useState<'en' | 'fr'>('fr');
   const [selectedModuleName, setSelectedModuleName] = useState<string>('');
 
-  // Redirect any refresh / direct URL access back to Home
-  useEffect(() => {
-    if (location.pathname !== '/') {
-      navigate('/', { replace: true });
-    }
-  }, []);
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [location.pathname]);
