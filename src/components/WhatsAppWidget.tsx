@@ -11,7 +11,7 @@ export default function WhatsAppWidget({ lang }: WhatsAppWidgetProps) {
   const [userMsg, setUserMsg] = useState('');
 
   const agentName = 'Amandine';
-  const phoneNumber = '22890901010'; // Lomé number format
+  const phoneNumber = '22891883867';
 
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();

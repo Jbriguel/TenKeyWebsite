@@ -157,7 +157,7 @@ export default function ServicesPage() {
         transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* <TrustedExpertise2 currentLang={lang}  /> */}
-        <TrustedExpertise2 lang={lang} />
+        <TrustedExpertise2 lang={lang} onSelectService={onRegisterRedirect} />
       </motion.div>
 
       {/* 2. FLAGSHIP SECTIONS CAROUSEL */}

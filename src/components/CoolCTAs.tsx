@@ -87,7 +87,7 @@ export function NeonGlowCTA({ lang, onAction }: CTAProps) {
               <ArrowRight className="w-4 h-4" />
             </button>
             <a
-              href="https://wa.me/22890000000" // Replace placeholder WhatsApp number naturally in the environment
+              href="https://wa.me/22891883867"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white/5 hover:bg-white/10 text-white border border-white/10 font-black text-xs uppercase tracking-widest px-6 py-5 rounded-2xl transition-all active:scale-95 cursor-pointer flex items-center gap-2.5"

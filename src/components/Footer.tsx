@@ -121,8 +121,8 @@ export default function Footer({ lang }: FooterProps) {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-brand-600 shrink-0" />
-                <a href="mailto:contact@tenkeycenter.com" className="hover:text-brand-600 transition-colors">
-                  contact@tenkeycenter.com
+                <a href="mailto:contact@tenkey.tg" className="hover:text-brand-600 transition-colors">
+                  contact@tenkey.tg
                 </a>
               </li>
               <li className="flex items-center gap-3">
